@@ -1,33 +1,115 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Achievements", href: "/achievements" },
-  { name: "Services", href: "/services" },
-  { name: "Contact", href: "/contact" },
+  { name: "HOME", href: "/" },
+  { name: "ABOUT", href: "/about" },
+  { name: "ACHIEVEMENTS", href: "/achievements" },
+  { name: "SERVICES", href: "/services" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-slate-800">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="text-xl font-extrabold tracking-tight text-blue-600 dark:text-blue-400">
-          PK<span className="text-slate-900 dark:text-white">Web</span>
+    <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 px-4 sm:px-8 flex flex-col items-center pointer-events-none">
+      {/* Pill-shaped navigation bar */}
+      <div className="w-full max-w-6xl bg-[#262628]/95 backdrop-blur-md border border-white/10 rounded-full px-5 py-2.5 sm:px-8 sm:py-3 shadow-2xl flex items-center justify-between pointer-events-auto transition-all duration-300">
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center shrink-0 transition-opacity hover:opacity-90">
+          <Image
+            src="/images/header/Pradeep-Liyanage-Logo-2.png"
+            alt="Pradeep Liyanage Logo"
+            width={38}
+            height={46}
+            className="h-8 sm:h-9 w-auto object-contain"
+            priority
+          />
         </Link>
-        <nav className="flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition"
-            >
-              {link.name}
-            </Link>
-          ))}
+
+        {/* Center Navigation Links (Desktop) */}
+        <nav className="hidden md:flex items-center gap-7 lg:gap-10">
+          {navLinks.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/" || pathname === "/home"
+                : pathname === link.href || (link.href === "/achievements" && pathname === "/gallery");
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`text-xs sm:text-[13px] tracking-wider uppercase transition-colors duration-200 ${
+                  isActive
+                    ? "text-white font-bold"
+                    : "text-neutral-300 font-medium hover:text-white"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
+
+        {/* Right CTA Button & Mobile Toggle */}
+        <div className="flex items-center gap-3">
+          <Link
+            href="/contact"
+            className="rounded-full border border-neutral-300/80 hover:border-white px-4 py-1.5 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-white tracking-wider uppercase flex items-center gap-2 hover:bg-white/10 transition-all duration-200 group"
+          >
+            <span>LET&apos;S TALK</span>
+            <span className="text-xs transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+          </Link>
+
+          {/* Mobile Menu Hamburger Button */}
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-1.5 text-neutral-300 hover:text-white focus:outline-none transition-colors"
+            aria-label="Toggle Navigation Menu"
+          >
+            {isMobileMenuOpen ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="mt-2 w-full max-w-6xl bg-[#262628]/95 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-2xl flex flex-col gap-3 md:hidden pointer-events-auto">
+          {navLinks.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/" || pathname === "/home"
+                : pathname === link.href || (link.href === "/achievements" && pathname === "/gallery");
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`text-sm tracking-wider uppercase py-1.5 transition-colors ${
+                  isActive ? "text-white font-bold" : "text-neutral-300 hover:text-white"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </header>
   );
 }
