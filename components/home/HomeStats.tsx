@@ -1,4 +1,5 @@
 import React from "react";
+import "@/css/home/HomeStats.css";
 
 const stats = [
   { label: "Successful Projects Delivered", value: "50+" },
@@ -9,13 +10,13 @@ const stats = [
 
 export default function HomeStats() {
   return (
-    <section className="py-16 border-y border-slate-100 dark:border-slate-800">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <dl className="grid grid-cols-2 gap-x-8 gap-y-12 text-center lg:grid-cols-4">
+    <section className="home-stats-section">
+      <div className="home-stats-container">
+        <dl className="home-stats-grid">
           {stats.map((stat) => (
-            <div key={stat.label} className="mx-auto flex max-w-xs flex-col gap-y-2">
-              <dt className="text-sm leading-6 text-slate-600 dark:text-slate-400">{stat.label}</dt>
-              <dd className="order-first text-3xl font-extrabold tracking-tight text-blue-600 sm:text-5xl dark:text-blue-400">
+            <div key={stat.label} className="home-stats-card">
+              <dt className="home-stats-text">{stat.label}</dt>
+              <dd className="home-stats-number">
                 {stat.value}
               </dd>
             </div>
