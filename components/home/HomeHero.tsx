@@ -15,10 +15,15 @@ const stats = [
 export default function HomeHero() {
   const handleScrollDown = () => {
     if (typeof window !== "undefined") {
-      window.scrollBy({
-        top: window.innerHeight * 0.9,
-        behavior: "smooth",
-      });
+      const target = document.getElementById("about-intro");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollBy({
+          top: window.innerHeight * 0.9,
+          behavior: "smooth",
+        });
+      }
     }
   };
 
