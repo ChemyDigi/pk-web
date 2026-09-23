@@ -8,21 +8,21 @@
   background-color: #ffffff;
   color: #171717;
   padding-top: 5rem;
-  padding-bottom: 6rem;
+  padding-bottom: 2.5rem;
   overflow: hidden;
 }
 
 @media (min-width: 640px) {
   .about-story-section {
     padding-top: 6.5rem;
-    padding-bottom: 7.5rem;
+    padding-bottom: 2.75rem;
   }
 }
 
 @media (min-width: 1024px) {
   .about-story-section {
     padding-top: 8rem;
-    padding-bottom: 9rem;
+    padding-bottom: 3rem;
   }
 }
 
