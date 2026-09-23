@@ -76,21 +76,17 @@ const milestones: Milestone[] = [
 ];
 
 export default function AboutTimeline() {
-  // Default to index 1 ("2012") to match reference design
-  const [activeIndex, setActiveIndex] = useState(1);
-
-  const prevIndex = activeIndex > 0 ? activeIndex - 1 : null;
-  const nextIndex = activeIndex < milestones.length - 1 ? activeIndex + 1 : null;
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev < milestones.length - 1 ? prev + 1 : 0));
-  };
+  // Default to index 0 ("2011") for chronological start
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev > 0 ? prev - 1 : milestones.length - 1));
+    setActiveIndex((prev) => (prev > 0 ? prev - 1 : 0));
   };
 
-  const currentMilestone = milestones[activeIndex];
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev < milestones.length - 1 ? prev + 1 : prev));
+  };
+
   const progressRatio = activeIndex / (milestones.length - 1);
 
   return (
@@ -118,64 +114,112 @@ export default function AboutTimeline() {
           
           {/* Left Column: Vertical Year Roller */}
           <div className="about-timeline-years-col">
-            <div className="about-timeline-years-wrapper">
-              
-              {/* Previous Year (Faded / Clickable) */}
+            <div className="about-timeline-roller-viewport">
               <div
-                className={`about-timeline-year-item about-timeline-year-prev ${
-                  prevIndex !== null ? "about-timeline-year-interactive" : "about-timeline-year-hidden"
-                }`}
-                onClick={() => prevIndex !== null && setActiveIndex(prevIndex)}
-                role={prevIndex !== null ? "button" : undefined}
-                aria-label={prevIndex !== null ? `Go to year ${milestones[prevIndex].year}` : undefined}
+                className="about-timeline-roller-track"
+                style={{
+                  transform: `translate3d(0, calc((1 - ${activeIndex}) * var(--timeline-slot-h)), 0)`,
+                }}
               >
-                <span>{prevIndex !== null ? milestones[prevIndex].year : ""}</span>
-              </div>
+                {milestones.map((m, idx) => {
+                  const diff = idx - activeIndex;
+                  let stateClass = "about-timeline-year-future";
+                  if (diff === 0) stateClass = "about-timeline-year-active";
+                  else if (diff === -1) stateClass = "about-timeline-year-prev";
+                  else if (diff === 1) stateClass = "about-timeline-year-next";
+                  else if (diff < -1) stateClass = "about-timeline-year-past";
 
-              {/* Active Year (Massive Bold Display) */}
-              <div className="about-timeline-year-item about-timeline-year-active" key={currentMilestone.year}>
-                <span>{currentMilestone.year}</span>
-              </div>
+                  const isClickable = diff === -1 || diff === 1;
 
-              {/* Next Year (Faded / Clickable) */}
-              <div
-                className={`about-timeline-year-item about-timeline-year-next ${
-                  nextIndex !== null ? "about-timeline-year-interactive" : "about-timeline-year-hidden"
-                }`}
-                onClick={() => nextIndex !== null && setActiveIndex(nextIndex)}
-                role={nextIndex !== null ? "button" : undefined}
-                aria-label={nextIndex !== null ? `Go to year ${milestones[nextIndex].year}` : undefined}
-              >
-                <span>{nextIndex !== null ? milestones[nextIndex].year : ""}</span>
+                  return (
+                    <div
+                      key={m.year}
+                      className={`about-timeline-year-item ${stateClass} ${
+                        isClickable ? "about-timeline-year-interactive" : ""
+                      }`}
+                      onClick={() => setActiveIndex(idx)}
+                      role={isClickable ? "button" : undefined}
+                      tabIndex={isClickable ? 0 : -1}
+                      aria-label={`Milestone year ${m.year}`}
+                      onKeyDown={(e) => {
+                        if (isClickable && (e.key === "Enter" || e.key === " ")) {
+                          e.preventDefault();
+                          setActiveIndex(idx);
+                        }
+                      }}
+                    >
+                      <span className="about-timeline-year-text">{m.year}</span>
+                    </div>
+                  );
+                })}
               </div>
-
             </div>
           </div>
 
           {/* Middle Column: Vertical Progress Indicator Line */}
           <div className="about-timeline-indicator-col">
-            <div className="about-timeline-line-track">
+            <div
+              className="about-timeline-line-track"
+              style={{ "--progress": progressRatio } as React.CSSProperties}
+            >
               {/* Animated Progress Pill */}
-              <div
-                className="about-timeline-line-pill"
-                style={{
-                  top: `calc(${progressRatio * 100}% - ${progressRatio * 56}px)`,
-                }}
-              />
+              <div className="about-timeline-line-pill" />
             </div>
           </div>
 
           {/* Right Column: Milestone Story & Next Button */}
           <div className="about-timeline-content-col">
-            <div className="about-timeline-content-wrapper" key={currentMilestone.year}>
-              <h3 className="about-timeline-title">{currentMilestone.title}</h3>
-              <p className="about-timeline-desc">{currentMilestone.description}</p>
+            <div className="about-timeline-stories-stack">
+              {milestones.map((m, idx) => {
+                const isCurrent = idx === activeIndex;
+                const isPast = idx < activeIndex;
+                return (
+                  <div
+                    key={m.year}
+                    className={`about-timeline-story-card ${
+                      isCurrent
+                        ? "is-active"
+                        : isPast
+                        ? "is-past"
+                        : "is-future"
+                    }`}
+                    aria-hidden={!isCurrent}
+                  >
+                    <h3 className="about-timeline-title">{m.title}</h3>
+                    <p className="about-timeline-desc">{m.description}</p>
+                  </div>
+                );
+              })}
+            </div>
 
-              {/* Down Arrow Stepper Button */}
+            {/* Stepper Navigation Buttons (Up & Down) */}
+            <div className="about-timeline-nav-buttons">
+              <button
+                type="button"
+                onClick={handlePrev}
+                disabled={activeIndex === 0}
+                className="about-timeline-nav-btn about-timeline-prev-btn"
+                aria-label="Previous career milestone"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 19V5M5 12l7-7 7 7" />
+                </svg>
+              </button>
+
               <button
                 type="button"
                 onClick={handleNext}
-                className="about-timeline-next-btn"
+                disabled={activeIndex === milestones.length - 1}
+                className="about-timeline-nav-btn about-timeline-next-btn"
                 aria-label="Next career milestone"
               >
                 <svg

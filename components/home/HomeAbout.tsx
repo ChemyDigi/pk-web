@@ -19,8 +19,8 @@ export default function HomeAbout() {
           <div className="home-about-left">
             {/* Tag / Pretitle */}
             <div className="home-about-badge">
-              <span className="home-about-badge-line" />
-              <span>Trusted Excellence</span>
+              <span className="home-about-badge-line" aria-hidden="true" />
+              <span className="home-about-badge-text">Trusted Excellence</span>
             </div>
 
             {/* Subheading */}

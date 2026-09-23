@@ -7,21 +7,21 @@
   width: 100%;
   background-color: #ffffff;
   color: #171717;
-  padding-top: 5rem;
+  padding-top: 1.5rem;
   padding-bottom: 6.5rem;
   overflow: hidden;
 }
 
 @media (min-width: 640px) {
   .about-services-section {
-    padding-top: 6.5rem;
+    padding-top: 2rem;
     padding-bottom: 8rem;
   }
 }
 
 @media (min-width: 1024px) {
   .about-services-section {
-    padding-top: 8rem;
+    padding-top: 2.5rem;
     padding-bottom: 10rem;
   }
 }

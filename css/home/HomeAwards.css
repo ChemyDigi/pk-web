@@ -179,62 +179,51 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 0.45rem;
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
 }
 
 @media (min-height: 800px) {
   .home-awards-badge {
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.625rem;
   }
 }
 
 .home-awards-badge-line {
   display: inline-block;
-  width: 1.5rem; /* ~24px */
+  width: 1.75rem; /* 28px */
   height: 1.5px;
   background-color: #a1a1aa;
 }
 
 .home-awards-badge-text {
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.78125rem; /* 12.5px */
   font-weight: 500;
   letter-spacing: 0.04em;
   color: #d4d4d8;
 }
 
-@media (min-width: 640px) {
-  .home-awards-badge-text {
-    font-size: 0.8125rem; /* 13px */
-  }
-}
-
 /* Title Headline */
 .home-awards-title {
-  font-size: 1.5rem; /* 24px */
-  line-height: 1.2;
-  font-weight: 300;
+  font-size: 1.625rem; /* 26px */
+  line-height: 1.22;
+  font-weight: 400;
   color: #ffffff;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   margin: 0;
   font-family: var(--font-avenir);
 }
 
 @media (min-width: 640px) {
   .home-awards-title {
-    font-size: 1.875rem; /* 30px */
+    font-size: 2rem; /* 32px */
+    line-height: 1.2;
   }
 }
 
 @media (min-width: 1024px) {
   .home-awards-title {
-    font-size: 2.15rem; /* ~34px */
-  }
-}
-
-@media (min-width: 1280px) and (min-height: 850px) {
-  .home-awards-title {
-    font-size: 2.45rem; /* ~39px */
+    font-size: 2.25rem; /* 36px */
   }
 }
 
@@ -250,10 +239,10 @@
 
 .home-awards-title-italic {
   font-family: var(--font-avenir);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   color: #ffffff;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.015em;
 }
 
 /* Description */

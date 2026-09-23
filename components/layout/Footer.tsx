@@ -19,15 +19,15 @@ export default function Footer() {
         {/* CTA Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-6 pt-28 pb-20 sm:pt-36 sm:pb-24 text-center">
           {/* Subtitle with dash */}
-          <div className="inline-flex items-center justify-center gap-2 text-xs md:text-sm tracking-widest text-neutral-300 font-light">
-            <span className="w-6 h-[1px] bg-neutral-400" />
-            <span>Begin the Conversation</span>
+          <div className="inline-flex items-center justify-center gap-2.5 mb-2.5">
+            <span className="inline-block w-7 h-[1.5px] bg-neutral-300" aria-hidden="true" />
+            <span className="text-[12.5px] font-medium tracking-[0.04em] text-neutral-300">Begin the Conversation</span>
           </div>
 
           {/* Headline */}
-          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-white leading-tight sm:leading-tight">
+          <h2 className="text-[1.625rem] sm:text-[2rem] lg:text-[2.25rem] font-normal tracking-[-0.015em] text-white leading-[1.22] sm:leading-[1.2] m-0">
             Your future deserves
-            <span className="block font-light">complete protection</span>
+            <span className="block font-normal">complete protection</span>
           </h2>
 
           {/* Action Buttons */}
