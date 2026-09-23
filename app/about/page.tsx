@@ -4,6 +4,7 @@ import {
   AboutStory,
   AboutTimeline,
   AboutServices,
+  AboutAwards,
 } from "@/components/about";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function AboutPage() {
       <AboutStory />
       <AboutTimeline />
       <AboutServices />
+      <AboutAwards />
     </>
   );
 }
