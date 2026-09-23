@@ -29,11 +29,16 @@ export default function HomeAbout() {
               Meets Peace of Mind
             </h2>
 
-            {/* Image Placeholder Box (Ready for uploaded image) */}
-            <div className="home-about-img-box" aria-label="Image placeholder">
-              <div className="home-about-placeholder-inner">
-                {/* Clean placeholder state */}
-              </div>
+            {/* Brand Logo */}
+            <div className="home-about-logo-wrapper">
+              <Image
+                src="/images/header/Pradeep-Liyanage-Logo-2.png"
+                alt="Pradeep Liyanage Logo"
+                width={300}
+                height={365}
+                className="home-about-logo-img"
+                priority
+              />
             </div>
           </div>
 

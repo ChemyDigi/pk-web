@@ -113,37 +113,58 @@
   }
 }
 
-/* Image Placeholder Box */
-.home-about-img-box {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 1rem;
-  background-color: #e2e2e2;
-  overflow: hidden;
-  display: flex;
+/* Brand Logo in Home About */
+.home-about-logo-wrapper {
+  margin-top: 1.5rem;
+  margin-left: 2.5rem;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
 }
 
 @media (min-width: 640px) {
-  .home-about-img-box {
-    aspect-ratio: 16 / 11;
-    border-radius: 1.25rem;
+  .home-about-logo-wrapper {
+    margin-top: 2rem;
+    margin-left: 5rem;
   }
 }
 
-.home-about-img-box:hover {
-  background-color: #dadada;
+@media (min-width: 1024px) {
+  .home-about-logo-wrapper {
+    margin-top: 2.25rem;
+    margin-left: 8rem; /* Shifted ~128px right */
+  }
 }
 
-.home-about-placeholder-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: #8e8e93;
+@media (min-width: 1280px) {
+  .home-about-logo-wrapper {
+    margin-top: 2.25rem;
+    margin-left: 10rem; /* Shifted ~160px right on wide screens */
+  }
+}
+
+.home-about-logo-img {
+  width: 7rem; /* ~112px on mobile */
+  height: auto;
+  object-fit: contain;
+  filter: invert(1); /* Inverts white logo to deep black on light background */
+}
+
+@media (min-width: 640px) {
+  .home-about-logo-img {
+    width: 9.5rem; /* ~152px on tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-about-logo-img {
+    width: 12.5rem; /* ~200px on desktop */
+  }
+}
+
+@media (min-width: 1280px) {
+  .home-about-logo-img {
+    width: 14rem; /* ~224px on wide desktop */
+  }
 }
 
 /* Right Column */
@@ -247,23 +268,30 @@
   border-radius: 9999px;
   background-color: #000000;
   color: #ffffff;
-  padding: 0.75rem 2rem;
-  font-size: 0.75rem; /* 12px */
+  padding: 0.75rem 1.75rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 640px) {
+  .home-about-btn {
+    padding: 0.875rem 2rem;
+    font-size: 0.8125rem;
+  }
 }
 
 .home-about-btn:hover {
   background-color: #262628;
-  transform: translateY(-1px);
+  transform: scale(1.03);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
 }
 
 .home-about-btn:active {
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 
 /* ==========================================================================

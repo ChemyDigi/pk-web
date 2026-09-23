@@ -73,8 +73,8 @@ export default function HomeServices() {
             <Image
               src="/images/home/Pradeep.png"
               alt="Pradeep Liyanage"
-              width={48}
-              height={48}
+              width={80}
+              height={80}
               className="home-quote-avatar-img"
             />
           </div>

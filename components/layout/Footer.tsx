@@ -34,13 +34,13 @@ export default function Footer() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="rounded-full bg-white px-7 py-3 text-xs md:text-sm font-semibold tracking-wider text-black transition duration-200 hover:bg-neutral-200 hover:scale-105 active:scale-95 shadow-md"
+              className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-[13px] font-bold tracking-[0.05em] uppercase text-[#0a0a0c] shadow-[0_20px_25px_-5px_rgba(0,0,0,0.5),0_8px_10px_-6px_rgba(0,0,0,0.5)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[#e4e4e7] hover:scale-[1.03] active:scale-[0.98]"
             >
               LET&apos;S CONNECT
             </Link>
             <Link
               href="/about"
-              className="rounded-full bg-white px-7 py-3 text-xs md:text-sm font-semibold tracking-wider text-black transition duration-200 hover:bg-neutral-200 hover:scale-105 active:scale-95 shadow-md"
+              className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-[13px] font-bold tracking-[0.05em] uppercase text-[#0a0a0c] shadow-[0_20px_25px_-5px_rgba(0,0,0,0.5),0_8px_10px_-6px_rgba(0,0,0,0.5)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[#e4e4e7] hover:scale-[1.03] active:scale-[0.98]"
             >
               DISCOVER MY STORY
             </Link>
