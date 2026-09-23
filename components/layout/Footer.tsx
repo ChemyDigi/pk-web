@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
 
           {/* Headline */}
-          <h2 className="mt-4 text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight sm:leading-tight">
+          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-white leading-tight sm:leading-tight">
             Your future deserves
             <span className="block font-light">complete protection</span>
           </h2>

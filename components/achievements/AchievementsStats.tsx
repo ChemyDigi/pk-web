@@ -25,7 +25,7 @@ export default function AchievementsStats() {
               key={item.label}
               className="rounded-2xl border border-slate-100 dark:border-slate-800 p-6 bg-white dark:bg-slate-950 shadow-sm"
             >
-              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400">
+              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 font-numbers">
                 {item.metric}
               </div>
               <div className="mt-2 text-sm text-slate-600 dark:text-slate-400 font-medium">

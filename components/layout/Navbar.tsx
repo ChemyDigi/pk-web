@@ -19,9 +19,9 @@ export default function Navbar() {
   return (
     <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 px-4 sm:px-8 flex flex-col items-center pointer-events-none">
       {/* Pill-shaped navigation bar */}
-      <div className="w-full max-w-6xl bg-[#262628]/95 backdrop-blur-md border border-white/10 rounded-full px-5 py-2.5 sm:px-8 sm:py-3 shadow-2xl flex items-center justify-between pointer-events-auto transition-all duration-300">
+      <div className="relative w-full max-w-6xl apple-liquid-glass rounded-full px-5 py-2.5 sm:px-8 sm:py-3 flex items-center justify-between pointer-events-auto transition-all duration-300">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center shrink-0 transition-opacity hover:opacity-90">
+        <Link href="/" className="flex items-center shrink-0 transition-opacity hover:opacity-90 z-10">
           <Image
             src="/images/header/Pradeep-Liyanage-Logo-2.png"
             alt="Pradeep Liyanage Logo"
@@ -33,7 +33,7 @@ export default function Navbar() {
         </Link>
 
         {/* Center Navigation Links (Desktop) */}
-        <nav className="hidden md:flex items-center gap-7 lg:gap-10">
+        <nav className="hidden md:flex items-center gap-7 lg:gap-10 absolute left-1/2 -translate-x-1/2 z-10">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/"
@@ -46,8 +46,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-xs sm:text-[13px] tracking-wider uppercase transition-colors duration-200 ${
                   isActive
-                    ? "text-white font-bold"
-                    : "text-neutral-300 font-medium hover:text-white"
+                    ? "text-white font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"
+                    : "text-neutral-300/90 hover:text-white"
                 }`}
               >
                 {link.name}
@@ -57,10 +57,10 @@ export default function Navbar() {
         </nav>
 
         {/* Right CTA Button & Mobile Toggle */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 z-10">
           <Link
             href="/contact"
-            className="rounded-full border border-neutral-300/80 hover:border-white px-4 py-1.5 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-white tracking-wider uppercase flex items-center gap-2 hover:bg-white/10 transition-all duration-200 group"
+            className="rounded-full apple-liquid-glass-btn px-4 py-1.5 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-white tracking-wider uppercase flex items-center gap-2 group"
           >
             <span>LET&apos;S TALK</span>
             <span className="text-xs transition-transform duration-200 group-hover:translate-x-0.5">→</span>
@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="mt-2 w-full max-w-6xl bg-[#262628]/95 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-2xl flex flex-col gap-3 md:hidden pointer-events-auto">
+        <div className="mt-2 w-full max-w-6xl apple-liquid-glass rounded-2xl p-5 shadow-2xl flex flex-col gap-3 md:hidden pointer-events-auto">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/"

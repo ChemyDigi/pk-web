@@ -232,7 +232,7 @@
 .hero-title-italic {
   display: block;
   margin-top: 0.25rem;
-  font-family: Georgia, serif;
+  font-family: var(--font-avenir);
   font-style: italic;
   font-weight: 400;
   color: #ffffff;
@@ -240,17 +240,18 @@
 
 .hero-description {
   margin-top: 1.25rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.625;
   color: rgba(212, 212, 216, 0.85);
   font-weight: 300;
-  max-width: 28rem;
+  max-width: 29rem;
 }
 
 @media (min-width: 640px) {
   .hero-description {
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.9375rem;
     margin-top: 1.5rem;
+    max-width: 32rem;
   }
 }
 
@@ -350,7 +351,7 @@
 }
 
 .hero-stat-value {
-  font-family: Georgia, serif;
+  font-family: var(--font-numbers);
   font-style: italic;
   font-size: 1.875rem; /* 30px */
   line-height: 1;
@@ -452,7 +453,7 @@
 }
 
 .hero-mobile-stat-value {
-  font-family: Georgia, serif;
+  font-family: var(--font-numbers);
   font-style: italic;
   font-size: 1.5rem;
   font-weight: 300;

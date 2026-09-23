@@ -6,7 +6,7 @@
 .home-awards-section {
   position: relative;
   width: 100%;
-  background-color: #000000;
+  background-color: #040404;
   color: #ffffff;
   overflow: hidden;
   display: flex;
@@ -21,15 +21,14 @@
 @media (min-width: 1024px) {
   .home-awards-section {
     min-height: 100vh;
-    max-height: 100vh;
-    padding-top: 0.75rem;
-    padding-bottom: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
   }
 }
 
 .home-awards-container {
   width: 100%;
-  max-width: 80rem; /* ~1280px */
+  max-width: 90rem; /* ~1440px */
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.25rem;
@@ -54,56 +53,59 @@
 .home-awards-hero-wrapper {
   position: relative;
   width: 100%;
-  max-width: 64rem; /* ~1024px */
+  max-width: 80rem; /* ~1280px */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@media (min-width: 1280px) and (min-height: 850px) {
+@media (min-width: 1280px) {
   .home-awards-hero-wrapper {
-    max-width: 72rem; /* ~1152px */
+    max-width: 88rem; /* ~1408px */
   }
 }
 
 .home-awards-image-card {
   position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
   user-select: none;
 }
 
 .home-awards-img {
   width: 100%;
   height: auto;
-  /* Enlarged so the trophies feel prominent and grand */
-  max-height: clamp(260px, 47vh, 490px);
+  /* Significantly enlarged trophies showcase */
+  max-height: clamp(340px, 58vh, 640px);
   max-width: 100%;
   object-fit: contain;
   display: block;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
-@media (min-width: 1280px) and (min-height: 850px) {
+@media (min-width: 1280px) {
   .home-awards-img {
-    max-height: clamp(320px, 51vh, 550px);
+    max-height: clamp(400px, 64vh, 740px);
   }
 }
 
 @media (max-height: 740px) {
   .home-awards-img {
-    max-height: clamp(200px, 39vh, 290px);
+    max-height: clamp(260px, 48vh, 420px);
   }
 }
 
-/* Subtle edge gradients to guarantee 100% seamless transition with pure black */
+/* Subtle edge gradients to guarantee 100% seamless transition with dark backdrop */
 .home-awards-overlay-top {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 12%;
-  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to bottom, #040404 0%, rgba(4, 4, 4, 0) 100%);
   pointer-events: none;
 }
 
@@ -113,7 +115,7 @@
   left: 0;
   right: 0;
   height: 22%;
-  background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to top, #040404 0%, rgba(4, 4, 4, 0.85) 45%, rgba(4, 4, 4, 0) 100%);
   pointer-events: none;
 }
 
@@ -122,8 +124,8 @@
   top: 0;
   bottom: 0;
   left: 0;
-  width: 8%;
-  background: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  width: 20%;
+  background: linear-gradient(to right, #040404 0%, rgba(4, 4, 4, 0.75) 45%, rgba(4, 4, 4, 0) 100%);
   pointer-events: none;
 }
 
@@ -132,8 +134,8 @@
   top: 0;
   bottom: 0;
   right: 0;
-  width: 8%;
-  background: linear-gradient(to left, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  width: 20%;
+  background: linear-gradient(to left, #040404 0%, rgba(4, 4, 4, 0.75) 45%, rgba(4, 4, 4, 0) 100%);
   pointer-events: none;
 }
 
@@ -215,7 +217,7 @@
   color: #ffffff;
   letter-spacing: -0.01em;
   margin: 0;
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-avenir);
 }
 
 @media (min-width: 640px) {
@@ -247,7 +249,7 @@
 }
 
 .home-awards-title-italic {
-  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-family: var(--font-avenir);
   font-style: italic;
   font-weight: 400;
   color: #ffffff;
@@ -256,29 +258,29 @@
 
 /* Description */
 .home-awards-desc {
-  margin-top: 0.5rem;
-  max-width: 42rem; /* ~672px */
-  font-size: 0.8125rem; /* 13px */
-  line-height: 1.55;
+  margin-top: 0.65rem;
+  max-width: 46rem;
+  font-size: 0.9375rem; /* ~16px with root scaling */
+  line-height: 1.625;
   font-weight: 300;
-  color: rgba(228, 228, 231, 0.75);
+  color: rgba(228, 228, 231, 0.85);
   letter-spacing: 0.01em;
   text-align: center;
 }
 
 @media (min-width: 640px) {
   .home-awards-desc {
-    margin-top: 0.65rem;
-    font-size: 0.85rem; /* ~13.5px */
-    line-height: 1.58;
+    margin-top: 0.75rem;
+    font-size: 1rem; /* ~17.5px with root scaling */
+    line-height: 1.65;
   }
 }
 
 @media (max-height: 740px) {
   .home-awards-desc {
-    font-size: 0.75rem;
-    line-height: 1.45;
-    margin-top: 0.35rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
   }
 }
 

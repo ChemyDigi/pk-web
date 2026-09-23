@@ -56,6 +56,7 @@
 
 .home-stats-number {
   order: -1;
+  font-family: var(--font-numbers);
   font-size: 1.875rem;
   line-height: 2.25rem;
   font-weight: 800;
