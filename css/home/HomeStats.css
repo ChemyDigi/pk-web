@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Home Stats Section Styles
+   ========================================================================== */
+
+.home-stats-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-color: #f1f5f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-stats-section {
+    border-color: #1e293b;
+  }
+}
+
+.home-stats-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .home-stats-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.home-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
+  row-gap: 3rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .home-stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.home-stats-card {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 20rem;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.home-stats-number {
+  order: -1;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #2563eb;
+}
+
+@media (min-width: 640px) {
+  .home-stats-number {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+.home-stats-text {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #475569;
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-stats-text {
+    color: #94a3b8;
+  }
+}

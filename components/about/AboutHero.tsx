@@ -1,18 +1,39 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
+import "@/css/about/AboutHero.css";
 
 export default function AboutHero() {
   return (
-    <section className="py-24 text-center">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-950/50 dark:text-blue-300">
-          About PK Web
-        </span>
-        <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl dark:text-white">
-          Dedicated to Engineering Exceptional Digital Experiences
+    <section className="about-hero-section">
+      {/* Background Architectural Skyscraper Image */}
+      <div className="about-hero-bg-container">
+        <Image
+          src="/images/about/d783b4f4ce3ce89e9dbbc5dc86d6058bc9b3642f.jpg"
+          alt="Architectural skyscraper facade"
+          fill
+          priority
+          quality={95}
+          className="about-hero-bg-image"
+        />
+        {/* Layered Overlays for Depth, Navbar Fade, and High-Contrast Typography */}
+        <div className="about-hero-overlay-tint" />
+        <div className="about-hero-overlay-left" />
+        <div className="about-hero-overlay-top" />
+        <div className="about-hero-overlay-bottom" />
+      </div>
+
+      {/* Hero Statement */}
+      <div className="about-hero-container">
+        <h1 className="about-hero-statement">
+          <span className="about-hero-highlight">
+            I help professionals, families, and communities build lasting financial security
+          </span>{" "}
+          <span className="about-hero-muted">
+            through trusted insurance guidance, tailored protection solutions, and dedicated long term service empowering them to face every stage of life with confidence.
+          </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-          We combine cutting-edge technology, user-focused design, and strategic thinking to build web solutions that endure and perform.
-        </p>
       </div>
     </section>
   );
