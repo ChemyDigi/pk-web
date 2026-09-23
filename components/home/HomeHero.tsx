@@ -111,10 +111,10 @@ export default function HomeHero() {
           <div className="hero-mobile-center">
             <div className="hero-mobile-portrait">
               <Image
-                src="/images/home/Pradeep.png"
+                src="/images/home/Hero.png"
                 alt="Pradeep Liyanage"
-                width={1086}
-                height={1448}
+                width={900}
+                height={1349}
                 priority
                 className="hero-mobile-img"
               />
@@ -142,10 +142,10 @@ export default function HomeHero() {
       <div className="hero-desktop-portrait">
         <div className="hero-desktop-portrait-inner">
           <Image
-            src="/images/home/Pradeep.png"
+            src="/images/home/Hero.png"
             alt="Pradeep Liyanage"
-            width={1086}
-            height={1448}
+            width={900}
+            height={1349}
             priority
             className="hero-desktop-img"
           />

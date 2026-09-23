@@ -143,7 +143,7 @@
 }
 
 .home-about-logo-img {
-  width: 7rem; /* ~112px on mobile */
+  width: 5.5rem; /* ~88px on mobile */
   height: auto;
   object-fit: contain;
   filter: invert(1); /* Inverts white logo to deep black on light background */
@@ -151,19 +151,19 @@
 
 @media (min-width: 640px) {
   .home-about-logo-img {
-    width: 9.5rem; /* ~152px on tablet */
+    width: 7.5rem; /* ~120px on tablet */
   }
 }
 
 @media (min-width: 1024px) {
   .home-about-logo-img {
-    width: 12.5rem; /* ~200px on desktop */
+    width: 10rem; /* ~160px on desktop */
   }
 }
 
 @media (min-width: 1280px) {
   .home-about-logo-img {
-    width: 14rem; /* ~224px on wide desktop */
+    width: 11rem; /* ~176px on wide desktop */
   }
 }
 
