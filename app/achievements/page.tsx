@@ -15,9 +15,11 @@ export default function AchievementsPage() {
   return (
     <>
       <AchievementsHero />
-      <AchievementsStats />
-      <AchievementsList />
-      <AchievementsCertificates />
+      <div id="achievements-content">
+        <AchievementsStats />
+        <AchievementsList />
+        <AchievementsCertificates />
+      </div>
     </>
   );
 }
