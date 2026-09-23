@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import {
   AchievementsHero,
-  AchievementsList,
-  AchievementsStats,
-  AchievementsCertificates,
+  AchievementsGallery,
 } from "@/components/achievements";
 
 export const metadata: Metadata = {
   title: "Achievements | PK Web",
-  description: "Explore our achievements, project milestones, metrics, and professional certifications.",
+  description: "Explore our achievements, project milestones, metrics, and memorable captures.",
 };
 
 export default function AchievementsPage() {
@@ -16,9 +14,7 @@ export default function AchievementsPage() {
     <>
       <AchievementsHero />
       <div id="achievements-content">
-        <AchievementsStats />
-        <AchievementsList />
-        <AchievementsCertificates />
+        <AchievementsGallery />
       </div>
     </>
   );
