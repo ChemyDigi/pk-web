@@ -2,6 +2,7 @@ import {
   HomeHero,
   HomeAbout,
   HomeAwards,
+  HomeServices,
   HomeStats,
   HomeFeatures,
   HomeCta,
@@ -13,10 +14,12 @@ export default function HomePage() {
       <HomeHero />
       <HomeAbout />
       <HomeAwards />
+      <HomeServices />
       <HomeStats />
       <HomeFeatures />
       <HomeCta />
     </>
   );
 }
+
 
