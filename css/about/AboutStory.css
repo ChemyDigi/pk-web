@@ -1,0 +1,293 @@
+/* ==========================================================================
+   About Story Section Styles ("About Me - Trusted Guidance...")
+   ========================================================================== */
+
+.about-story-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  color: #171717;
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .about-story-section {
+    padding-top: 6.5rem;
+    padding-bottom: 7.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-story-section {
+    padding-top: 8rem;
+    padding-bottom: 9rem;
+  }
+}
+
+.about-story-container {
+  width: 100%;
+  max-width: 84rem; /* ~1344px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-story-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-story-container {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+/* ==========================================================================
+   Top Header Grid (Brand Logo on Left + Story on Right)
+   ========================================================================== */
+
+.about-story-top-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .about-story-top-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 4rem;
+    row-gap: 0;
+  }
+}
+
+/* Left Column: PK Monogram */
+.about-story-logo-col {
+  display: flex;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .about-story-logo-col {
+    grid-column: span 2 / span 2;
+    padding-top: 0.25rem;
+  }
+}
+
+.about-story-logo-wrapper {
+  display: inline-flex;
+}
+
+.about-story-logo-img {
+  width: 2.75rem; /* ~44px */
+  height: auto;
+  object-fit: contain;
+  filter: invert(1); /* Inverts white monogram to solid black on light background */
+}
+
+@media (min-width: 640px) {
+  .about-story-logo-img {
+    width: 3.125rem; /* ~50px */
+  }
+}
+
+/* Right Column: Narrative */
+.about-story-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .about-story-content-col {
+    grid-column: span 10 / span 10;
+    max-width: 52rem; /* ~832px */
+  }
+}
+
+/* Badge */
+.about-story-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.125rem;
+}
+
+.about-story-badge-line {
+  display: inline-block;
+  width: 2rem; /* 32px */
+  height: 1.5px;
+  background-color: #171717;
+}
+
+.about-story-badge-text {
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #171717;
+}
+
+/* Headline */
+.about-story-heading {
+  font-size: 1.875rem; /* 30px */
+  line-height: 1.25;
+  font-weight: 400;
+  color: #171717;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.75rem 0;
+}
+
+@media (min-width: 640px) {
+  .about-story-heading {
+    font-size: 2.25rem; /* 36px */
+    line-height: 1.22;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-story-heading {
+    font-size: 2.5rem; /* 40px */
+    line-height: 1.22;
+  }
+}
+
+.about-story-br {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .about-story-br {
+    display: inline;
+  }
+}
+
+/* Paragraphs */
+.about-story-paragraphs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+}
+
+.about-story-paragraphs p {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.68;
+  color: #374151;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 0.005em;
+}
+
+@media (min-width: 640px) {
+  .about-story-paragraphs p {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.7;
+  }
+}
+
+/* ==========================================================================
+   Bottom Three Staggered Image Placeholder Boxes
+   ========================================================================== */
+
+.about-story-boxes-grid {
+  margin-top: 4.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-story-boxes-grid {
+    margin-top: 5.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-story-boxes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    row-gap: 0;
+    align-items: end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-story-boxes-grid {
+    margin-top: 7rem;
+    column-gap: 2rem;
+  }
+}
+
+.about-story-box {
+  width: 100%;
+  background-color: #e5e7eb;
+  border-radius: 1.25rem; /* 20px */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-story-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Box 1 (Left): Standard Height */
+.about-story-box-1 {
+  min-height: 280px;
+}
+
+@media (min-width: 768px) {
+  .about-story-box-1 {
+    height: 330px;
+    min-height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-story-box-1 {
+    height: 360px;
+  }
+}
+
+/* Box 2 (Center): Taller and Elevated */
+.about-story-box-2 {
+  min-height: 340px;
+}
+
+@media (min-width: 768px) {
+  .about-story-box-2 {
+    height: 410px;
+    min-height: auto;
+    margin-top: -2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-story-box-2 {
+    height: 450px;
+    margin-top: -3.5rem;
+  }
+}
+
+/* Box 3 (Right): Balanced Height */
+.about-story-box-3 {
+  min-height: 300px;
+}
+
+@media (min-width: 768px) {
+  .about-story-box-3 {
+    height: 350px;
+    min-height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-story-box-3 {
+    height: 380px;
+  }
+}

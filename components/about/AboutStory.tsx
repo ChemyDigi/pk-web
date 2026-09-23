@@ -1,39 +1,91 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
+import "@/css/about/AboutStory.css";
 
 export default function AboutStory() {
   return (
-    <section className="py-16 bg-slate-50 dark:bg-slate-900/40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-              Our Journey & Mission
+    <section className="about-story-section" id="about-me">
+      <div className="about-story-container">
+        
+        {/* Top Header Grid: PK Monogram Logo + Story Narrative */}
+        <div className="about-story-top-grid">
+          
+          {/* Left Column: PK Monogram Brand Logo */}
+          <div className="about-story-logo-col">
+            <div className="about-story-logo-wrapper">
+              <Image
+                src="/images/header/Pradeep-Liyanage-Logo-2.png"
+                alt="Pradeep Liyanage PK Logo"
+                width={46}
+                height={56}
+                className="about-story-logo-img"
+              />
+            </div>
+          </div>
+
+          {/* Right Column: About Me Details */}
+          <div className="about-story-content-col">
+            {/* Badge */}
+            <div className="about-story-badge">
+              <span className="about-story-badge-line" aria-hidden="true" />
+              <span className="about-story-badge-text">About Me</span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="about-story-heading">
+              Trusted Guidance, Lasting Protection, <br className="about-story-br" />
+              Confident Futures
             </h2>
-            <p className="mt-6 text-base leading-7 text-slate-600 dark:text-slate-300">
-              Founded with a commitment to excellence, PK Web began as a specialized consultancy focused on modern front-end architectures and robust full-stack systems.
-            </p>
-            <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
-              Today, we help startups, growing enterprises, and established organizations translate complex technological challenges into smooth, interactive, and high-performance applications.
-            </p>
+
+            {/* Narrative Paragraphs */}
+            <div className="about-story-paragraphs">
+              <p>
+                With over a decade of experience in the insurance industry, I help individuals,
+                families, and professionals make confident financial decisions through
+                personalised protection solutions built around their real needs and future goals.
+              </p>
+              <p>
+                My approach combines strategic thinking with genuine care, focusing on
+                suitability, affordability, transparency, and dependable after-sales service.
+                Every recommendation is designed to provide meaningful protection through changing
+                life stages, health risks, and retirement needs.
+              </p>
+              <p>
+                Beyond supporting clients, I am passionate about developing people, strengthening
+                high-performing teams, and building trusted partnerships within communities. My
+                purpose is to ensure that financial uncertainty never becomes a personal crisis.
+              </p>
+            </div>
           </div>
-          <div className="rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-950">
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">Our Core Philosophy</h3>
-            <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-300">
-              <li className="flex items-start gap-3">
-                <span className="text-blue-600 font-bold">✓</span>
-                <span><strong>Simplicity first:</strong> Clean code and intuitive interfaces beat unnecessary complexity.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-blue-600 font-bold">✓</span>
-                <span><strong>Performance obsessed:</strong> Every millisecond counts towards user engagement.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-blue-600 font-bold">✓</span>
-                <span><strong>Future-proof scalability:</strong> Engineered to grow effortlessly alongside your brand.</span>
-              </li>
-            </ul>
-          </div>
+
         </div>
+
+        {/* Bottom Three Staggered Image Placeholder Boxes */}
+        <div className="about-story-boxes-grid">
+          {/* Box 1 (Left) */}
+          <div
+            className="about-story-box about-story-box-1"
+            role="img"
+            aria-label="Image placeholder 1"
+          />
+
+          {/* Box 2 (Center - Taller) */}
+          <div
+            className="about-story-box about-story-box-2"
+            role="img"
+            aria-label="Image placeholder 2"
+          />
+
+          {/* Box 3 (Right) */}
+          <div
+            className="about-story-box about-story-box-3"
+            role="img"
+            aria-label="Image placeholder 3"
+          />
+        </div>
+
       </div>
     </section>
   );

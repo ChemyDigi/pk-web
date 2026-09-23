@@ -1,0 +1,311 @@
+/* ==========================================================================
+   About Services Section Styles ("Expert Protection for Every Stage of Life")
+   ========================================================================== */
+
+.about-services-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  color: #171717;
+  padding-top: 5rem;
+  padding-bottom: 6.5rem;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .about-services-section {
+    padding-top: 6.5rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-services-section {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.about-services-container {
+  width: 100%;
+  max-width: 84rem; /* ~1344px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-services-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-services-container {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+/* ==========================================================================
+   Two-Column Grid
+   ========================================================================== */
+
+.about-services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  .about-services-grid {
+    grid-template-columns: 5fr 6fr;
+    column-gap: 4.5rem;
+    row-gap: 0;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-services-grid {
+    column-gap: 5.5rem;
+  }
+}
+
+/* ==========================================================================
+   Left Column: Heading, Intro, Tabs
+   ========================================================================== */
+
+.about-services-left-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-services-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.125rem;
+}
+
+.about-services-badge-line {
+  display: inline-block;
+  width: 2rem; /* 32px */
+  height: 1.5px;
+  background-color: #171717;
+}
+
+.about-services-badge-text {
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #171717;
+}
+
+.about-services-heading {
+  font-size: 1.875rem; /* 30px */
+  line-height: 1.25;
+  font-weight: 500;
+  color: #171717;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.25rem 0;
+}
+
+@media (min-width: 640px) {
+  .about-services-heading {
+    font-size: 2.25rem; /* 36px */
+    line-height: 1.22;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-services-heading {
+    font-size: 2.5rem; /* 40px */
+    line-height: 1.2;
+  }
+}
+
+.about-services-intro {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.68;
+  color: #4b5563;
+  font-weight: 300;
+  margin: 0 0 2.5rem 0;
+  max-width: 32rem;
+  letter-spacing: 0.005em;
+}
+
+@media (min-width: 640px) {
+  .about-services-intro {
+    font-size: 0.84375rem; /* 13.5px */
+    margin-bottom: 3rem;
+  }
+}
+
+/* Tabs List */
+.about-services-tabs-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 32rem;
+}
+
+.about-services-tab-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1.15rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-services-tab-name {
+  font-size: 1.0625rem; /* 17px */
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .about-services-tab-name {
+    font-size: 1.15rem; /* ~18.5px */
+  }
+}
+
+/* Active Tab */
+.about-services-tab-active .about-services-tab-name {
+  color: #111827;
+  font-weight: 700;
+}
+
+.about-services-tab-active {
+  border-bottom-color: #d1d5db;
+}
+
+/* Inactive Tab */
+.about-services-tab-inactive .about-services-tab-name {
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.about-services-tab-inactive:hover .about-services-tab-name {
+  color: #4b5563;
+}
+
+/* ==========================================================================
+   Right Column: Image Showcase & Details
+   ========================================================================== */
+
+.about-services-right-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-services-card {
+  display: flex;
+  flex-direction: column;
+  animation: serviceFade 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes serviceFade {
+  0% {
+    opacity: 0.4;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-services-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 1.25rem; /* 20px */
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  background-color: #f3f4f6;
+}
+
+.about-services-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+/* Details below image */
+.about-services-details {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.75rem;
+}
+
+.about-services-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.85rem 0;
+}
+
+@media (min-width: 640px) {
+  .about-services-title {
+    font-size: 1.75rem; /* 28px */
+  }
+}
+
+.about-services-desc {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.68;
+  color: #4b5563;
+  font-weight: 300;
+  margin: 0;
+  max-width: 34rem;
+  letter-spacing: 0.005em;
+}
+
+@media (min-width: 640px) {
+  .about-services-desc {
+    font-size: 0.84375rem; /* 13.5px */
+  }
+}
+
+/* CTA Button */
+.about-services-cta {
+  margin-top: 1.75rem;
+  display: flex;
+}
+
+.about-services-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-services-btn:hover {
+  background-color: #27272a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.about-services-btn:active {
+  transform: translateY(0);
+}

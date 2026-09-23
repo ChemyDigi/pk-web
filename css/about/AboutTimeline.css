@@ -1,0 +1,404 @@
+/* ==========================================================================
+   About Timeline Section Styles ("A Journey Built on Trust")
+   ========================================================================== */
+
+.about-timeline-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  color: #171717;
+  padding-top: 5.5rem;
+  padding-bottom: 6.5rem;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-section {
+    padding-top: 7rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-section {
+    padding-top: 8.5rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.about-timeline-container {
+  width: 100%;
+  max-width: 84rem; /* ~1344px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-container {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.about-timeline-header {
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-header {
+    margin-bottom: 4.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-header {
+    margin-bottom: 5.5rem;
+  }
+}
+
+.about-timeline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.125rem;
+}
+
+.about-timeline-badge-line {
+  display: inline-block;
+  width: 2rem; /* 32px */
+  height: 1.5px;
+  background-color: #171717;
+}
+
+.about-timeline-badge-text {
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #171717;
+}
+
+.about-timeline-heading {
+  font-size: 1.875rem; /* 30px */
+  line-height: 1.25;
+  font-weight: 400;
+  color: #171717;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-heading {
+    font-size: 2.125rem; /* 34px */
+    line-height: 1.22;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-heading {
+    font-size: 2.375rem; /* 38px */
+    line-height: 1.22;
+  }
+}
+
+.about-timeline-br {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-br {
+    display: inline;
+  }
+}
+
+/* ==========================================================================
+   Interactive Timeline Grid
+   ========================================================================== */
+
+.about-timeline-grid {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-grid {
+    display: grid;
+    grid-template-columns: 5fr 1fr 6fr;
+    column-gap: 2rem;
+    row-gap: 0;
+    align-items: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Year Roller
+   -------------------------------------------------------------------------- */
+
+.about-timeline-years-col {
+  display: flex;
+  justify-content: flex-start;
+  user-select: none;
+}
+
+.about-timeline-years-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-timeline-year-item {
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 0.95;
+}
+
+.about-timeline-year-interactive {
+  cursor: pointer;
+}
+
+.about-timeline-year-interactive:hover {
+  transform: translateX(4px);
+  filter: brightness(0.6);
+}
+
+.about-timeline-year-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Previous Year (Gradient Fade Upwards) */
+.about-timeline-year-prev {
+  font-size: 4rem; /* 64px */
+  background: linear-gradient(
+    to top,
+    rgba(23, 23, 23, 0.18) 0%,
+    rgba(23, 23, 23, 0.02) 80%,
+    transparent 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-year-prev {
+    font-size: 5.5rem; /* 88px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-year-prev {
+    font-size: 6.5rem; /* 104px */
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Active Year (Massive Solid Black) */
+.about-timeline-year-active {
+  font-size: 5.5rem; /* 88px */
+  color: #171717;
+  font-weight: 900;
+  animation: timelineYearFade 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 640px) {
+  .about-timeline-year-active {
+    font-size: 7.5rem; /* 120px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-year-active {
+    font-size: 9rem; /* 144px */
+  }
+}
+
+/* Next Year (Gradient Fade Downwards) */
+.about-timeline-year-next {
+  font-size: 4rem; /* 64px */
+  background: linear-gradient(
+    to bottom,
+    rgba(23, 23, 23, 0.18) 0%,
+    rgba(23, 23, 23, 0.02) 80%,
+    transparent 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-year-next {
+    font-size: 5.5rem; /* 88px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-year-next {
+    font-size: 6.5rem; /* 104px */
+    margin-top: 0.5rem;
+  }
+}
+
+@keyframes timelineYearFade {
+  0% {
+    opacity: 0.4;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Middle Column: Vertical Progress Indicator Line
+   -------------------------------------------------------------------------- */
+
+.about-timeline-indicator-col {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-indicator-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.about-timeline-line-track {
+  position: relative;
+  width: 3px;
+  height: 330px;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+}
+
+@media (min-width: 1280px) {
+  .about-timeline-line-track {
+    height: 360px;
+  }
+}
+
+.about-timeline-line-pill {
+  position: absolute;
+  left: -1px;
+  width: 5px;
+  height: 56px;
+  background-color: #171717;
+  border-radius: 9999px;
+  transition: top 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Milestone Details & Button
+   -------------------------------------------------------------------------- */
+
+.about-timeline-content-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-timeline-content-wrapper {
+  max-width: 34rem;
+  animation: timelineContentFade 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes timelineContentFade {
+  0% {
+    opacity: 0.3;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-timeline-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.25rem 0;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-title {
+    font-size: 1.75rem; /* 28px */
+  }
+}
+
+.about-timeline-desc {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.68;
+  color: #4b5563;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 0.005em;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-desc {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.7;
+  }
+}
+
+.about-timeline-desc strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Down Arrow Navigation Button */
+.about-timeline-next-btn {
+  margin-top: 2rem;
+  width: 2.75rem; /* 44px */
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid #71717a;
+  background-color: transparent;
+  color: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 640px) {
+  .about-timeline-next-btn {
+    margin-top: 2.5rem;
+  }
+}
+
+.about-timeline-next-btn:hover {
+  border-color: #171717;
+  background-color: #171717;
+  color: #ffffff;
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about-timeline-next-btn:active {
+  transform: translateY(0);
+}

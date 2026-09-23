@@ -4,9 +4,6 @@ import {
   HomeAwards,
   HomeServices,
   HomeInsights,
-  HomeStats,
-  HomeFeatures,
-  HomeCta,
 } from "@/components/home";
 
 export default function HomePage() {
@@ -17,12 +14,11 @@ export default function HomePage() {
       <HomeAwards />
       <HomeServices />
       <HomeInsights />
-      <HomeStats />
-      <HomeFeatures />
-      <HomeCta />
     </>
   );
 }
+
+
 
 
 
