@@ -3,6 +3,7 @@ import {
   HomeAbout,
   HomeAwards,
   HomeServices,
+  HomeInsights,
   HomeStats,
   HomeFeatures,
   HomeCta,
@@ -15,11 +16,13 @@ export default function HomePage() {
       <HomeAbout />
       <HomeAwards />
       <HomeServices />
+      <HomeInsights />
       <HomeStats />
       <HomeFeatures />
       <HomeCta />
     </>
   );
 }
+
 
 
