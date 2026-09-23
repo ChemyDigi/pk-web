@@ -1,5 +1,6 @@
 /* ==========================================================================
    Home Awards Section Styles ("Celebrating a Journey of Excellence")
+   Compressed to be fully visible on screen without scrolling
    ========================================================================== */
 
 .home-awards-section {
@@ -7,62 +8,62 @@
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  padding-top: 2rem;
-  padding-bottom: 5.5rem;
   overflow: hidden;
-}
-
-@media (min-width: 640px) {
-  .home-awards-section {
-    padding-top: 3rem;
-    padding-bottom: 6.5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1.75rem;
+  box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
   .home-awards-section {
-    padding-top: 3.5rem;
-    padding-bottom: 8rem;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding-top: 0.75rem;
+    padding-bottom: 1.25rem;
   }
 }
 
 .home-awards-container {
   width: 100%;
-  max-width: 84rem; /* 1344px */
+  max-width: 80rem; /* ~1280px */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 640px) {
   .home-awards-container {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .home-awards-container {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 /* ==========================================================================
-   Awards Hero Showcase Image
+   Awards Hero Showcase Image (Enlarged & Impactful)
    ========================================================================== */
 
 .home-awards-hero-wrapper {
   position: relative;
   width: 100%;
-  max-width: 66rem; /* ~1056px */
+  max-width: 64rem; /* ~1024px */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 1280px) and (min-height: 850px) {
+  .home-awards-hero-wrapper {
+    max-width: 72rem; /* ~1152px */
+  }
 }
 
 .home-awards-image-card {
@@ -76,14 +77,22 @@
 .home-awards-img {
   width: 100%;
   height: auto;
-  max-height: 520px;
+  /* Enlarged so the trophies feel prominent and grand */
+  max-height: clamp(260px, 47vh, 490px);
+  max-width: 100%;
   object-fit: contain;
   display: block;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) and (min-height: 850px) {
   .home-awards-img {
-    max-height: 580px;
+    max-height: clamp(320px, 51vh, 550px);
+  }
+}
+
+@media (max-height: 740px) {
+  .home-awards-img {
+    max-height: clamp(200px, 39vh, 290px);
   }
 }
 
@@ -103,8 +112,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 18%;
-  background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+  height: 22%;
+  background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0) 100%);
   pointer-events: none;
 }
 
@@ -140,13 +149,26 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 52rem; /* ~832px */
-  margin-top: 1.5rem;
+  max-width: 48rem; /* ~768px */
+  /* Negative margin pulls text into the shadow below the trophies platform */
+  margin-top: -1.25rem;
 }
 
 @media (min-width: 640px) {
   .home-awards-content {
-    margin-top: 2rem;
+    margin-top: -1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-awards-content {
+    margin-top: -2rem;
+  }
+}
+
+@media (max-height: 740px) {
+  .home-awards-content {
+    margin-top: -0.75rem;
   }
 }
 
@@ -155,34 +177,40 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
-  margin-bottom: 1.125rem;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+@media (min-height: 800px) {
+  .home-awards-badge {
+    margin-bottom: 0.65rem;
+  }
 }
 
 .home-awards-badge-line {
   display: inline-block;
-  width: 1.75rem; /* ~28px */
+  width: 1.5rem; /* ~24px */
   height: 1.5px;
   background-color: #a1a1aa;
 }
 
 .home-awards-badge-text {
-  font-size: 0.8125rem; /* 13px */
+  font-size: 0.75rem; /* 12px */
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: #e4e4e7;
+  color: #d4d4d8;
 }
 
 @media (min-width: 640px) {
   .home-awards-badge-text {
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.8125rem; /* 13px */
   }
 }
 
 /* Title Headline */
 .home-awards-title {
-  font-size: 1.875rem; /* 30px */
-  line-height: 1.25;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.2;
   font-weight: 300;
   color: #ffffff;
   letter-spacing: -0.01em;
@@ -192,15 +220,19 @@
 
 @media (min-width: 640px) {
   .home-awards-title {
-    font-size: 2.375rem; /* 38px */
-    line-height: 1.25;
+    font-size: 1.875rem; /* 30px */
   }
 }
 
 @media (min-width: 1024px) {
   .home-awards-title {
-    font-size: 2.875rem; /* 46px */
-    line-height: 1.22;
+    font-size: 2.15rem; /* ~34px */
+  }
+}
+
+@media (min-width: 1280px) and (min-height: 850px) {
+  .home-awards-title {
+    font-size: 2.45rem; /* ~39px */
   }
 }
 
@@ -208,7 +240,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .home-awards-br {
     display: inline;
   }
@@ -224,10 +256,10 @@
 
 /* Description */
 .home-awards-desc {
-  margin-top: 1.25rem;
-  max-width: 44rem; /* 704px */
-  font-size: 0.875rem; /* 14px */
-  line-height: 1.68;
+  margin-top: 0.5rem;
+  max-width: 42rem; /* ~672px */
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.55;
   font-weight: 300;
   color: rgba(228, 228, 231, 0.75);
   letter-spacing: 0.01em;
@@ -236,22 +268,30 @@
 
 @media (min-width: 640px) {
   .home-awards-desc {
-    margin-top: 1.5rem;
-    font-size: 0.9375rem; /* 15px */
-    line-height: 1.7;
+    margin-top: 0.65rem;
+    font-size: 0.85rem; /* ~13.5px */
+    line-height: 1.58;
+  }
+}
+
+@media (max-height: 740px) {
+  .home-awards-desc {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    margin-top: 0.35rem;
   }
 }
 
 /* CTA Button */
 .home-awards-cta {
-  margin-top: 1.875rem;
+  margin-top: 0.875rem;
   display: flex;
   justify-content: center;
 }
 
-@media (min-width: 640px) {
+@media (min-height: 800px) {
   .home-awards-cta {
-    margin-top: 2.25rem;
+    margin-top: 1.25rem;
   }
 }
 
@@ -259,7 +299,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 2rem;
+  padding: 0.6rem 1.85rem;
   background-color: #ffffff;
   color: #09090b;
   font-size: 0.75rem; /* 12px */
@@ -274,8 +314,8 @@
 
 @media (min-width: 640px) {
   .home-awards-btn {
-    padding: 0.8125rem 2.25rem;
-    font-size: 0.8125rem; /* 13px */
+    padding: 0.6875rem 2.1rem;
+    font-size: 0.78125rem; /* 12.5px */
   }
 }
 
