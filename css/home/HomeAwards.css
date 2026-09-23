@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Home Awards Section Styles ("Celebrating a Journey of Excellence")
+   ========================================================================== */
+
+.home-awards-section {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  padding-top: 2rem;
+  padding-bottom: 5.5rem;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .home-awards-section {
+    padding-top: 3rem;
+    padding-bottom: 6.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-awards-section {
+    padding-top: 3.5rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.home-awards-container {
+  width: 100%;
+  max-width: 84rem; /* 1344px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .home-awards-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-awards-container {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+/* ==========================================================================
+   Awards Hero Showcase Image
+   ========================================================================== */
+
+.home-awards-hero-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 66rem; /* ~1056px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-awards-image-card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+.home-awards-img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .home-awards-img {
+    max-height: 580px;
+  }
+}
+
+/* Subtle edge gradients to guarantee 100% seamless transition with pure black */
+.home-awards-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12%;
+  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.home-awards-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18%;
+  background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.home-awards-overlay-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 8%;
+  background: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.home-awards-overlay-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 8%;
+  background: linear-gradient(to left, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Content Area (Badge, Title, Description, Button)
+   ========================================================================== */
+
+.home-awards-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 52rem; /* ~832px */
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .home-awards-content {
+    margin-top: 2rem;
+  }
+}
+
+/* Badge with Dash */
+.home-awards-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  margin-bottom: 1.125rem;
+}
+
+.home-awards-badge-line {
+  display: inline-block;
+  width: 1.75rem; /* ~28px */
+  height: 1.5px;
+  background-color: #a1a1aa;
+}
+
+.home-awards-badge-text {
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #e4e4e7;
+}
+
+@media (min-width: 640px) {
+  .home-awards-badge-text {
+    font-size: 0.875rem; /* 14px */
+  }
+}
+
+/* Title Headline */
+.home-awards-title {
+  font-size: 1.875rem; /* 30px */
+  line-height: 1.25;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (min-width: 640px) {
+  .home-awards-title {
+    font-size: 2.375rem; /* 38px */
+    line-height: 1.25;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-awards-title {
+    font-size: 2.875rem; /* 46px */
+    line-height: 1.22;
+  }
+}
+
+.home-awards-br {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .home-awards-br {
+    display: inline;
+  }
+}
+
+.home-awards-title-italic {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+/* Description */
+.home-awards-desc {
+  margin-top: 1.25rem;
+  max-width: 44rem; /* 704px */
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.68;
+  font-weight: 300;
+  color: rgba(228, 228, 231, 0.75);
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .home-awards-desc {
+    margin-top: 1.5rem;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.7;
+  }
+}
+
+/* CTA Button */
+.home-awards-cta {
+  margin-top: 1.875rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .home-awards-cta {
+    margin-top: 2.25rem;
+  }
+}
+
+.home-awards-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: #ffffff;
+  color: #09090b;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 640px) {
+  .home-awards-btn {
+    padding: 0.8125rem 2.25rem;
+    font-size: 0.8125rem; /* 13px */
+  }
+}
+
+.home-awards-btn:hover {
+  background-color: #f4f4f5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+}
+
+.home-awards-btn:active {
+  transform: translateY(0);
+}
