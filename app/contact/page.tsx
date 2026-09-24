@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactHero } from "@/components/contact";
+import { ContactHero, ContactFaq } from "@/components/contact";
 
 export const metadata: Metadata = {
   title: "Contact | Pradeep Liyanage — Insurance Advisor",
@@ -10,6 +10,7 @@ export default function ContactPage() {
   return (
     <>
       <ContactHero />
+      <ContactFaq />
     </>
   );
 }

@@ -185,7 +185,7 @@
 }
 
 .contact-hero-eyebrow-text {
-  font-family: var(--font-avenir), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 0.8125rem;
   font-style: normal;
   font-weight: 400;
@@ -195,7 +195,7 @@
 
 /* Headline */
 .contact-hero-heading {
-  font-family: var(--font-avenir), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1.625rem;
   line-height: 1.24;
   font-style: normal;

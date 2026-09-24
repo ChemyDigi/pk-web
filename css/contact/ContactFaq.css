@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Contact FAQ Section (Clean White Background, Black Pill Active Accordion)
+   Matches reference: White backdrop, top-left eyebrow + headline,
+   and accordion with black pill active state and plus/minus icons.
+   ========================================================================== */
+
+.contact-faq-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  color: #08080a;
+  padding: 6.5rem 1.5rem 7.5rem;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (min-width: 640px) {
+  .contact-faq-section {
+    padding: 7rem 2.5rem 8.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-faq-section {
+    padding: 7.5rem 3.5rem 9.5rem;
+  }
+}
+
+.contact-faq-container {
+  width: 100%;
+  max-width: 82rem;
+  margin: 0 auto;
+}
+
+/* Eyebrow badge with horizontal line */
+.contact-faq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact-faq-eyebrow-line {
+  display: block;
+  width: 1.85rem;
+  height: 1.5px;
+  background-color: #08080a;
+}
+
+.contact-faq-eyebrow-text {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #52525b;
+}
+
+/* Heading */
+.contact-faq-heading {
+  font-family: inherit;
+  font-size: 1.875rem;
+  line-height: 1.25;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #08080a;
+  margin: 0 0 3.5rem 0;
+  max-width: 44rem;
+}
+
+@media (min-width: 640px) {
+  .contact-faq-heading {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-faq-heading {
+    font-size: 2.625rem;
+    max-width: 46rem;
+  }
+}
+
+/* ==========================================================================
+   Accordion List
+   ========================================================================== */
+
+.contact-faq-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contact-faq-item {
+  width: 100%;
+  transition: all 0.25s ease;
+}
+
+/* Active Open State: Black Pill header */
+.contact-faq-btn-active {
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 1.1rem 1.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.2);
+}
+
+.contact-faq-btn-active:hover {
+  background-color: #141416;
+}
+
+.contact-faq-question-text-active {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+/* Collapsed Inactive State: Clean row with bottom line */
+.contact-faq-btn-collapsed {
+  width: 100%;
+  background-color: transparent;
+  color: #08080a;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1.4rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.contact-faq-btn-collapsed:hover {
+  color: #000000;
+  border-bottom-color: #d1d5db;
+}
+
+.contact-faq-question-text-collapsed {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  color: #18181b;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.contact-faq-btn-collapsed:hover .contact-faq-question-text-collapsed {
+  color: #000000;
+}
+
+/* Circular Icons */
+.contact-faq-icon-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.contact-faq-icon-collapsed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #18181b;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.contact-faq-btn-collapsed:hover .contact-faq-icon-collapsed {
+  color: #000000;
+  transform: rotate(90deg);
+}
+
+/* Answer Body */
+.contact-faq-answer {
+  padding: 1.4rem 2rem 1.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  animation: faqFadeSlide 0.3s ease-out;
+}
+
+.contact-faq-answer-text {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-style: normal;
+  line-height: 1.65;
+  color: #52525b;
+  margin: 0;
+  max-width: 60rem;
+}
+
+@keyframes faqFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
