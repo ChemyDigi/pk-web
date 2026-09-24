@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import {
   ServicesHero,
   ServicesList,
+  ServicesPhilosophy,
+  ServicesUnion,
   ServicesProcess,
   ServicesPricing,
 } from "@/components/services";
@@ -16,6 +18,8 @@ export default function ServicesPage() {
     <>
       <ServicesHero />
       <ServicesList />
+      <ServicesPhilosophy />
+      <ServicesUnion />
       <ServicesProcess />
       <ServicesPricing />
     </>
