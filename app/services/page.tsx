@@ -4,8 +4,6 @@ import {
   ServicesList,
   ServicesPhilosophy,
   ServicesUnion,
-  ServicesProcess,
-  ServicesPricing,
 } from "@/components/services";
 
 export const metadata: Metadata = {
@@ -20,8 +18,6 @@ export default function ServicesPage() {
       <ServicesList />
       <ServicesPhilosophy />
       <ServicesUnion />
-      <ServicesProcess />
-      <ServicesPricing />
     </>
   );
 }
