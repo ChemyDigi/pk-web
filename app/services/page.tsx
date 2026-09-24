@@ -7,8 +7,8 @@ import {
 } from "@/components/services";
 
 export const metadata: Metadata = {
-  title: "Services | PK Web",
-  description: "Discover our full range of web development, UI/UX design, and performance optimization services.",
+  title: "Services | Pradeep Liyanage — Insurance Advisor",
+  description: "Explore insurance solutions for individuals, families, and businesses — life insurance, family financial protection, retirement planning, and more with Pradeep Liyanage.",
 };
 
 export default function ServicesPage() {

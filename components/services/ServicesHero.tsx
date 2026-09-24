@@ -1,18 +1,61 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import "@/css/services/ServicesHero.css";
 
 export default function ServicesHero() {
   return (
-    <section className="py-24 text-center">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10 dark:bg-indigo-950/50 dark:text-indigo-300">
-          What We Do
-        </span>
-        <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl dark:text-white">
-          Comprehensive Digital Services for Forward-Thinking Brands
+    <section className="services-hero-section">
+      {/* Background image with overlays */}
+      <div className="services-hero-bg">
+        <Image
+          src="/images/services/hero.jpg"
+          alt="Services background"
+          fill
+          priority
+          className="services-hero-bg-image"
+        />
+        <div className="services-hero-overlay-top" />
+        <div className="services-hero-overlay-bottom" />
+        <div className="services-hero-overlay-sides" />
+      </div>
+
+      {/* Content */}
+      <div className="services-hero-content">
+        {/* Eyebrow */}
+        <div className="services-hero-badge">
+          <span className="services-hero-badge-line" aria-hidden="true" />
+          <span className="services-hero-badge-text">Protection Built Around Your Life</span>
+          <span className="services-hero-badge-line" aria-hidden="true" />
+        </div>
+
+        {/* Heading */}
+        <h1 className="services-hero-heading">
+          Insurance isn&apos;t about policies.<br />
+          It&apos;s about protecting what matters.
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-          From full-stack development to brand-enhancing UI/UX design, our services are tailored to deliver competitive advantages and measurable ROI.
+
+        {/* Description */}
+        <p className="services-hero-desc">
+          Comprehensive insurance solutions tailored for professionals, families, and communities —
+          designed to offer lasting financial security and genuine peace of mind.
         </p>
+
+        {/* CTAs */}
+        <div className="services-hero-ctas">
+          <Link href="/contact" className="services-hero-btn-primary">
+            Talk About Your Protection
+          </Link>
+          <a href="#services-list" className="services-hero-btn-outline">
+            Explore Services
+          </a>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="services-hero-scroll" aria-hidden="true">
+        <div className="services-hero-scroll-line" />
+        <span className="services-hero-scroll-text">Scroll</span>
       </div>
     </section>
   );

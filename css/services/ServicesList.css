@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Services List Section
+   ========================================================================== */
+
+.services-list-section {
+  position: relative;
+  background-color: #08080a;
+  padding: 6rem 0 5rem;
+  overflow: hidden;
+}
+
+/* Subtle grid texture */
+.services-list-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.services-list-container {
+  position: relative;
+  z-index: 1;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .services-list-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-list-container {
+    padding: 0 2.5rem;
+  }
+}
+
+/* Section header */
+.services-list-header {
+  margin-bottom: 3.5rem;
+}
+
+.services-list-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.services-list-badge-line {
+  display: block;
+  width: 1.75rem;
+  height: 1px;
+  background-color: rgba(212, 212, 216, 0.4);
+}
+
+.services-list-badge-text {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(212, 212, 216, 0.65);
+}
+
+.services-list-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+@media (min-width: 640px) {
+  .services-list-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-list-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Grid */
+.services-list-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5px;
+  border: 1.5px solid rgba(255,255,255,0.07);
+}
+
+@media (min-width: 768px) {
+  .services-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card */
+.services-list-card {
+  position: relative;
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1.5px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+  transition: background 0.35s ease;
+  cursor: default;
+}
+
+.services-list-card:hover {
+  background: rgba(255,255,255,0.045);
+}
+
+/* Corner number accent */
+.services-list-card-num {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  font-family: var(--font-numbers);
+  font-size: 3.5rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Icon */
+.services-list-card-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 1.25rem;
+  color: rgba(212,212,216,0.6);
+}
+
+/* Title */
+.services-list-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .services-list-card-title {
+    font-size: 1.125rem;
+  }
+}
+
+/* Description */
+.services-list-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(212,212,216,0.6);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+/* Features */
+.services-list-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.services-list-card-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.8rem;
+  color: rgba(212,212,216,0.55);
+  font-weight: 300;
+}
+
+.services-list-card-feature-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background-color: rgba(212,212,216,0.5);
+  flex-shrink: 0;
+}
+
+/* Hover line at top of card */
+.services-list-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.services-list-card:hover::after {
+  opacity: 1;
+}

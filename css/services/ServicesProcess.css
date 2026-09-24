@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Services Process Section
+   ========================================================================== */
+
+.services-process-section {
+  position: relative;
+  background-color: #08080a;
+  padding: 5.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+.services-process-container {
+  position: relative;
+  z-index: 1;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .services-process-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-process-container {
+    padding: 0 2.5rem;
+  }
+}
+
+/* Header */
+.services-process-header {
+  margin-bottom: 3.5rem;
+}
+
+.services-process-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.services-process-badge-line {
+  display: block;
+  width: 1.75rem;
+  height: 1px;
+  background-color: rgba(212,212,216,0.4);
+}
+
+.services-process-badge-text {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(212,212,216,0.65);
+}
+
+.services-process-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+@media (min-width: 640px) {
+  .services-process-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-process-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Steps grid */
+.services-process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-left: 1px solid rgba(255,255,255,0.07);
+}
+
+@media (min-width: 640px) {
+  .services-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.services-process-step {
+  position: relative;
+  padding: 2.5rem 2rem 2.5rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.services-process-step:hover {
+  background: rgba(255,255,255,0.025);
+}
+
+/* Big number watermark */
+.services-process-step-num {
+  font-family: var(--font-numbers);
+  font-size: 5rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  color: rgba(255,255,255,0.05);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.04em;
+}
+
+@media (min-width: 1024px) {
+  .services-process-step-num {
+    font-size: 4.5rem;
+  }
+}
+
+.services-process-step-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.625rem;
+}
+
+.services-process-step-desc {
+  font-size: 0.825rem;
+  line-height: 1.65;
+  color: rgba(212,212,216,0.55);
+  font-weight: 300;
+}
+
+/* Active indicator dot */
+.services-process-step::before {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: rgba(255,255,255,0.15);
+  transition: background 0.3s ease;
+}
+
+.services-process-step:hover::before {
+  background-color: rgba(255,255,255,0.5);
+}

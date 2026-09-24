@@ -1,78 +1,123 @@
 import React from "react";
 import Link from "next/link";
+import "@/css/services/ServicesPricing.css";
 
 const tiers = [
   {
-    name: "Starter",
+    name: "Individual",
+    description:
+      "Designed for individuals seeking foundational protection — life insurance, critical illness, or disability coverage to secure your financial future.",
     price: "Custom",
-    description: "Ideal for small businesses needing a modern landing page or portfolio site.",
-    features: ["Responsive 1-5 pages", "Tailwind CSS & Next.js", "Basic SEO setup", "Contact form integration"],
+    priceNote: "Tailored to your coverage needs",
+    features: [
+      "Term or whole life insurance",
+      "Critical illness coverage",
+      "Disability income protection",
+      "Personalized needs analysis",
+    ],
+    featured: false,
   },
   {
-    name: "Growth",
+    name: "Family",
+    description:
+      "Comprehensive family protection packages covering income replacement, mortgage, children's needs, and retirement — all under one plan.",
     price: "Custom",
+    priceNote: "Built around your family's priorities",
+    features: [
+      "Multi-life coverage options",
+      "Mortgage & debt protection",
+      "Children's life & education plans",
+      "Retirement savings integration",
+      "Annual policy review",
+    ],
     featured: true,
-    description: "Perfect for scaling businesses requiring dynamic web apps and custom integrations.",
-    features: ["Full web application", "CMS or API integration", "Advanced animations & UX", "Performance optimization (90+ Lighthouse)", "Ongoing support"],
   },
   {
-    name: "Enterprise",
+    name: "Business",
+    description:
+      "Purpose-built for business owners and professionals requiring key person coverage, group benefits, and succession planning solutions.",
     price: "Custom",
-    description: "For established brands needing bespoke architectures, security audits, and dedicated maintenance.",
-    features: ["End-to-end custom platform", "Scalable cloud architecture", "Role-based access & auth", "SLA & 24/7 priority support"],
+    priceNote: "Structured for your business scale",
+    features: [
+      "Key person insurance",
+      "Group benefits design",
+      "Business succession planning",
+      "Corporate-owned life insurance",
+    ],
+    featured: false,
   },
 ];
 
 export default function ServicesPricing() {
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-900/40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            Engagement Packages
+    <section className="services-pricing-section">
+      <div className="services-pricing-container">
+
+        {/* Header */}
+        <div className="services-pricing-header">
+          <div className="services-pricing-badge">
+            <span className="services-pricing-badge-line" aria-hidden="true" />
+            <span className="services-pricing-badge-text">Protection Packages</span>
+          </div>
+          <h2 className="services-pricing-title">
+            Coverage for every<br />chapter of life.
           </h2>
-          <p className="mt-4 text-base text-slate-600 dark:text-slate-300">
-            Flexible models structured to fit your milestones, scale, and budget.
+          <p className="services-pricing-subtitle">
+            Every plan is personalized — no off-the-shelf policies. Pricing is always based on your
+            specific needs, health profile, and coverage goals.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        {/* Cards */}
+        <div className="services-pricing-grid">
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`rounded-2xl p-8 transition shadow-sm ${
-                tier.featured
-                  ? "border-2 border-indigo-600 bg-white dark:bg-slate-950 dark:border-indigo-500 shadow-md"
-                  : "border border-slate-200/80 bg-white dark:border-slate-800 dark:bg-slate-950"
-              }`}
+              className={`services-pricing-card${tier.featured ? " services-pricing-card--featured" : ""}`}
             >
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white">{tier.name}</h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{tier.description}</p>
-              <div className="my-6">
-                <span className="text-3xl font-extrabold text-slate-900 dark:text-white">{tier.price}</span>
+              {tier.featured && (
+                <span className="services-pricing-featured-badge">Most Popular</span>
+              )}
+
+              <h3 className="services-pricing-name">{tier.name}</h3>
+              <p className="services-pricing-desc">{tier.description}</p>
+
+              <div className="services-pricing-price-block">
+                <div className="services-pricing-price">{tier.price}</div>
+                <p className="services-pricing-price-note">{tier.priceNote}</p>
               </div>
-              <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+
+              <ul className="services-pricing-features">
                 {tier.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <span className="text-indigo-600 font-bold">✓</span>
+                  <li key={f} className="services-pricing-feature">
+                    <svg
+                      className="services-pricing-feature-check"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                     <span>{f}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-8">
-                <Link
-                  href="/contact"
-                  className={`block w-full py-2.5 px-4 text-center text-sm font-semibold rounded-lg transition ${
-                    tier.featured
-                      ? "bg-indigo-600 text-white hover:bg-indigo-500"
-                      : "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
-                  }`}
-                >
-                  Inquire Now
-                </Link>
-              </div>
+
+              <Link
+                href="/contact"
+                className={`services-pricing-btn${
+                  tier.featured
+                    ? " services-pricing-btn--featured"
+                    : " services-pricing-btn--default"
+                }`}
+              >
+                Get a Free Consultation
+              </Link>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
