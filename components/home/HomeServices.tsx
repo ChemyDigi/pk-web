@@ -103,13 +103,17 @@ export default function HomeServices() {
 
         {/* Content Layout: Left Empty Image Box + Right Services List */}
         <div className="home-services-grid">
-          {/* Left Column: Empty Image Placeholder Box */}
+          {/* Left Column: Image Card */}
           <div className="home-services-image-col">
-            <div
-              className="home-services-placeholder-box"
-              role="img"
-              aria-label="Empty image placeholder (image to be added later)"
-            />
+            <div className="home-services-image-card">
+              <Image
+                src="/images/home/PradeepLiyanage.jpg"
+                alt="Pradeep Liyanage - Insurance & Financial Advisory"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="home-services-img"
+              />
+            </div>
           </div>
 
           {/* Right Column: 4 Services with Icons */}
