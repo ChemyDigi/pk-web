@@ -126,6 +126,59 @@
   }
 }
 
+/* Brand Logo in Home About */
+.home-about-logo-wrapper {
+  margin-top: 1.5rem;
+  margin-left: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .home-about-logo-wrapper {
+    margin-top: 2rem;
+    margin-left: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-about-logo-wrapper {
+    margin-top: 2.25rem;
+    margin-left: 8rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .home-about-logo-wrapper {
+    margin-top: 2.25rem;
+    margin-left: 10rem;
+  }
+}
+
+.home-about-logo-img {
+  width: 5.5rem;
+  height: auto;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+@media (min-width: 640px) {
+  .home-about-logo-img {
+    width: 7.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-about-logo-img {
+    width: 10rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .home-about-logo-img {
+    width: 11rem;
+  }
+}
 
 /* Right Column */
 .home-about-right {

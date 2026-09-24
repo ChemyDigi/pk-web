@@ -85,15 +85,10 @@
   --font-numbers: var(--font-numbers);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
   font-size: 17px;
+  background-color: #08080a;
+  overscroll-behavior-y: none;
 }
 
 @media (min-width: 1024px) {
@@ -104,9 +99,10 @@ html {
 
 html,
 body {
-  background: var(--background);
+  background-color: #08080a;
   color: var(--foreground);
   font-family: var(--font-avenir);
+  overscroll-behavior-y: none;
 }
 
 button,

@@ -148,24 +148,24 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  --timeline-slot-h: 5rem; /* ~80px mobile */
+  --timeline-slot-h: 5.5rem; /* ~88px mobile */
 }
 
 @media (min-width: 640px) {
   :root {
-    --timeline-slot-h: 6.75rem; /* ~108px tablet */
+    --timeline-slot-h: 7.5rem; /* ~120px tablet */
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --timeline-slot-h: 8.75rem; /* ~140px desktop */
+    --timeline-slot-h: 10rem; /* ~160px desktop */
   }
 }
 
 @media (min-width: 1280px) {
   :root {
-    --timeline-slot-h: 9.75rem; /* ~156px wide desktop */
+    --timeline-slot-h: 11.5rem; /* ~184px wide desktop */
   }
 }
 
@@ -177,26 +177,27 @@
   display: flex;
   justify-content: flex-start;
   user-select: none;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .about-timeline-roller-viewport {
   position: relative;
   width: 100%;
-  height: calc(3 * var(--timeline-slot-h));
+  height: calc(3.5 * var(--timeline-slot-h));
   overflow: hidden;
+  padding-bottom: 2.5rem;
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    black 16%,
-    black 84%,
+    black 5%,
+    black 96%,
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    black 16%,
-    black 84%,
+    black 5%,
+    black 96%,
     transparent 100%
   );
 }
@@ -215,7 +216,8 @@
   align-items: center;
   font-family: var(--font-avenir);
   letter-spacing: -0.04em;
-  line-height: 0.95;
+  line-height: 1.15;
+  overflow: visible;
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
@@ -224,6 +226,8 @@
 
 .about-timeline-year-text {
   display: inline-block;
+  line-height: 1.15;
+  padding: 0.1em 0;
 }
 
 /* Active Year (Massive Solid Black) */
@@ -234,6 +238,12 @@
   opacity: 1;
   transform: scale(1);
   cursor: default;
+}
+
+.about-timeline-year-active .about-timeline-year-text {
+  color: #171717;
+  -webkit-text-fill-color: initial;
+  background: none;
 }
 
 @media (min-width: 640px) {
@@ -254,17 +264,20 @@
   }
 }
 
-/* Previous Year (Gradient Fade Upwards) */
+/* Previous Year (Top Year, e.g. 2012 when 2015 is active) */
 .about-timeline-year-prev {
   font-size: 6.5rem;
   font-weight: 800;
-  opacity: 0.25;
   transform: scale(0.68);
+}
+
+.about-timeline-year-prev .about-timeline-year-text {
   background: linear-gradient(
     to top,
-    rgba(23, 23, 23, 0.4) 0%,
-    rgba(23, 23, 23, 0.04) 80%,
-    transparent 100%
+    rgba(23, 23, 23, 0.45) 0%,
+    rgba(23, 23, 23, 0.22) 40%,
+    rgba(23, 23, 23, 0.08) 75%,
+    rgba(23, 23, 23, 0.02) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -288,17 +301,20 @@
   }
 }
 
-/* Next Year (Gradient Fade Downwards) */
+/* Next Year (Bottom Year, e.g. 2018 when 2015 is active) */
 .about-timeline-year-next {
   font-size: 6.5rem;
   font-weight: 800;
-  opacity: 0.25;
   transform: scale(0.68);
+}
+
+.about-timeline-year-next .about-timeline-year-text {
   background: linear-gradient(
     to bottom,
-    rgba(23, 23, 23, 0.4) 0%,
-    rgba(23, 23, 23, 0.04) 80%,
-    transparent 100%
+    rgba(23, 23, 23, 0.45) 0%,
+    rgba(23, 23, 23, 0.22) 40%,
+    rgba(23, 23, 23, 0.08) 75%,
+    rgba(23, 23, 23, 0.02) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -357,9 +373,34 @@
   cursor: pointer;
 }
 
-.about-timeline-year-interactive:hover {
-  opacity: 0.55;
+.about-timeline-year-prev.about-timeline-year-interactive:hover {
   transform: scale(0.7) translateX(4px);
+}
+
+.about-timeline-year-prev.about-timeline-year-interactive:hover .about-timeline-year-text {
+  background: linear-gradient(
+    to top,
+    rgba(23, 23, 23, 0.75) 0%,
+    rgba(23, 23, 23, 0.45) 50%,
+    rgba(23, 23, 23, 0.15) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-timeline-year-next.about-timeline-year-interactive:hover {
+  transform: scale(0.7) translateX(4px);
+}
+
+.about-timeline-year-next.about-timeline-year-interactive:hover .about-timeline-year-text {
+  background: linear-gradient(
+    to bottom,
+    rgba(23, 23, 23, 0.75) 0%,
+    rgba(23, 23, 23, 0.45) 50%,
+    rgba(23, 23, 23, 0.15) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* --------------------------------------------------------------------------

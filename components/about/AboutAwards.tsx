@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import "@/css/about/AboutAwards.css";
 
@@ -49,6 +49,30 @@ const awards: AwardItem[] = [
 
 export default function AboutAwards() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const scrollToAwards = () => {
+        if (window.location.hash === "#awards") {
+          const el = document.getElementById("awards");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      };
+
+      scrollToAwards();
+      const t1 = setTimeout(scrollToAwards, 120);
+      const t2 = setTimeout(scrollToAwards, 350);
+
+      window.addEventListener("hashchange", scrollToAwards);
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+        window.removeEventListener("hashchange", scrollToAwards);
+      };
+    }
+  }, []);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev < awards.length - 1 ? prev + 1 : 0));

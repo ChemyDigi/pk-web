@@ -41,16 +41,16 @@
 
 @media (min-width: 1024px) {
   .contact-hero-bg-container {
-    top: 2rem;
-    height: calc(100% - 2rem);
+    top: 0;
+    height: 100%;
     width: 58vw;
-    max-width: 860px;
+    max-width: 960px;
   }
 }
 
 .contact-hero-bg-image {
-  object-fit: contain;
-  object-position: left bottom;
+  object-fit: cover;
+  object-position: left top;
   filter: brightness(0.96) contrast(1.04);
 }
 
@@ -75,10 +75,10 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 10, 0.4) 0%,
-    transparent 12%,
-    transparent 88%,
-    rgba(8, 8, 10, 0.5) 96%,
+    rgba(8, 8, 10, 0.2) 0%,
+    transparent 10%,
+    transparent 90%,
+    rgba(8, 8, 10, 0.6) 97%,
     #08080a 100%
   );
 }

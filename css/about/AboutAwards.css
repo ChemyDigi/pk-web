@@ -5,24 +5,29 @@
 .about-awards-section {
   position: relative;
   width: 100%;
+  min-height: 100vh;
   background-color: #05070a;
   color: #ffffff;
-  padding-top: 4.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 5.5rem;
+  padding-bottom: 4rem;
   overflow: hidden;
+  scroll-margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (min-width: 640px) {
   .about-awards-section {
-    padding-top: 5.5rem;
-    padding-bottom: 6.5rem;
+    padding-top: 6rem;
+    padding-bottom: 4.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .about-awards-section {
     padding-top: 6.5rem;
-    padding-bottom: 7.5rem;
+    padding-bottom: 5rem;
   }
 }
 

@@ -119,12 +119,12 @@ export default function ContactFaq() {
                   {isOpen ? (
                     <span className="contact-faq-icon-active" aria-hidden="true">
                       <svg
-                        width="24"
-                        height="24"
+                        width="22"
+                        height="22"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.5"
+                        strokeWidth="1.25"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >
@@ -135,12 +135,12 @@ export default function ContactFaq() {
                   ) : (
                     <span className="contact-faq-icon-collapsed" aria-hidden="true">
                       <svg
-                        width="24"
-                        height="24"
+                        width="22"
+                        height="22"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.5"
+                        strokeWidth="1.25"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >

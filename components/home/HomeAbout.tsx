@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import "@/css/home/HomeAbout.css";
 
@@ -25,6 +26,18 @@ export default function HomeAbout() {
               Where Protection <br />
               Meets Peace of Mind
             </h2>
+
+            {/* Brand Logo */}
+            <div className="home-about-logo-wrapper">
+              <Image
+                src="/images/header/Pradeep-Liyanage-Logo-2.png"
+                alt="Pradeep Liyanage Logo"
+                width={300}
+                height={365}
+                className="home-about-logo-img"
+                priority
+              />
+            </div>
           </div>
 
           {/* Right Column: Narrative & CTA */}

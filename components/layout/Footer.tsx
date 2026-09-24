@@ -134,7 +134,7 @@ export default function Footer() {
               About
             </Link>
             <Link href="/achievements" className="hover:text-white transition-colors duration-200">
-              Gallery
+              Achievements
             </Link>
             <Link href="/services" className="hover:text-white transition-colors duration-200">
               Services

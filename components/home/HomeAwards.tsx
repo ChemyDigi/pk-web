@@ -56,7 +56,7 @@ export default function HomeAwards() {
 
           {/* CTA Button */}
           <div className="home-awards-cta">
-            <Link href="/achievements" className="home-awards-btn">
+            <Link href="/about#awards" className="home-awards-btn">
               VIEW ALL AWARDS
             </Link>
           </div>
