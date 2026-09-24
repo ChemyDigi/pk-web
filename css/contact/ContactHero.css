@@ -1,0 +1,441 @@
+/* ==========================================================================
+   Contact Hero Section
+   Matches reference: Pradeep with chessboard on left fading into black,
+   eyebrow, headline, and rounded pill dark inputs on right.
+   ========================================================================== */
+
+.contact-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: -6rem; /* Offset layout pt-24 */
+  background-color: #08080a;
+  color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .contact-hero-section {
+    margin-top: -7rem; /* Offset layout pt-28 */
+  }
+}
+
+/* ==========================================================================
+   Background Image & Overlays
+   Left side container showing Pradeep & chessboard, fading to pitch black
+   ========================================================================== */
+
+.contact-hero-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 1024px) {
+  .contact-hero-bg-container {
+    top: 2rem;
+    height: calc(100% - 2rem);
+    width: 58vw;
+    max-width: 860px;
+  }
+}
+
+.contact-hero-bg-image {
+  object-fit: contain;
+  object-position: left bottom;
+  filter: brightness(0.96) contrast(1.04);
+}
+
+/* Horizontal fade: dissolves the grey studio backdrop into pure #08080a */
+.contact-hero-overlay-gradient-h {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(8, 8, 10, 0) 0%,
+    rgba(8, 8, 10, 0) 30%,
+    rgba(8, 8, 10, 0.35) 50%,
+    rgba(8, 8, 10, 0.88) 72%,
+    #08080a 88%,
+    #08080a 100%
+  );
+}
+
+/* Vertical fade: subtle transitions at top and bottom */
+.contact-hero-overlay-gradient-v {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 8, 10, 0.4) 0%,
+    transparent 12%,
+    transparent 88%,
+    rgba(8, 8, 10, 0.5) 96%,
+    #08080a 100%
+  );
+}
+
+/* Mobile & Tablet adjustments */
+@media (max-width: 1023px) {
+  .contact-hero-bg-image {
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.35;
+  }
+
+  .contact-hero-overlay-gradient-h {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 8, 10, 0.4) 0%,
+      rgba(8, 8, 10, 0.85) 35%,
+      #08080a 65%,
+      #08080a 100%
+    );
+  }
+}
+
+/* ==========================================================================
+   Content Grid & Layout
+   ========================================================================== */
+
+.contact-hero-content-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 88rem;
+  margin: 0 auto;
+  padding: 8rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .contact-hero-content-container {
+    padding: 8.5rem 2rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-hero-content-container {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 2.5rem;
+    padding: 6.5rem 2.5rem 4rem;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 1280px) {
+  .contact-hero-content-container {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3.5rem;
+    padding: 6.5rem 3.5rem 4rem;
+  }
+}
+
+/* Left spacer - reveals Pradeep and chess pieces */
+.contact-hero-visual-col {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .contact-hero-visual-col {
+    display: block;
+    height: 100%;
+    min-height: 480px;
+    pointer-events: none;
+  }
+}
+
+/* Right Form Column */
+.contact-hero-form-col {
+  width: 100%;
+  max-width: 35rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .contact-hero-form-col {
+    margin: 0;
+  }
+}
+
+/* Eyebrow Badge */
+.contact-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.9rem;
+}
+
+.contact-hero-eyebrow-line {
+  display: block;
+  width: 1.85rem;
+  height: 1.5px;
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.contact-hero-eyebrow-text {
+  font-family: var(--font-avenir), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: rgba(228, 228, 231, 0.8);
+}
+
+/* Headline */
+.contact-hero-heading {
+  font-family: var(--font-avenir), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.625rem;
+  line-height: 1.24;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 0 0 1.75rem 0;
+  max-width: 32rem;
+}
+
+@media (min-width: 640px) {
+  .contact-hero-heading {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .contact-hero-heading {
+    font-size: 2.15rem;
+    max-width: 33.5rem;
+  }
+}
+
+/* ==========================================================================
+   Form Elements
+   ========================================================================== */
+
+.contact-hero-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* 2-Column Row for First Name + Mobile Number */
+.contact-hero-form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .contact-hero-form-row-2col {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.contact-hero-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contact-hero-label {
+  font-family: var(--font-avenir), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+/* Pill Input */
+.contact-hero-input {
+  width: 100%;
+  height: 2.65rem;
+  padding: 0 1.25rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact-hero-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.8125rem;
+}
+
+.contact-hero-input:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.contact-hero-input:focus {
+  border-color: rgba(255, 255, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+
+/* Textarea Message Box */
+.contact-hero-textarea {
+  width: 100%;
+  height: 7.75rem;
+  min-height: 7.75rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-family: inherit;
+  resize: none;
+  transition: all 0.25s ease;
+  outline: none;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.contact-hero-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.8125rem;
+}
+
+.contact-hero-textarea:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.contact-hero-textarea:focus {
+  border-color: rgba(255, 255, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+
+/* Submit Action Container */
+.contact-hero-submit-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+/* White Pill Submit Button */
+.contact-hero-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #08080a;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 3.25rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  font-style: normal;
+}
+
+.contact-hero-submit-btn:hover {
+  background-color: #f1f1f5;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(255, 255, 255, 0.25), 0 10px 12px -5px rgba(0, 0, 0, 0.6);
+}
+
+.contact-hero-submit-btn:active {
+  transform: translateY(0);
+}
+
+.contact-hero-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success Feedback State */
+.contact-hero-success-box {
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-hero-success-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  color: #08080a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.contact-hero-success-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.contact-hero-success-desc {
+  font-size: 0.8125rem;
+  color: rgba(228, 228, 231, 0.75);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 24rem;
+}
+
+.contact-hero-reset-btn {
+  margin-top: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-hero-reset-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.6);
+}
