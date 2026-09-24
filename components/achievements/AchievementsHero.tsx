@@ -1,18 +1,61 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
+import "@/css/achievements/AchievementsHero.css";
 
 export default function AchievementsHero() {
+  const handleScrollDown = () => {
+    if (typeof window !== "undefined") {
+      const target = document.getElementById("achievements-content");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollBy({ top: window.innerHeight * 0.9, behavior: "smooth" });
+      }
+    }
+  };
+
   return (
-    <section className="py-24 text-center">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700 ring-1 ring-inset ring-emerald-700/10 dark:bg-emerald-950/50 dark:text-emerald-300">
-          Track Record & Milestones
-        </span>
-        <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl dark:text-white">
-          Our Milestones & Key Achievements
+    <section className="achievements-hero-section">
+      {/* Background Image & Vignette Overlays */}
+      <div className="achievements-hero-bg-container">
+        <Image
+          src="/images/achievements/hero.jpg"
+          alt="Memorable Captures and Achievements"
+          fill
+          priority
+          quality={95}
+          className="achievements-hero-bg-image"
+        />
+        <div className="achievements-hero-overlay-tint" />
+        <div className="achievements-hero-overlay-top" />
+        <div className="achievements-hero-overlay-bottom" />
+        <div className="achievements-hero-overlay-vignette" />
+      </div>
+
+      {/* Hero Content */}
+      <div className="achievements-hero-content">
+        <div className="achievements-hero-badge">
+          <span className="achievements-hero-badge-line" aria-hidden="true" />
+          <span className="achievements-hero-badge-text">Memorable Captures</span>
+        </div>
+
+        <h1 className="achievements-hero-title">
+          A glimpse into meaningful <br className="achievements-hero-br" />
+          connections and achievements
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-          A showcase of completed projects, industry recognitions, and measurable impacts we have made for our partners and clients.
-        </p>
+
+        <div className="achievements-hero-cta">
+          <button
+            type="button"
+            onClick={handleScrollDown}
+            className="achievements-hero-btn"
+            id="explore-achievements-btn"
+          >
+            EXPLORE ACHIEVEMENTS
+          </button>
+        </div>
       </div>
     </section>
   );
