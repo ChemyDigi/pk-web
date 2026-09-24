@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "@/css/home/HomeAbout.css";
 
 export default function HomeAbout() {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   return (
     <section id="about-intro" className="home-about-section">
       <div className="home-about-container">
@@ -84,43 +82,17 @@ export default function HomeAbout() {
         {/* Bottom Full-Width Video Box */}
         <div className="home-about-video-wrapper">
           <div className="home-about-video-card">
-            
-            {/* Video Placeholder Background */}
-            <div className="home-about-video-bg">
-              {/* Ready for <video> or <iframe> when user uploads */}
-            </div>
-
-            {/* Top-Left Diagonal Corner Badge with PK Monogram */}
-            <div className="home-about-corner-badge">
-              <Image
-                src="/images/header/Pradeep-Liyanage-Logo-2.png"
-                alt="PK Monogram"
-                width={40}
-                height={48}
-                className="home-about-corner-logo"
-              />
-            </div>
-
-            {/* Center Play Button */}
-            <button
-              type="button"
-              onClick={() => setIsPlaying(!isPlaying)}
-              className="home-about-play-btn"
-              aria-label="Play video"
+            <video
+              className="home-about-video-player"
+              src="https://res.cloudinary.com/dufcussip/video/upload/v1790240767/Pradeep_Liyanage_Anniversary_Video_rvsdx5.mp4"
+              poster="https://res.cloudinary.com/dufcussip/video/upload/v1790240767/Pradeep_Liyanage_Anniversary_Video_rvsdx5.jpg"
+              controls
+              playsInline
+              preload="metadata"
+              aria-label="Pradeep Liyanage Showreel Video"
             >
-              <svg
-                className="home-about-play-icon"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-
-            {/* Bottom Subtitle */}
-            <div className="home-about-video-subtitle">
-              <p>You should prepare for your future.</p>
-            </div>
-
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
 

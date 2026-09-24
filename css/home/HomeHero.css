@@ -431,21 +431,21 @@
 .hero-mobile-portrait {
   position: relative;
   width: 100%;
-  max-width: 22.5rem; /* 360px */
+  max-width: 26rem;
   display: flex;
   justify-content: center;
 }
 
 @media (min-width: 640px) {
   .hero-mobile-portrait {
-    max-width: 28rem; /* 448px */
+    max-width: 32rem;
   }
 }
 
 .hero-mobile-img {
   height: auto;
   width: 100%;
-  max-height: 58vh;
+  max-height: 66vh;
   object-fit: contain;
   object-position: bottom;
   filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.8));
@@ -453,7 +453,7 @@
 
 @media (min-width: 640px) {
   .hero-mobile-img {
-    max-height: 68vh;
+    max-height: 76vh;
   }
 }
 
@@ -536,27 +536,27 @@
 }
 
 .hero-desktop-img {
-  height: 78vh;
-  max-height: 740px;
+  height: 85vh;
+  max-height: 820px;
   width: auto;
   object-fit: contain;
   object-position: bottom;
   filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.9));
-  mask-image: linear-gradient(to bottom, #000 0%, #000 82%, transparent 98%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 82%, transparent 98%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 85%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 85%, transparent 98%);
 }
 
 @media (min-width: 1280px) {
   .hero-desktop-img {
-    height: 82vh;
-    max-height: 800px;
+    height: 89vh;
+    max-height: 890px;
   }
 }
 
 @media (min-width: 1536px) {
   .hero-desktop-img {
-    height: 86vh;
-    max-height: 860px;
+    height: 93vh;
+    max-height: 960px;
   }
 }
 
