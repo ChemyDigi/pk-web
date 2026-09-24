@@ -5,20 +5,8 @@
 .services-list-section {
   position: relative;
   background-color: #08080a;
-  padding: 6rem 0 5rem;
+  padding: 5rem 0 5.5rem;
   overflow: hidden;
-}
-
-/* Subtle grid texture */
-.services-list-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
 }
 
 .services-list-container {
@@ -41,23 +29,24 @@
   }
 }
 
-/* Section header */
+/* ── Section header ─────────────────────────────────────────────────── */
+
 .services-list-header {
-  margin-bottom: 3.5rem;
+  margin-bottom: 3.25rem;
 }
 
 .services-list-badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.6rem;
+  margin-bottom: 0.875rem;
 }
 
 .services-list-badge-line {
   display: block;
-  width: 1.75rem;
+  width: 2rem;
   height: 1px;
-  background-color: rgba(212, 212, 216, 0.4);
+  background-color: rgba(212, 212, 216, 0.35);
 }
 
 .services-list-badge-text {
@@ -65,148 +54,112 @@
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(212, 212, 216, 0.65);
+  color: rgba(212, 212, 216, 0.6);
 }
 
 .services-list-title {
-  font-size: 1.875rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #ffffff;
   line-height: 1.15;
+  max-width: 30rem;
 }
 
 @media (min-width: 640px) {
-  .services-list-title {
-    font-size: 2.25rem;
-  }
-}
-
-@media (min-width: 1024px) {
   .services-list-title {
     font-size: 2.5rem;
   }
 }
 
-/* Grid */
+@media (min-width: 1024px) {
+  .services-list-title {
+    font-size: 2.75rem;
+    max-width: 36rem;
+  }
+}
+
+/* ── Grid ──────────────────────────────────────────────────────────── */
+
 .services-list-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5px;
-  border: 1.5px solid rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .services-list-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Card */
-.services-list-card {
-  position: relative;
-  padding: 2.5rem 2rem;
-  background: rgba(255,255,255,0.02);
-  border: 1.5px solid rgba(255,255,255,0.07);
-  overflow: hidden;
-  transition: background 0.35s ease;
-  cursor: default;
-}
-
-.services-list-card:hover {
-  background: rgba(255,255,255,0.045);
-}
-
-/* Corner number accent */
-.services-list-card-num {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.75rem;
-  font-family: var(--font-numbers);
-  font-size: 3.5rem;
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(255,255,255,0.04);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* Icon */
-.services-list-card-icon {
-  width: 2.25rem;
-  height: 2.25rem;
-  margin-bottom: 1.25rem;
-  color: rgba(212,212,216,0.6);
-}
-
-/* Title */
-.services-list-card-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #ffffff;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.75rem;
-  line-height: 1.3;
-}
-
-@media (min-width: 640px) {
-  .services-list-card-title {
-    font-size: 1.125rem;
+@media (min-width: 1024px) {
+  .services-list-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Description */
-.services-list-card-desc {
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: rgba(212,212,216,0.6);
-  font-weight: 300;
-  margin-bottom: 1.5rem;
+/* ── Cell ──────────────────────────────────────────────────────────── */
+
+.services-list-cell {
+  position: relative;
+  padding: 2.5rem 2rem 2.5rem 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  transition: background 0.3s ease;
 }
 
-/* Features */
-.services-list-card-features {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+@media (min-width: 1024px) {
+  .services-list-cell {
+    padding: 2.75rem 2.25rem;
+  }
 }
 
-.services-list-card-feature {
-  display: flex;
+.services-list-cell:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+/* ── Icon box ──────────────────────────────────────────────────────── */
+
+.services-list-icon-box {
+  display: inline-flex;
   align-items: center;
-  gap: 0.625rem;
-  font-size: 0.8rem;
-  color: rgba(212,212,216,0.55);
-  font-weight: 300;
-}
-
-.services-list-card-feature-dot {
-  width: 3px;
-  height: 3px;
-  border-radius: 9999px;
-  background-color: rgba(212,212,216,0.5);
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 1.5rem;
   flex-shrink: 0;
 }
 
-/* Hover line at top of card */
-.services-list-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-  opacity: 0;
-  transition: opacity 0.35s ease;
+.services-list-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgba(212, 212, 216, 0.75);
 }
 
-.services-list-card:hover::after {
-  opacity: 1;
+/* ── Text ──────────────────────────────────────────────────────────── */
+
+.services-list-cell-title {
+  font-size: 0.975rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .services-list-cell-title {
+    font-size: 1rem;
+  }
+}
+
+.services-list-cell-desc {
+  font-size: 0.825rem;
+  line-height: 1.7;
+  color: rgba(212, 212, 216, 0.5);
+  font-weight: 300;
 }
