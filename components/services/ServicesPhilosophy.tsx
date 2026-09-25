@@ -23,7 +23,6 @@ export default function ServicesPhilosophy() {
         <div className="services-philosophy-badge">
           <span className="services-philosophy-badge-line" aria-hidden="true" />
           <span className="services-philosophy-badge-text">My Philosophy</span>
-          <span className="services-philosophy-badge-line" aria-hidden="true" />
         </div>
 
         {/* Heading */}

@@ -114,46 +114,50 @@
 .services-hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
+  justify-content: center;
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
 }
 
 .services-hero-badge-line {
-  display: block;
-  width: 1.75rem;
-  height: 1px;
-  background-color: rgba(212, 212, 216, 0.55);
+  display: inline-block;
+  width: 1.75rem; /* 28px */
+  height: 1.5px;
+  background-color: #a1a1aa;
 }
 
 .services-hero-badge-text {
-  font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(212, 212, 216, 0.8);
+  font-size: 0.78125rem; /* 12.5px */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #d4d4d8;
+  text-transform: none;
 }
 
 @media (min-width: 640px) {
   .services-hero-badge-text {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
+    font-size: 0.8125rem;
   }
 }
 
 /* Heading */
 .services-hero-heading {
   font-size: 2rem;
-  line-height: 1.13;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  line-height: 1.22;
+  font-weight: 400;
+  letter-spacing: -0.015em;
   color: #ffffff;
-  max-width: 44rem;
+  max-width: 48rem;
   margin: 0 auto;
+  font-family: var(--font-avenir);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 @media (min-width: 640px) {
   .services-hero-heading {
     font-size: 2.625rem;
+    line-height: 1.2;
   }
 }
 
@@ -165,7 +169,7 @@
 
 @media (min-width: 1024px) {
   .services-hero-heading {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
     max-width: 52rem;
   }
 }
