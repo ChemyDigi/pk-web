@@ -23,21 +23,23 @@ export default function ServicesHero() {
       {/* Content */}
       <div className="services-hero-content">
         {/* Eyebrow */}
-        <div className="services-hero-badge">
-          <span className="services-hero-badge-line" aria-hidden="true" />
-          <span className="services-hero-badge-text">Protection Built Around Your Life</span>
-        </div>
+        <p className="services-hero-eyebrow">
+          Insurance Built Around Real Life.
+        </p>
 
         {/* Heading */}
         <h1 className="services-hero-heading">
-          Insurance isn&apos;t about policies.<br />
-          It&apos;s about protecting what matters.
+          <span className="services-hero-heading-line">
+            Life insurance isn&apos;t tested when policies are signed.
+          </span>{" "}
+          <span className="services-hero-heading-line">
+            It&apos;s tested when life becomes uncertain.
+          </span>
         </h1>
 
         {/* Description */}
         <p className="services-hero-desc">
-          Comprehensive insurance solutions tailored for professionals, families, and communities —
-          designed to offer lasting financial security and genuine peace of mind.
+          Helping professionals, families, and member communities build financial protection designed around their needs, priorities, and changing stages of life.
         </p>
 
         {/* CTAs */}
@@ -45,16 +47,7 @@ export default function ServicesHero() {
           <Link href="/contact" className="services-hero-btn-primary">
             Talk About Your Protection
           </Link>
-          <a href="#services-list" className="services-hero-btn-outline">
-            Explore Services
-          </a>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="services-hero-scroll" aria-hidden="true">
-        <div className="services-hero-scroll-line" />
-        <span className="services-hero-scroll-text">Scroll</span>
       </div>
     </section>
   );
