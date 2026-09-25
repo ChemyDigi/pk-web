@@ -26,7 +26,6 @@ export default function ServicesHero() {
         <div className="services-hero-badge">
           <span className="services-hero-badge-line" aria-hidden="true" />
           <span className="services-hero-badge-text">Protection Built Around Your Life</span>
-          <span className="services-hero-badge-line" aria-hidden="true" />
         </div>
 
         {/* Heading */}

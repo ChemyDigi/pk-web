@@ -137,7 +137,7 @@ export default function Footer() {
               Achievements
             </Link>
             <Link href="/services" className="hover:text-white transition-colors duration-200">
-              Services
+              Affinity
             </Link>
             <Link href="/contact" className="hover:text-white transition-colors duration-200">
               Contact
