@@ -63,11 +63,11 @@ export default function AboutHero() {
 
   return (
     <section className="about-hero-section">
-      {/* Background Architectural Skyscraper Image */}
+      {/* Background Hero Image */}
       <div className="about-hero-bg-container">
         <Image
-          src="/images/about/d783b4f4ce3ce89e9dbbc5dc86d6058bc9b3642f.jpg"
-          alt="Architectural skyscraper facade"
+          src="/images/about/hero.png"
+          alt="About hero background"
           fill
           priority
           quality={95}
