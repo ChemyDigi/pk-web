@@ -139,24 +139,11 @@ export default function AboutTimeline() {
                   else if (diff === 1) stateClass = "about-timeline-year-next";
                   else if (diff < -1) stateClass = "about-timeline-year-past";
 
-                  const isClickable = diff === -1 || diff === 1;
-
                   return (
                     <div
                       key={m.year}
-                      className={`about-timeline-year-item ${stateClass} ${
-                        isClickable ? "about-timeline-year-interactive" : ""
-                      }`}
-                      onClick={() => setActiveIndex(idx)}
-                      role={isClickable ? "button" : undefined}
-                      tabIndex={isClickable ? 0 : -1}
+                      className={`about-timeline-year-item ${stateClass}`}
                       aria-label={`Milestone year ${m.year}`}
-                      onKeyDown={(e) => {
-                        if (isClickable && (e.key === "Enter" || e.key === " ")) {
-                          e.preventDefault();
-                          setActiveIndex(idx);
-                        }
-                      }}
                     >
                       <span className="about-timeline-year-text">{m.year}</span>
                     </div>
