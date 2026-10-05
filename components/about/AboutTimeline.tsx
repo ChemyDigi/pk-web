@@ -118,9 +118,19 @@ export default function AboutTimeline() {
               <div
                 className="about-timeline-roller-track"
                 style={{
-                  transform: `translate3d(0, calc((1 - ${activeIndex}) * var(--timeline-slot-h)), 0)`,
+                  transform: `translate3d(0, calc(-${activeIndex} * var(--timeline-slot-h)), 0)`,
                 }}
               >
+                {/* Ghost Year 2010 (Visual context at top when 2011 is active) */}
+                <div
+                  className={`about-timeline-year-item ${
+                    activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
+                  }`}
+                  aria-hidden="true"
+                >
+                  <span className="about-timeline-year-text">2010</span>
+                </div>
+
                 {milestones.map((m, idx) => {
                   const diff = idx - activeIndex;
                   let stateClass = "about-timeline-year-future";
