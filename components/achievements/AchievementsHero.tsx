@@ -31,6 +31,7 @@ export default function AchievementsHero() {
         <div className="achievements-hero-overlay-tint" />
         <div className="achievements-hero-overlay-top" />
         <div className="achievements-hero-overlay-bottom" />
+        <div className="achievements-hero-overlay-sides" />
         <div className="achievements-hero-overlay-vignette" />
       </div>
 
