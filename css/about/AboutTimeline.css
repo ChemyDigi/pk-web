@@ -54,12 +54,12 @@
    ========================================================================== */
 
 .about-timeline-header {
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 640px) {
   .about-timeline-header {
-    margin-bottom: 4.5rem;
+    margin-bottom: 3.5rem;
   }
 }
 
@@ -91,12 +91,18 @@
 }
 
 .about-timeline-heading {
-  font-size: 1.875rem; /* 30px */
+  font-size: 1.5rem; /* 24px on mobile */
   line-height: 1.25;
   font-weight: 400;
   color: #171717;
   letter-spacing: -0.015em;
   margin: 0;
+}
+
+@media (min-width: 480px) {
+  .about-timeline-heading {
+    font-size: 1.75rem; /* 28px */
+  }
 }
 
 @media (min-width: 640px) {
@@ -130,7 +136,13 @@
 .about-timeline-grid {
   display: flex;
   flex-direction: column;
-  row-gap: 3rem;
+  row-gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-timeline-grid {
+    row-gap: 3rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -148,18 +160,24 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  --timeline-slot-h: 5.5rem; /* ~88px mobile */
+  --timeline-slot-h: 3.25rem; /* ~52px mobile */
+}
+
+@media (min-width: 480px) {
+  :root {
+    --timeline-slot-h: 4.25rem; /* ~68px */
+  }
 }
 
 @media (min-width: 640px) {
   :root {
-    --timeline-slot-h: 7.5rem; /* ~120px tablet */
+    --timeline-slot-h: 6.5rem; /* ~104px tablet */
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --timeline-slot-h: 10rem; /* ~160px desktop */
+    --timeline-slot-h: 9.5rem; /* ~152px desktop */
   }
 }
 
@@ -232,7 +250,7 @@
 
 /* Active Year (Massive Solid Black) */
 .about-timeline-year-active {
-  font-size: 6.5rem; /* ~104px */
+  font-size: 3.75rem; /* ~60px on mobile */
   font-weight: 900;
   color: #171717;
   opacity: 1;
@@ -246,29 +264,36 @@
   background: none;
 }
 
+@media (min-width: 480px) {
+  .about-timeline-year-active {
+    font-size: 4.75rem;
+  }
+}
+
 @media (min-width: 640px) {
   .about-timeline-year-active {
-    font-size: 9rem; /* ~144px */
+    font-size: 7.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .about-timeline-year-active {
-    font-size: 11.5rem; /* ~184px */
+    font-size: 11rem;
   }
 }
 
 @media (min-width: 1280px) {
   .about-timeline-year-active {
-    font-size: 13rem; /* ~208px */
+    font-size: 13rem;
   }
 }
 
-/* Previous Year (Top Year, e.g. 2012 when 2015 is active) */
+/* Previous Year (Top Year, e.g. 2010 when 2011 is active) */
 .about-timeline-year-prev {
-  font-size: 6.5rem;
+  font-size: 3.75rem;
   font-weight: 800;
   transform: scale(0.68);
+  cursor: pointer;
 }
 
 .about-timeline-year-prev .about-timeline-year-text {
@@ -283,15 +308,21 @@
   -webkit-text-fill-color: transparent;
 }
 
+@media (min-width: 480px) {
+  .about-timeline-year-prev {
+    font-size: 4.75rem;
+  }
+}
+
 @media (min-width: 640px) {
   .about-timeline-year-prev {
-    font-size: 9rem;
+    font-size: 7.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .about-timeline-year-prev {
-    font-size: 11.5rem;
+    font-size: 11rem;
   }
 }
 
@@ -301,11 +332,12 @@
   }
 }
 
-/* Next Year (Bottom Year, e.g. 2018 when 2015 is active) */
+/* Next Year (Bottom Year, e.g. 2012 when 2011 is active) */
 .about-timeline-year-next {
-  font-size: 6.5rem;
+  font-size: 3.75rem;
   font-weight: 800;
   transform: scale(0.68);
+  cursor: pointer;
 }
 
 .about-timeline-year-next .about-timeline-year-text {
@@ -320,15 +352,21 @@
   -webkit-text-fill-color: transparent;
 }
 
+@media (min-width: 480px) {
+  .about-timeline-year-next {
+    font-size: 4.75rem;
+  }
+}
+
 @media (min-width: 640px) {
   .about-timeline-year-next {
-    font-size: 9rem;
+    font-size: 7.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .about-timeline-year-next {
-    font-size: 11.5rem;
+    font-size: 11rem;
   }
 }
 
@@ -341,24 +379,31 @@
 /* Past / Future Hidden Years */
 .about-timeline-year-past,
 .about-timeline-year-future {
-  font-size: 6.5rem;
+  font-size: 3.75rem;
   font-weight: 800;
   opacity: 0;
   transform: scale(0.5);
   pointer-events: none;
 }
 
+@media (min-width: 480px) {
+  .about-timeline-year-past,
+  .about-timeline-year-future {
+    font-size: 4.75rem;
+  }
+}
+
 @media (min-width: 640px) {
   .about-timeline-year-past,
   .about-timeline-year-future {
-    font-size: 9rem;
+    font-size: 7.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .about-timeline-year-past,
   .about-timeline-year-future {
-    font-size: 11.5rem;
+    font-size: 11rem;
   }
 }
 
@@ -470,23 +515,30 @@
 }
 
 .about-timeline-title {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.25rem; /* 20px on mobile */
   font-weight: 700;
   color: #111827;
   line-height: 1.25;
   letter-spacing: -0.015em;
-  margin: 0 0 1.25rem 0;
+  margin: 0 0 0.75rem 0;
 }
 
 @media (min-width: 640px) {
   .about-timeline-title {
-    font-size: 1.75rem; /* 28px */
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-title {
+    font-size: 1.75rem;
   }
 }
 
 .about-timeline-desc {
-  font-size: 0.875rem; /* 14px */
-  line-height: 1.68;
+  font-size: 0.8125rem; /* 13px on mobile */
+  line-height: 1.65;
   color: #4b5563;
   font-weight: 300;
   margin: 0;
@@ -495,7 +547,7 @@
 
 @media (min-width: 640px) {
   .about-timeline-desc {
-    font-size: 0.9375rem; /* 15px */
+    font-size: 0.9375rem;
     line-height: 1.7;
   }
 }
@@ -507,7 +559,7 @@
 
 /* Navigation Buttons (Up & Down Steppers) */
 .about-timeline-nav-buttons {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -520,8 +572,8 @@
 }
 
 .about-timeline-nav-btn {
-  width: 2.75rem; /* 44px */
-  height: 2.75rem;
+  width: 2.5rem; /* 40px on mobile */
+  height: 2.5rem;
   border-radius: 9999px;
   border: 1px solid #71717a;
   background-color: transparent;
@@ -531,6 +583,13 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .about-timeline-nav-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
 }
 
 .about-timeline-nav-btn:hover:not(:disabled) {
@@ -558,3 +617,13 @@
   border-color: #d4d4d8;
   color: #a1a1aa;
 }
+
+.about-timeline-counter {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #71717a;
+  margin-left: 0.5rem;
+  user-select: none;
+}
+

@@ -78,6 +78,7 @@ const milestones: Milestone[] = [
 export default function AboutTimeline() {
   // Default to index 0 ("2011") for chronological start
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStartY, setTouchStartY] = useState<number | null>(null);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev > 0 ? prev - 1 : 0));
@@ -85,6 +86,22 @@ export default function AboutTimeline() {
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev < milestones.length - 1 ? prev + 1 : prev));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartY(e.touches[0].clientY);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartY === null) return;
+    const touchEndY = e.changedTouches[0].clientY;
+    const diff = touchStartY - touchEndY;
+    if (diff > 35) {
+      handleNext();
+    } else if (diff < -35) {
+      handlePrev();
+    }
+    setTouchStartY(null);
   };
 
   const progressRatio = activeIndex / (milestones.length - 1);
@@ -114,7 +131,11 @@ export default function AboutTimeline() {
           
           {/* Left Column: Vertical Year Roller */}
           <div className="about-timeline-years-col">
-            <div className="about-timeline-roller-viewport">
+            <div
+              className="about-timeline-roller-viewport"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
                 className="about-timeline-roller-track"
                 style={{
@@ -142,8 +163,16 @@ export default function AboutTimeline() {
                   return (
                     <div
                       key={m.year}
+                      onClick={() => setActiveIndex(idx)}
                       className={`about-timeline-year-item ${stateClass}`}
                       aria-label={`Milestone year ${m.year}`}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          setActiveIndex(idx);
+                        }
+                      }}
                     >
                       <span className="about-timeline-year-text">{m.year}</span>
                     </div>
@@ -232,6 +261,11 @@ export default function AboutTimeline() {
                   <path d="M12 5v14M19 12l-7 7-7-7" />
                 </svg>
               </button>
+
+              {/* Progress counter pill */}
+              <span className="about-timeline-counter">
+                {String(activeIndex + 1).padStart(2, "0")} / {String(milestones.length).padStart(2, "0")}
+              </span>
             </div>
           </div>
 
