@@ -161,7 +161,7 @@ export default function ServicesList() {
         <div className="services-list-header">
           <p className="services-list-eyebrow">MY SERVICES</p>
           <h2 className="services-list-title">
-            Comprehensive insurance solutions designed to support you
+            Comprehensive insurance solutions designed to support you{" "}
             <br className="services-title-br" />
             and your loved ones today, tomorrow, and for what&apos;s ahead.
           </h2>
