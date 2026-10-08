@@ -160,6 +160,8 @@
   line-height: 1.7;
   color: rgba(212, 212, 216, 0.65);
   font-weight: 300;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 @media (min-width: 640px) {
