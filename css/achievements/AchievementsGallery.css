@@ -2,12 +2,17 @@
    Achievements Gallery / Masonry Grid Section
    ========================================================================== */
 
+#achievements-content,
+.achievements-gallery-section {
+  scroll-margin-top: 5rem;
+}
+
 .achievements-gallery-section {
   position: relative;
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  padding: 4rem 1.25rem 6rem;
+  padding: 1.5rem 1rem 4rem;
   box-sizing: border-box;
 }
 
@@ -30,41 +35,92 @@
 }
 
 /* ==========================================================================
-   3-Column Staggered Masonry Layout
+   Masonry Grid Layout (2-column on mobile, 3-column staggered on desktop)
    ========================================================================== */
 
-.achievements-gallery-grid {
+/* Mobile view: 2 independent vertical columns with varied height cards */
+.achievements-gallery-grid-mobile {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
   width: 100%;
 }
 
-@media (min-width: 640px) {
-  .achievements-gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.35rem;
-  }
+.achievements-gallery-mobile-bottom {
+  grid-column: 1 / -1;
+  width: 100%;
 }
 
-@media (min-width: 960px) {
-  .achievements-gallery-grid {
-    /* Exact column proportions matching the design: side columns 1fr, center column 1.26fr */
-    grid-template-columns: 1fr 1.26fr 1fr;
-    gap: 1.35rem;
-  }
+.achievements-gallery-grid-desktop {
+  display: none;
 }
 
 .achievements-gallery-col {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.75rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
+  .achievements-gallery-grid-mobile {
+    display: none;
+  }
+
+  .achievements-gallery-grid-desktop {
+    display: grid;
+    /* Exactly 3 columns matching the 3 desktop column elements */
+    grid-template-columns: 1fr 1.26fr 1fr;
+    gap: 1.35rem;
+    width: 100%;
+  }
+
   .achievements-gallery-col {
     gap: 1.35rem;
   }
+}
+
+/* ==========================================================================
+   Mobile Aspect Ratios (Varied Sizes / Staggered Dynamic Masonry)
+   ========================================================================== */
+
+.aspect-m-tall-1 {
+  aspect-ratio: 1 / 1.34; /* Tall portrait for main certificate photo */
+}
+
+.aspect-m-short-1 {
+  aspect-ratio: 1 / 0.88; /* Compact landscape */
+}
+
+.aspect-m-tall-2 {
+  aspect-ratio: 1 / 1.25; /* Medium-tall portrait */
+}
+
+.aspect-m-short-2 {
+  aspect-ratio: 1 / 0.94; /* Squarish compact */
+}
+
+.aspect-m-medium-1 {
+  aspect-ratio: 1 / 1.14; /* Balanced medium */
+}
+
+.aspect-m-short-3 {
+  aspect-ratio: 1 / 0.92; /* Compact square - immediately offsets right col from left col! */
+}
+
+.aspect-m-tall-3 {
+  aspect-ratio: 1 / 1.36; /* Tall portrait */
+}
+
+.aspect-m-medium-2 {
+  aspect-ratio: 1 / 1.05; /* Near-square */
+}
+
+.aspect-m-tall-4 {
+  aspect-ratio: 1 / 1.08; /* Perfectly balances Column 2 with Column 1 */
+}
+
+.aspect-m-full {
+  aspect-ratio: 2 / 1.1; /* Full width feature card at bottom of mobile */
 }
 
 /* ==========================================================================
@@ -74,14 +130,14 @@
 .achievements-card {
   position: relative;
   width: 100%;
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .achievements-card {
     border-radius: 16px;
   }
@@ -153,11 +209,11 @@
 /* Floating Expand / External Action Button */
 .achievements-card-action-btn {
   position: absolute;
-  bottom: 0.875rem;
-  right: 0.875rem;
-  width: 2.125rem; /* 34px */
-  height: 2.125rem;
-  border-radius: 8px;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  width: 1.75rem; /* 28px on mobile */
+  height: 1.75rem;
+  border-radius: 6px;
   background-color: rgba(18, 18, 20, 0.72);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -179,52 +235,69 @@
 }
 
 .achievements-card-action-btn svg {
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
   stroke: currentColor;
 }
 
+@media (min-width: 768px) {
+  .achievements-card-action-btn {
+    bottom: 0.875rem;
+    right: 0.875rem;
+    width: 2.125rem; /* 34px on desktop */
+    height: 2.125rem;
+    border-radius: 8px;
+  }
+
+  .achievements-card-action-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
 /* ==========================================================================
-   Precise Aspect Ratios matching mockup
+   Precise Aspect Ratios matching mockup (Desktop & Tablet)
    ========================================================================== */
 
-/* Column 1 */
-.aspect-col1-item1 {
-  aspect-ratio: 178 / 256;
-}
+@media (min-width: 768px) {
+  /* Column 1 */
+  .aspect-col1-item1 {
+    aspect-ratio: 178 / 256;
+  }
 
-.aspect-col1-item2 {
-  aspect-ratio: 178 / 219;
-}
+  .aspect-col1-item2 {
+    aspect-ratio: 178 / 219;
+  }
 
-.aspect-col1-item3 {
-  aspect-ratio: 178 / 154;
-}
+  .aspect-col1-item3 {
+    aspect-ratio: 178 / 154;
+  }
 
-/* Column 2 */
-.aspect-col2-item1 {
-  aspect-ratio: 225 / 167;
-}
+  /* Column 2 */
+  .aspect-col2-item1 {
+    aspect-ratio: 225 / 167;
+  }
 
-.aspect-col2-item2 {
-  aspect-ratio: 225 / 258;
-}
+  .aspect-col2-item2 {
+    aspect-ratio: 225 / 258;
+  }
 
-.aspect-col2-item3 {
-  aspect-ratio: 225 / 208;
-}
+  .aspect-col2-item3 {
+    aspect-ratio: 225 / 208;
+  }
 
-/* Column 3 */
-.aspect-col3-item1 {
-  aspect-ratio: 180 / 219;
-}
+  /* Column 3 */
+  .aspect-col3-item1 {
+    aspect-ratio: 180 / 219;
+  }
 
-.aspect-col3-item2 {
-  aspect-ratio: 180 / 225;
-}
+  .aspect-col3-item2 {
+    aspect-ratio: 180 / 225;
+  }
 
-.aspect-col3-item3 {
-  aspect-ratio: 180 / 186;
+  .aspect-col3-item3 {
+    aspect-ratio: 180 / 186;
+  }
 }
 
 /* ==========================================================================

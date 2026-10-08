@@ -369,40 +369,6 @@
   }
 }
 
-.about-timeline-year-interactive {
-  cursor: pointer;
-}
-
-.about-timeline-year-prev.about-timeline-year-interactive:hover {
-  transform: scale(0.7) translateX(4px);
-}
-
-.about-timeline-year-prev.about-timeline-year-interactive:hover .about-timeline-year-text {
-  background: linear-gradient(
-    to top,
-    rgba(23, 23, 23, 0.75) 0%,
-    rgba(23, 23, 23, 0.45) 50%,
-    rgba(23, 23, 23, 0.15) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.about-timeline-year-next.about-timeline-year-interactive:hover {
-  transform: scale(0.7) translateX(4px);
-}
-
-.about-timeline-year-next.about-timeline-year-interactive:hover .about-timeline-year-text {
-  background: linear-gradient(
-    to bottom,
-    rgba(23, 23, 23, 0.75) 0%,
-    rgba(23, 23, 23, 0.45) 50%,
-    rgba(23, 23, 23, 0.15) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 /* --------------------------------------------------------------------------
    Middle Column: Vertical Progress Indicator Line
    -------------------------------------------------------------------------- */

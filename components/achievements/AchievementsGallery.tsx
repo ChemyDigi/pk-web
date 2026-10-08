@@ -34,11 +34,11 @@ export default function AchievementsGallery() {
     };
   }, [activeImage]);
 
-  // Column 1 items (Left)
-  const column1: GalleryItem[] = [
+  // Desktop Column 1 items (Left)
+  const desktopColumn1: GalleryItem[] = [
     {
       id: "col1-1",
-      image: "/images/achievements/certificate-1.png",
+      image: "/images/achievements/certificate-1.jpg",
       alt: "Pradeep Liyanage holding official industry achievement certificates",
       aspectClass: "aspect-col1-item1",
     },
@@ -52,8 +52,8 @@ export default function AchievementsGallery() {
     },
   ];
 
-  // Column 2 items (Center)
-  const column2: GalleryItem[] = [
+  // Desktop Column 2 items (Center)
+  const desktopColumn2: GalleryItem[] = [
     {
       id: "col2-1",
       aspectClass: "aspect-col2-item1",
@@ -68,8 +68,8 @@ export default function AchievementsGallery() {
     },
   ];
 
-  // Column 3 items (Right)
-  const column3: GalleryItem[] = [
+  // Desktop Column 3 items (Right)
+  const desktopColumn3: GalleryItem[] = [
     {
       id: "col3-1",
       aspectClass: "aspect-col3-item1",
@@ -83,6 +83,54 @@ export default function AchievementsGallery() {
       aspectClass: "aspect-col3-item3",
     },
   ];
+
+  // Mobile Column 1 items (Left - 4 items)
+  const mobileColumn1: GalleryItem[] = [
+    {
+      id: "m-col1-1",
+      image: "/images/achievements/certificate-1.jpg",
+      alt: "Pradeep Liyanage holding official industry achievement certificates",
+      aspectClass: "aspect-m-tall-1",
+    },
+    {
+      id: "m-col1-2",
+      aspectClass: "aspect-m-short-1",
+    },
+    {
+      id: "m-col1-3",
+      aspectClass: "aspect-m-tall-2",
+    },
+    {
+      id: "m-col1-4",
+      aspectClass: "aspect-m-short-2",
+    },
+  ];
+
+  // Mobile Column 2 items (Right - 4 items)
+  const mobileColumn2: GalleryItem[] = [
+    {
+      id: "m-col2-1",
+      aspectClass: "aspect-m-short-3",
+    },
+    {
+      id: "m-col2-2",
+      aspectClass: "aspect-m-tall-3",
+    },
+    {
+      id: "m-col2-3",
+      aspectClass: "aspect-m-medium-2",
+    },
+    {
+      id: "m-col2-4",
+      aspectClass: "aspect-m-tall-4",
+    },
+  ];
+
+  // Mobile Bottom Item (Full-width 9th card - spans both columns evenly)
+  const mobileBottomCard: GalleryItem = {
+    id: "m-bottom-1",
+    aspectClass: "aspect-m-full",
+  };
 
   const renderCard = (item: GalleryItem) => {
     if (item.image) {
@@ -104,7 +152,7 @@ export default function AchievementsGallery() {
             src={item.image}
             alt={item.alt || "Achievement"}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw"
+            sizes="(max-width: 640px) 50vw, 33vw"
             className="achievements-card-photo-img"
             priority
           />
@@ -150,20 +198,29 @@ export default function AchievementsGallery() {
   return (
     <section className="achievements-gallery-section" id="achievements-gallery">
       <div className="achievements-gallery-container">
-        <div className="achievements-gallery-grid">
-          {/* Column 1 */}
+        {/* Mobile View: 2 Staggered Columns + Full-Width Bottom Card */}
+        <div className="achievements-gallery-grid-mobile">
           <div className="achievements-gallery-col">
-            {column1.map(renderCard)}
+            {mobileColumn1.map(renderCard)}
           </div>
-
-          {/* Column 2 */}
           <div className="achievements-gallery-col">
-            {column2.map(renderCard)}
+            {mobileColumn2.map(renderCard)}
           </div>
+          <div className="achievements-gallery-mobile-bottom">
+            {renderCard(mobileBottomCard)}
+          </div>
+        </div>
 
-          {/* Column 3 */}
+        {/* Desktop View: 3 Columns matching Figma */}
+        <div className="achievements-gallery-grid-desktop">
           <div className="achievements-gallery-col">
-            {column3.map(renderCard)}
+            {desktopColumn1.map(renderCard)}
+          </div>
+          <div className="achievements-gallery-col">
+            {desktopColumn2.map(renderCard)}
+          </div>
+          <div className="achievements-gallery-col">
+            {desktopColumn3.map(renderCard)}
           </div>
         </div>
       </div>

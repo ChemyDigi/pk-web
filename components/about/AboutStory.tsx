@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import "@/css/about/AboutStory.css";
 
 export default function AboutStory() {
@@ -9,23 +8,10 @@ export default function AboutStory() {
     <section className="about-story-section" id="about-me">
       <div className="about-story-container">
         
-        {/* Top Header Grid: PK Monogram Logo + Story Narrative */}
+        {/* Top Header: Story Narrative */}
         <div className="about-story-top-grid">
           
-          {/* Left Column: PK Monogram Brand Logo */}
-          <div className="about-story-logo-col">
-            <div className="about-story-logo-wrapper">
-              <Image
-                src="/images/header/Pradeep-Liyanage-Logo-2.png"
-                alt="Pradeep Liyanage PK Logo"
-                width={46}
-                height={56}
-                className="about-story-logo-img"
-              />
-            </div>
-          </div>
-
-          {/* Right Column: About Me Details */}
+          {/* Content Column: About Me Details */}
           <div className="about-story-content-col">
             {/* Badge */}
             <div className="about-story-badge">

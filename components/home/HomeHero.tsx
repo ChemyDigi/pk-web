@@ -86,12 +86,37 @@ export default function HomeHero() {
                 LET&apos;S CONNECT
               </Link>
             </div>
+            {/* Tablet-Only Stats (768px to 1023px) */}
+            <div className="hero-tablet-stats">
+              {stats.map((stat) => (
+                <div key={stat.label} className="hero-tablet-stat-item">
+                  <span className="hero-tablet-stat-value">
+                    {stat.value}
+                  </span>
+                  <span className="hero-tablet-stat-label">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tablet-Only Portrait (768px to 1023px) */}
+          <div className="hero-tablet-portrait">
+            <Image
+              src="/images/home/Hero.png"
+              alt="Pradeep Liyanage"
+              width={900}
+              height={1349}
+              priority
+              className="hero-tablet-img"
+            />
           </div>
 
           {/* Spacer on Desktop for Centered Image */}
           <div className="hero-spacer" />
 
-          {/* Right Column: Key Stats (Desktop) */}
+          {/* Right Column: Key Stats (Desktop >= 1024px) */}
           <div className="hero-right">
             <div className="hero-stats-stack">
               {stats.map((stat) => (
@@ -107,20 +132,9 @@ export default function HomeHero() {
             </div>
           </div>
 
-          {/* Mobile Only: Center Portrait & Stats */}
+          {/* Mobile Only (< 768px): Stats & Portrait */}
           <div className="hero-mobile-center">
-            <div className="hero-mobile-portrait">
-              <Image
-                src="/images/home/Hero.png"
-                alt="Pradeep Liyanage"
-                width={900}
-                height={1349}
-                priority
-                className="hero-mobile-img"
-              />
-            </div>
-
-            {/* Mobile Stats Grid */}
+            {/* Mobile Stats Bar */}
             <div className="hero-mobile-stats-grid">
               {stats.map((stat) => (
                 <div key={stat.label} className="hero-mobile-stat-item">
@@ -132,6 +146,18 @@ export default function HomeHero() {
                   </span>
                 </div>
               ))}
+            </div>
+
+            {/* Mobile Portrait */}
+            <div className="hero-mobile-portrait">
+              <Image
+                src="/images/home/Hero.png"
+                alt="Pradeep Liyanage"
+                width={900}
+                height={1349}
+                priority
+                className="hero-mobile-img"
+              />
             </div>
           </div>
 

@@ -118,9 +118,19 @@ export default function AboutTimeline() {
               <div
                 className="about-timeline-roller-track"
                 style={{
-                  transform: `translate3d(0, calc((1 - ${activeIndex}) * var(--timeline-slot-h)), 0)`,
+                  transform: `translate3d(0, calc(-${activeIndex} * var(--timeline-slot-h)), 0)`,
                 }}
               >
+                {/* Ghost Year 2010 (Visual context at top when 2011 is active) */}
+                <div
+                  className={`about-timeline-year-item ${
+                    activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
+                  }`}
+                  aria-hidden="true"
+                >
+                  <span className="about-timeline-year-text">2010</span>
+                </div>
+
                 {milestones.map((m, idx) => {
                   const diff = idx - activeIndex;
                   let stateClass = "about-timeline-year-future";
@@ -129,24 +139,11 @@ export default function AboutTimeline() {
                   else if (diff === 1) stateClass = "about-timeline-year-next";
                   else if (diff < -1) stateClass = "about-timeline-year-past";
 
-                  const isClickable = diff === -1 || diff === 1;
-
                   return (
                     <div
                       key={m.year}
-                      className={`about-timeline-year-item ${stateClass} ${
-                        isClickable ? "about-timeline-year-interactive" : ""
-                      }`}
-                      onClick={() => setActiveIndex(idx)}
-                      role={isClickable ? "button" : undefined}
-                      tabIndex={isClickable ? 0 : -1}
+                      className={`about-timeline-year-item ${stateClass}`}
                       aria-label={`Milestone year ${m.year}`}
-                      onKeyDown={(e) => {
-                        if (isClickable && (e.key === "Enter" || e.key === " ")) {
-                          e.preventDefault();
-                          setActiveIndex(idx);
-                        }
-                      }}
                     >
                       <span className="about-timeline-year-text">{m.year}</span>
                     </div>
