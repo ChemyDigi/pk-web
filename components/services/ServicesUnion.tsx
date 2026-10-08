@@ -91,9 +91,6 @@ export default function ServicesUnion() {
 
         </div>
 
-        {/* ── Divider ── */}
-        <hr className="services-union-divider" />
-
         {/* ── Bottom: Role statement + Timeline ── */}
         <div className="services-union-bottom">
 
