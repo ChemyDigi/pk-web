@@ -22,7 +22,7 @@ export const initialLinkedInPosts: LinkedInPost[] = [
     tags: ["#Leadershipexcellence", "#unionassurance", "#annualawards2025"],
     image: "/images/home/64692ec138a3de0fdcb527f6537d81f81d9f75b1.jpg",
     alt: "Pradeep Liyanage receiving Platinum and Best Leader Awards",
-    postUrl: "https://www.linkedin.com/in/pradeep-liyanage/",
+    postUrl: "https://www.linkedin.com/in/pradeep-liyanage-70488468/",
   },
   {
     id: "post-2",
@@ -34,7 +34,7 @@ export const initialLinkedInPosts: LinkedInPost[] = [
     tags: ["#Affinity", "#Protection"],
     image: "/images/home/04696596ef8494706046a8e4970c20ac42b6cf30.jpg",
     alt: "Protection Solutions Should Reflect Professional Realities",
-    postUrl: "https://www.linkedin.com/in/pradeep-liyanage/",
+    postUrl: "https://www.linkedin.com/in/pradeep-liyanage-70488468/",
   },
   {
     id: "post-3",
@@ -46,7 +46,7 @@ export const initialLinkedInPosts: LinkedInPost[] = [
     tags: ["#MDRTDay2026", "#MDRT", "#SriLanka"],
     image: "/images/home/fa12909e290f548ca45c022107cc7b82f3e8eb49.jpg",
     alt: "Pradeep Liyanage at MDRT Event",
-    postUrl: "https://www.linkedin.com/in/pradeep-liyanage/",
+    postUrl: "https://www.linkedin.com/in/pradeep-liyanage-70488468/",
   },
   {
     id: "post-4",
@@ -58,7 +58,7 @@ export const initialLinkedInPosts: LinkedInPost[] = [
     tags: ["#MDRT2026", "#FinancialExcellence", "#GlobalRecognition"],
     image: "/images/achievements/certificate-1.jpg",
     alt: "Pradeep Liyanage holding MDRT 2025 and 2026 certificates",
-    postUrl: "https://www.linkedin.com/in/pradeep-liyanage/",
+    postUrl: "https://www.linkedin.com/in/pradeep-liyanage-70488468/",
   },
   {
     id: "post-5",
@@ -70,7 +70,7 @@ export const initialLinkedInPosts: LinkedInPost[] = [
     tags: ["#AnnualAwards2025", "#UnionAssurance", "#ExcellenceInService"],
     image: "/images/home/awwards-hero.png",
     alt: "Union Assurance Annual Awards 2025 Trophies",
-    postUrl: "https://www.linkedin.com/in/pradeep-liyanage/",
+    postUrl: "https://www.linkedin.com/in/pradeep-liyanage-70488468/",
   },
   {
     id: "post-6",
@@ -82,7 +82,7 @@ export const initialLinkedInPosts: LinkedInPost[] = [
     tags: ["#StrategicProtection", "#RiskManagement", "#FinancialSecurity"],
     image: "/images/contact/pradeep-chess.png",
     alt: "Pradeep Liyanage playing chess symbolizing strategic foresight",
-    postUrl: "https://www.linkedin.com/in/pradeep-liyanage/",
+    postUrl: "https://www.linkedin.com/in/pradeep-liyanage-70488468/",
   },
   {
     id: "post-7",
@@ -94,7 +94,7 @@ export const initialLinkedInPosts: LinkedInPost[] = [
     tags: ["#ClientFirst", "#LifeInsurance", "#TrustAndIntegrity"],
     image: "/images/home/PradeepLiyanage.jpg",
     alt: "Pradeep Liyanage at professional advisory consultation desk",
-    postUrl: "https://www.linkedin.com/in/pradeep-liyanage/",
+    postUrl: "https://www.linkedin.com/in/pradeep-liyanage-70488468/",
   },
   {
     id: "post-8",
@@ -106,6 +106,6 @@ export const initialLinkedInPosts: LinkedInPost[] = [
     tags: ["#RetirementPlanning", "#WealthPreservation", "#FutureConfidence"],
     image: "/images/about/Financial Planning.jpg",
     alt: "Financial analysis and planning dashboard",
-    postUrl: "https://www.linkedin.com/in/pradeep-liyanage/",
+    postUrl: "https://www.linkedin.com/in/pradeep-liyanage-70488468/",
   },
 ];
