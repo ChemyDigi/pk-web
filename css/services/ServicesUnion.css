@@ -6,7 +6,6 @@
   position: relative;
   background-color: #08080a;
   padding: 5.5rem 0 5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
   overflow: hidden;
 }
 
@@ -35,6 +34,7 @@
   grid-template-columns: 1fr;
   gap: 3rem;
   align-items: start;
+  margin-bottom: 3.5rem;
 }
 
 @media (min-width: 1024px) {
@@ -170,13 +170,7 @@
   object-fit: contain;
 }
 
-/* ── Divider ───────────────────────────────────────────────────────── */
 
-.services-union-divider {
-  margin: 3.5rem 0;
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
 
 /* ── Bottom: Role + Timeline two-column ─────────────────────────────── */
 
