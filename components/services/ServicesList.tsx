@@ -63,7 +63,7 @@ const services: ServiceItem[] = [
     title: "Retirement & Long-Term Planning",
     description:
       "Guiding clients to achieve financial independence and peace of mind.",
-    image: "/images/services/service-retirement.jpg",
+    image: "/images/services/service-retirement-plan.jpg",
     href: "/contact?service=retirement-planning",
     icon: (
       <svg
@@ -198,22 +198,6 @@ export default function ServicesList() {
               <div className="services-card-content">
                 <h3 className="services-card-title">{service.title}</h3>
                 <p className="services-card-desc">{service.description}</p>
-
-                {/* Bottom Circular Action Arrow */}
-                <div className="services-card-action" aria-hidden="true">
-                  <svg
-                    className="services-card-arrow-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="M12 5l7 7-7 7" />
-                  </svg>
-                </div>
               </div>
             </Link>
           ))}
