@@ -160,7 +160,6 @@ export default function ServicesList() {
         {/* Header */}
         <div className="services-list-header">
           <p className="services-list-eyebrow">MY SERVICES</p>
-          <div className="services-list-eyebrow-line" aria-hidden="true" />
           <h2 className="services-list-title">
             Comprehensive insurance solutions designed to support you
             <br className="services-title-br" />
