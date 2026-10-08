@@ -46,6 +46,11 @@
   width: 100%;
 }
 
+.achievements-gallery-mobile-bottom {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
 .achievements-gallery-grid-desktop {
   display: none;
 }
@@ -56,27 +61,20 @@
   gap: 0.75rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .achievements-gallery-grid-mobile {
     display: none;
   }
 
   .achievements-gallery-grid-desktop {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* Exactly 3 columns matching the 3 desktop column elements */
+    grid-template-columns: 1fr 1.26fr 1fr;
     gap: 1.35rem;
     width: 100%;
   }
 
   .achievements-gallery-col {
-    gap: 1.35rem;
-  }
-}
-
-@media (min-width: 960px) {
-  .achievements-gallery-grid-desktop {
-    /* Exact column proportions matching the design: side columns 1fr, center column 1.26fr */
-    grid-template-columns: 1fr 1.26fr 1fr;
     gap: 1.35rem;
   }
 }
@@ -118,7 +116,11 @@
 }
 
 .aspect-m-tall-4 {
-  aspect-ratio: 1 / 1.28; /* Tall portrait */
+  aspect-ratio: 1 / 1.08; /* Perfectly balances Column 2 with Column 1 */
+}
+
+.aspect-m-full {
+  aspect-ratio: 2 / 1.1; /* Full width feature card at bottom of mobile */
 }
 
 /* ==========================================================================
@@ -135,7 +137,7 @@
   box-sizing: border-box;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .achievements-card {
     border-radius: 16px;
   }
@@ -238,7 +240,7 @@
   stroke: currentColor;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .achievements-card-action-btn {
     bottom: 0.875rem;
     right: 0.875rem;
@@ -257,7 +259,7 @@
    Precise Aspect Ratios matching mockup (Desktop & Tablet)
    ========================================================================== */
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   /* Column 1 */
   .aspect-col1-item1 {
     aspect-ratio: 178 / 256;

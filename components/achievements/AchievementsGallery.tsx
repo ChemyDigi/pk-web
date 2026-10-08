@@ -84,7 +84,7 @@ export default function AchievementsGallery() {
     },
   ];
 
-  // Mobile Column 1 items (Left - varied heights)
+  // Mobile Column 1 items (Left - 4 items)
   const mobileColumn1: GalleryItem[] = [
     {
       id: "m-col1-1",
@@ -104,13 +104,9 @@ export default function AchievementsGallery() {
       id: "m-col1-4",
       aspectClass: "aspect-m-short-2",
     },
-    {
-      id: "m-col1-5",
-      aspectClass: "aspect-m-medium-1",
-    },
   ];
 
-  // Mobile Column 2 items (Right - staggered varied heights)
+  // Mobile Column 2 items (Right - 4 items)
   const mobileColumn2: GalleryItem[] = [
     {
       id: "m-col2-1",
@@ -129,6 +125,12 @@ export default function AchievementsGallery() {
       aspectClass: "aspect-m-tall-4",
     },
   ];
+
+  // Mobile Bottom Item (Full-width 9th card - spans both columns evenly)
+  const mobileBottomCard: GalleryItem = {
+    id: "m-bottom-1",
+    aspectClass: "aspect-m-full",
+  };
 
   const renderCard = (item: GalleryItem) => {
     if (item.image) {
@@ -196,13 +198,16 @@ export default function AchievementsGallery() {
   return (
     <section className="achievements-gallery-section" id="achievements-gallery">
       <div className="achievements-gallery-container">
-        {/* Mobile View: 2 Staggered Columns with different size boxes */}
+        {/* Mobile View: 2 Staggered Columns + Full-Width Bottom Card */}
         <div className="achievements-gallery-grid-mobile">
           <div className="achievements-gallery-col">
             {mobileColumn1.map(renderCard)}
           </div>
           <div className="achievements-gallery-col">
             {mobileColumn2.map(renderCard)}
+          </div>
+          <div className="achievements-gallery-mobile-bottom">
+            {renderCard(mobileBottomCard)}
           </div>
         </div>
 
