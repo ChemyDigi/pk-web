@@ -1,6 +1,6 @@
 /* ==========================================================================
    Home Services & Quote Section Styles
-   Compressed & Optimized for Clean In-Viewport Visibility
+   Interactive Accordion Design for High-Density Advisory Content
    ========================================================================== */
 
 .home-services-section {
@@ -8,9 +8,8 @@
   width: 100%;
   background-color: #ffffff;
   color: #171717;
-  /* Top padding ensures clearance under the fixed floating navbar */
-  padding-top: 6rem;
-  padding-bottom: 2rem;
+  padding-top: 5.5rem;
+  padding-bottom: 3.5rem;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -18,24 +17,24 @@
 @media (min-width: 640px) {
   .home-services-section {
     padding-top: 6.5rem;
-    padding-bottom: 2.25rem;
+    padding-bottom: 4rem;
   }
 }
 
 @media (min-width: 1024px) {
   .home-services-section {
     padding-top: 7rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 5rem;
   }
 }
 
 /* ==========================================================================
-   1. Quote Banner (Compact & Refined)
+   1. Quote Banner
    ========================================================================== */
 
 .home-quote-container {
   width: 100%;
-  max-width: 60rem; /* ~960px */
+  max-width: 60rem;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.25rem;
@@ -43,29 +42,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 @media (min-width: 640px) {
   .home-quote-container {
     padding-left: 2rem;
     padding-right: 2rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 4rem;
   }
 }
 
 @media (min-width: 1024px) {
   .home-quote-container {
-    margin-bottom: 4rem;
+    margin-bottom: 4.5rem;
   }
 }
 
 .home-quote-wrapper {
   position: relative;
-  max-width: 56rem; /* ~896px for elegant line wrapping */
+  max-width: 56rem;
   width: 100%;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
   text-align: center;
 }
 
@@ -96,7 +95,7 @@
 }
 
 .home-quote-text {
-  font-size: 1.25rem; /* 20px on mobile */
+  font-size: 1.25rem;
   line-height: 1.6;
   font-style: italic;
   font-weight: 400;
@@ -107,21 +106,21 @@
 
 @media (min-width: 640px) {
   .home-quote-text {
-    font-size: 1.4375rem; /* 23px on tablet */
+    font-size: 1.4375rem;
     line-height: 1.62;
   }
 }
 
 @media (min-width: 1024px) {
   .home-quote-text {
-    font-size: 1.5625rem; /* 25px on desktop */
+    font-size: 1.5625rem;
     line-height: 1.65;
   }
 }
 
 @media (min-width: 1280px) {
   .home-quote-text {
-    font-size: 1.6875rem; /* 27px on wide desktop */
+    font-size: 1.6875rem;
     line-height: 1.65;
   }
 }
@@ -131,29 +130,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1.125rem;
+  margin-top: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .home-quote-author {
-    margin-top: 1.35rem;
+    margin-top: 1.5rem;
   }
 }
 
 .home-quote-avatar {
-  width: 3.5rem; /* 56px */
+  width: 3.5rem;
   height: 3.5rem;
   border-radius: 9999px;
   overflow: hidden;
   background-color: #f3f4f6;
   border: 1.5px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: relative;
 }
 
 @media (min-width: 640px) {
   .home-quote-avatar {
-    width: 4.25rem; /* 68px */
+    width: 4.25rem;
     height: 4.25rem;
   }
 }
@@ -168,19 +167,20 @@
 
 .home-quote-author-name {
   margin-top: 0.65rem;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   font-weight: 500;
   color: #171717;
   letter-spacing: 0.02em;
 }
 
 /* ==========================================================================
-   2. "How We Protect Your Future" Services Area (Compressed)
+   2. "How We Protect Your Future" Services Section
    ========================================================================== */
 
 .home-services-container {
   width: 100%;
-  max-width: 76rem; /* ~1216px */
+  max-width: 78rem;
+  /* ~1248px */
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.25rem;
@@ -201,18 +201,18 @@
   }
 }
 
-/* Header */
+/* Section Header */
 .home-services-header {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 @media (min-width: 640px) {
   .home-services-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3.25rem;
   }
 }
 
@@ -221,25 +221,26 @@
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.75rem;
 }
 
 .home-services-badge-line {
   display: inline-block;
-  width: 1.75rem; /* 28px */
+  width: 1.75rem;
   height: 1.5px;
   background-color: #171717;
 }
 
 .home-services-badge-text {
-  font-size: 0.78125rem; /* 12.5px */
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: #171717;
 }
 
 .home-services-heading {
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
   line-height: 1.45;
   font-weight: 400;
   color: #171717;
@@ -251,25 +252,15 @@
 
 @media (min-width: 640px) {
   .home-services-heading {
-    font-size: 1.45rem; /* ~23px */
+    font-size: 1.45rem;
     line-height: 1.42;
   }
 }
 
 @media (min-width: 1024px) {
   .home-services-heading {
-    font-size: 1.625rem; /* 26px */
+    font-size: 1.625rem;
     line-height: 1.42;
-  }
-}
-
-.home-services-br {
-  display: none;
-}
-
-@media (min-width: 640px) {
-  .home-services-br {
-    display: inline;
   }
 }
 
@@ -277,7 +268,7 @@
 .home-services-grid {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 2.25rem;
+  row-gap: 2.5rem;
   column-gap: 3rem;
   align-items: stretch;
 }
@@ -291,46 +282,49 @@
   }
 }
 
-/* Left Column: Image Card */
+/* ==========================================================================
+   Left Column: Full-Height Image Card (Matches Accordion Height)
+   ========================================================================== */
+
 .home-services-image-col {
   width: 100%;
-  height: 100%;
   display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 1024px) {
   .home-services-image-col {
-    grid-column: span 6 / span 6;
+    grid-column: span 5 / span 12;
+    height: 100%;
   }
 }
 
 .home-services-image-card {
   position: relative;
   width: 100%;
-  min-height: 320px;
-  border-radius: 1.125rem; /* 18px */
+  aspect-ratio: 16 / 11;
+  min-height: 280px;
+  max-height: 420px;
+  border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
   background-color: #f1f2f4;
-}
-
-@media (min-width: 640px) {
-  .home-services-image-card {
-    min-height: 380px;
-    border-radius: 1.25rem;
-  }
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 @media (min-width: 1024px) {
   .home-services-image-card {
+    aspect-ratio: auto;
+    max-height: none;
     height: 100%;
-    min-height: 440px;
+    min-height: 100%;
+    flex: 1;
   }
 }
 
 .home-services-img {
   object-fit: cover;
-  object-position: center;
+  object-position: center 20%;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -338,107 +332,262 @@
   transform: scale(1.025);
 }
 
-/* Right Column: Services List */
-.home-services-list-col {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.25rem;
-}
 
-@media (min-width: 640px) {
-  .home-services-list-col {
-    row-gap: 1.35rem;
-  }
+
+/* ==========================================================================
+   Right Column: Services Accordion List
+   ========================================================================== */
+
+.home-services-list-col {
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
   .home-services-list-col {
-    grid-column: span 6 / span 6;
-    row-gap: 1.45rem;
-    padding-left: 0.25rem;
+    grid-column: span 7 / span 12;
+    padding-left: 0.5rem;
   }
 }
 
-/* Individual Service Item */
-.home-services-item {
+.home-services-accordion-list {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
-  .home-services-item {
+  .home-services-accordion-list {
+    gap: 0.875rem;
+  }
+}
+
+/* Individual Accordion Card */
+.home-services-accordion-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.home-services-accordion-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.home-services-accordion-card.active {
+  border-color: #171717;
+  background-color: #fafbfc;
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.08), 0 4px 10px -4px rgba(0, 0, 0, 0.03);
+}
+
+/* Trigger Button */
+.home-services-accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.875rem;
+  padding: 1.125rem 1.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  user-select: none;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .home-services-accordion-btn {
+    padding: 1.2rem 1.4rem;
+    gap: 1.25rem;
+  }
+}
+
+.home-services-accordion-btn:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: -2px;
+}
+
+.home-services-accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .home-services-accordion-header-left {
     gap: 1.125rem;
   }
 }
 
-.home-services-icon-wrapper {
-  flex-shrink: 0;
-  margin-top: 0.125rem;
-  color: #171717;
+/* Icon Container */
+.home-services-accordion-icon {
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 0.625rem;
+  background-color: #f3f4f6;
+  color: #4b5563;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.home-services-item-icon {
-  width: 1.25rem; /* 20px */
+.home-services-icon-svg {
+  width: 1.25rem;
   height: 1.25rem;
+  display: block;
 }
 
-@media (min-width: 640px) {
-  .home-services-item-icon {
-    width: 1.375rem; /* 22px */
-    height: 1.375rem;
-  }
+.home-services-accordion-card:hover .home-services-accordion-icon {
+  background-color: #e5e7eb;
+  color: #111827;
 }
 
-.home-services-item-content {
+.home-services-accordion-card.active .home-services-accordion-icon {
+  background-color: #171717;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(23, 23, 23, 0.2);
+  transform: scale(1.04);
+}
+
+/* Title & Tagline Group */
+.home-services-accordion-titles {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  flex: 1;
 }
 
-.home-services-item-title {
-  font-size: 0.984375rem; /* ~15.75px */
-  font-weight: 700;
+.home-services-accordion-title {
+  font-size: 0.96875rem;
+  font-weight: 600;
   color: #171717;
-  line-height: 1.3;
-  margin: 0 0 0.2rem 0;
+  margin: 0;
+  line-height: 1.35;
   letter-spacing: -0.01em;
 }
 
 @media (min-width: 640px) {
-  .home-services-item-title {
-    font-size: 1.0625rem; /* 17px */
+  .home-services-accordion-title {
+    font-size: 1.0625rem;
   }
 }
 
-.home-services-item-tagline {
-  font-size: 0.8125rem; /* 13px */
-  font-weight: 600;
-  color: #1f2937;
-  line-height: 1.4;
-  margin: 0 0 0.25rem 0;
+.home-services-accordion-tagline {
+  font-size: 0.78125rem;
+  color: #6b7280;
+  margin: 0.2rem 0 0 0;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
 }
 
 @media (min-width: 640px) {
-  .home-services-item-tagline {
-    font-size: 0.875rem; /* 14px */
+  .home-services-accordion-tagline {
+    font-size: 0.8125rem;
   }
 }
 
-.home-services-item-desc {
-  font-size: 0.8125rem; /* 13px */
-  line-height: 1.55;
-  color: #4b5563;
-  margin: 0;
-  font-weight: 400;
-  max-width: 32rem;
+.home-services-accordion-card.active .home-services-accordion-tagline {
+  color: #374151;
+  font-weight: 500;
 }
 
-@media (min-width: 640px) {
-  .home-services-item-desc {
-    font-size: 0.84375rem; /* 13.5px */
-    line-height: 1.58;
-  }
+/* Arrow Toggle Circle */
+.home-services-accordion-arrow {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease;
 }
+
+.home-services-accordion-card.active .home-services-accordion-arrow {
+  transform: rotate(180deg);
+  background-color: #171717;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Smooth Height Collapsible Content Panel (CSS Grid Transition)
+   ========================================================================== */
+
+.home-services-accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.home-services-accordion-panel.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.home-services-accordion-panel-inner {
+  overflow: hidden;
+}
+
+.home-services-accordion-desc-wrap {
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+  @media (min-width: 640px) {
+    .home-services-accordion-desc-wrap {
+      padding: 1.1rem 1.4rem 1.4rem 4.9rem;
+    }
+  }
+
+  .home-services-accordion-desc {
+    font-size: 0.84375rem;
+    line-height: 1.62;
+    color: #4b5563;
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .home-services-accordion-desc {
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+  }
+
+  /* Action Link */
+  .home-services-accordion-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #171717;
+    text-decoration: none;
+    width: fit-content;
+    padding-bottom: 2px;
+    border-bottom: 1.5px solid #171717;
+    transition: gap 0.2s ease, opacity 0.2s ease;
+    margin-top: 0.25rem;
+  }
+
+  .home-services-accordion-cta:hover {
+    gap: 0.75rem;
+    opacity: 0.75;
+  }
