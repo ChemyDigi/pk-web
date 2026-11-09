@@ -1,6 +1,6 @@
 /* ==========================================================================
    Home Services & Quote Section Styles
-   Interactive Accordion Design for High-Density Advisory Content
+   Streamlined Services Overview with Direct Link to About Page Details
    ========================================================================== */
 
 .home-services-section {
@@ -283,7 +283,7 @@
 }
 
 /* ==========================================================================
-   Left Column: Full-Height Image Card (Matches Accordion Height)
+   Left Column: Image Card
    ========================================================================== */
 
 .home-services-image-col {
@@ -332,14 +332,15 @@
   transform: scale(1.025);
 }
 
-
-
 /* ==========================================================================
-   Right Column: Services Accordion List
+   Right Column: Services List Cards + Button
    ========================================================================== */
 
 .home-services-list-col {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (min-width: 1024px) {
@@ -349,70 +350,47 @@
   }
 }
 
-.home-services-accordion-list {
+.home-services-items-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.625rem;
   width: 100%;
 }
 
 @media (min-width: 640px) {
-  .home-services-accordion-list {
-    gap: 0.875rem;
+  .home-services-items-list {
+    gap: 0.75rem;
   }
 }
 
-/* Individual Accordion Card */
-.home-services-accordion-card {
+/* Individual Service Item Card */
+.home-services-item-card {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1.15rem;
   background: #ffffff;
   border: 1px solid #e5e7eb;
-  border-radius: 1rem;
+  border-radius: 0.875rem;
+  cursor: default;
   transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;
 }
 
-.home-services-accordion-card:hover {
-  border-color: #cbd5e1;
+@media (min-width: 640px) {
+  .home-services-item-card {
+    padding: 0.95rem 1.35rem;
+    gap: 1.25rem;
+    border-radius: 1rem;
+  }
+}
+
+.home-services-item-card:hover {
+  border-color: #d1d5db;
+  background-color: #fafbfc;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
-.home-services-accordion-card.active {
-  border-color: #171717;
-  background-color: #fafbfc;
-  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.08), 0 4px 10px -4px rgba(0, 0, 0, 0.03);
-}
-
-/* Trigger Button */
-.home-services-accordion-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.875rem;
-  padding: 1.125rem 1.25rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  outline: none;
-  user-select: none;
-  font-family: inherit;
-  transition: background-color 0.2s ease;
-}
-
-@media (min-width: 640px) {
-  .home-services-accordion-btn {
-    padding: 1.2rem 1.4rem;
-    gap: 1.25rem;
-  }
-}
-
-.home-services-accordion-btn:focus-visible {
-  outline: 2px solid #171717;
-  outline-offset: -2px;
-}
-
-.home-services-accordion-header-left {
+.home-services-item-left {
   display: flex;
   align-items: center;
   gap: 0.875rem;
@@ -421,13 +399,13 @@
 }
 
 @media (min-width: 640px) {
-  .home-services-accordion-header-left {
+  .home-services-item-left {
     gap: 1.125rem;
   }
 }
 
-/* Icon Container */
-.home-services-accordion-icon {
+/* Icon Box */
+.home-services-item-icon-box {
   width: 2.375rem;
   height: 2.375rem;
   border-radius: 0.625rem;
@@ -446,28 +424,23 @@
   display: block;
 }
 
-.home-services-accordion-card:hover .home-services-accordion-icon {
-  background-color: #e5e7eb;
-  color: #111827;
-}
-
-.home-services-accordion-card.active .home-services-accordion-icon {
+.home-services-item-card:hover .home-services-item-icon-box {
   background-color: #171717;
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(23, 23, 23, 0.2);
   transform: scale(1.04);
 }
 
-/* Title & Tagline Group */
-.home-services-accordion-titles {
+/* Titles Group */
+.home-services-item-text {
   display: flex;
   flex-direction: column;
   min-width: 0;
   flex: 1;
 }
 
-.home-services-accordion-title {
-  font-size: 0.96875rem;
+.home-services-item-title {
+  font-size: 0.9375rem;
   font-weight: 600;
   color: #171717;
   margin: 0;
@@ -476,12 +449,12 @@
 }
 
 @media (min-width: 640px) {
-  .home-services-accordion-title {
-    font-size: 1.0625rem;
+  .home-services-item-title {
+    font-size: 1.03125rem;
   }
 }
 
-.home-services-accordion-tagline {
+.home-services-item-tagline {
   font-size: 0.78125rem;
   color: #6b7280;
   margin: 0.2rem 0 0 0;
@@ -493,101 +466,65 @@
 }
 
 @media (min-width: 640px) {
-  .home-services-accordion-tagline {
+  .home-services-item-tagline {
     font-size: 0.8125rem;
   }
 }
 
-.home-services-accordion-card.active .home-services-accordion-tagline {
+.home-services-item-card:hover .home-services-item-tagline {
   color: #374151;
-  font-weight: 500;
 }
 
-/* Arrow Toggle Circle */
-.home-services-accordion-arrow {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 9999px;
-  background-color: #f3f4f6;
-  color: #6b7280;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease;
-}
 
-.home-services-accordion-card.active .home-services-accordion-arrow {
-  transform: rotate(180deg);
-  background-color: #171717;
-  color: #ffffff;
-}
 
 /* ==========================================================================
-   Smooth Height Collapsible Content Panel (CSS Grid Transition)
+   Bottom CTA Row: Redirect to About Services
    ========================================================================== */
 
-.home-services-accordion-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-  opacity: 0;
-}
-
-.home-services-accordion-panel.open {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-
-.home-services-accordion-panel-inner {
-  overflow: hidden;
-}
-
-.home-services-accordion-desc-wrap {
-  padding: 1rem 1.25rem 1.25rem 1.25rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+.home-services-cta-row {
+  margin-top: 1.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
+  align-items: center;
 }
 
-  @media (min-width: 640px) {
-    .home-services-accordion-desc-wrap {
-      padding: 1.1rem 1.4rem 1.4rem 4.9rem;
-    }
+@media (min-width: 640px) {
+  .home-services-cta-row {
+    margin-top: 1.75rem;
   }
+}
 
-  .home-services-accordion-desc {
+.home-services-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  background-color: #171717;
+  color: #ffffff;
+  padding: 0.875rem 2.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .home-services-explore-btn {
+    padding: 1rem 2.5rem;
     font-size: 0.84375rem;
-    line-height: 1.62;
-    color: #4b5563;
-    margin: 0;
   }
+}
 
-  @media (min-width: 640px) {
-    .home-services-accordion-desc {
-      font-size: 0.875rem;
-      line-height: 1.65;
-    }
-  }
+.home-services-explore-btn:hover {
+  background-color: #27272a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  gap: 0.95rem;
+}
 
-  /* Action Link */
-  .home-services-accordion-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: #171717;
-    text-decoration: none;
-    width: fit-content;
-    padding-bottom: 2px;
-    border-bottom: 1.5px solid #171717;
-    transition: gap 0.2s ease, opacity 0.2s ease;
-    margin-top: 0.25rem;
-  }
-
-  .home-services-accordion-cta:hover {
-    gap: 0.75rem;
-    opacity: 0.75;
-  }
+.home-services-explore-btn:active {
+  transform: translateY(0);
+}

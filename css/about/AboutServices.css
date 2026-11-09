@@ -156,7 +156,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 1.15rem 0;
+  padding: 0.95rem 0;
   background: transparent;
   border: none;
   border-bottom: 1px solid #e5e7eb;
@@ -166,13 +166,13 @@
 }
 
 .about-services-tab-name {
-  font-size: 1.0625rem; /* 17px */
+  font-size: 1rem; /* 16px */
   transition: all 0.2s ease;
 }
 
 @media (min-width: 640px) {
   .about-services-tab-name {
-    font-size: 1.15rem; /* ~18.5px */
+    font-size: 1.0625rem; /* 17px */
   }
 }
 
@@ -252,12 +252,26 @@
   color: #111827;
   line-height: 1.25;
   letter-spacing: -0.015em;
-  margin: 0 0 0.85rem 0;
+  margin: 0 0 0.4rem 0;
 }
 
 @media (min-width: 640px) {
   .about-services-title {
     font-size: 1.75rem; /* 28px */
+  }
+}
+
+.about-services-tagline {
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 640px) {
+  .about-services-tagline {
+    font-size: 1rem; /* 16px */
   }
 }
 

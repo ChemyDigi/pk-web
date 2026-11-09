@@ -1,25 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "@/css/home/HomeServices.css";
 
 interface ServiceItem {
-  number: string;
+  id: string;
   title: string;
   tagline: string;
-  description: string;
   icon: React.ReactNode;
 }
 
 const services: ServiceItem[] = [
   {
-    number: "1",
+    id: "life-health",
     title: "Life & Health Insurance Planning",
     tagline: "Protecting You and Your Loved Ones",
-    description:
-      "Personalized guidance on life and health insurance solutions to help individuals and families prepare for life's uncertainties, protect their loved ones, and manage unexpected medical expenses.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -37,11 +34,9 @@ const services: ServiceItem[] = [
     ),
   },
   {
-    number: "2",
+    id: "retirement-income",
     title: "Retirement & Income Protection Planning",
     tagline: "Securing Your Financial Independence",
-    description:
-      "Advising on retirement planning and income protection solutions to help individuals prepare for life after retirement, maintain financial stability, and protect their income against unforeseen circumstances.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -59,11 +54,9 @@ const services: ServiceItem[] = [
     ),
   },
   {
-    number: "3",
+    id: "investment-wealth",
     title: "Investment & Wealth Planning",
     tagline: "Building a Stronger Financial Future",
-    description:
-      "Guidance on insurance-linked investment and savings solutions that can support long-term financial goals, wealth accumulation, and financial security, based on individual needs and risk profiles.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -83,11 +76,9 @@ const services: ServiceItem[] = [
     ),
   },
   {
-    number: "4",
+    id: "child-education",
     title: "Child Education Planning",
     tagline: "Investing in Your Child's Dreams",
-    description:
-      "Helping parents plan ahead for their children's educational expenses through suitable savings and insurance solutions, creating a stronger financial foundation for their future.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -104,11 +95,9 @@ const services: ServiceItem[] = [
     ),
   },
   {
-    number: "5",
+    id: "strategic-partnerships",
     title: "Strategic Insurance Partnerships",
     tagline: "Creating Partnerships That Make a Difference",
-    description:
-      "Developing and managing strategic insurance partnerships with professional associations, organizations, and institutions to make valuable insurance solutions more accessible to their members and communities.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -125,11 +114,9 @@ const services: ServiceItem[] = [
     ),
   },
   {
-    number: "6",
+    id: "team-building-leadership",
     title: "Insurance Team Building & Leadership Development",
     tagline: "Building Teams. Developing Leaders. Creating Success.",
-    description:
-      "Recruiting, developing, and leading insurance professionals by creating opportunities for growth, strengthening professional capabilities, and building high-performing teams.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -148,11 +135,9 @@ const services: ServiceItem[] = [
     ),
   },
   {
-    number: "7",
+    id: "coaching-mentoring",
     title: "Personal Coaching & Mentoring for Advisors",
     tagline: "Empowering Every Advisor to Reach Their Potential",
-    description:
-      "Providing personalized coaching, practical sales guidance, and continuous mentoring to help insurance advisors improve their performance, build confidence, develop professional skills, and achieve their career ambitions.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -171,12 +156,6 @@ const services: ServiceItem[] = [
 ];
 
 export default function HomeServices() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const toggleAccordion = (index: number) => {
-    setOpenIndex((prev) => (prev === index ? null : index));
-  };
-
   return (
     <section className="home-services-section" id="services">
       {/* ====================================================================
@@ -192,7 +171,7 @@ export default function HomeServices() {
               viewBox="0 0 24 24"
               fill="currentColor"
             >
-              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 013.5-3.5c1.073 0 2.099.49 2.748 1.179z" />
+              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
             </svg>
           </span>
 
@@ -230,7 +209,7 @@ export default function HomeServices() {
       </div>
 
       {/* ====================================================================
-          2. "How We Protect Your Future" Services Accordion Showcase
+          2. "How We Protect Your Future" Services Section
           ==================================================================== */}
       <div className="home-services-container">
         {/* Section Header */}
@@ -247,7 +226,7 @@ export default function HomeServices() {
           </h2>
         </div>
 
-        {/* Content Layout: Sticky Left Photo + Right Interactive Accordion */}
+        {/* Content Layout: Left Photo + Right Services List */}
         <div className="home-services-grid">
           {/* Left Column: Image Card */}
           <div className="home-services-image-col">
@@ -263,102 +242,57 @@ export default function HomeServices() {
             </div>
           </div>
 
-          {/* Right Column: 7 Services Interactive Accordion List */}
+          {/* Right Column: 7 Services List + Button to About Page Services */}
           <div className="home-services-list-col">
-            <div className="home-services-accordion-list" role="tablist" aria-label="Insurance and Advisory Services">
-              {services.map((service, index) => {
-                const isOpen = openIndex === index;
-
-                return (
+            <div className="home-services-items-list" role="list">
+              {services.map((service) => (
                   <div
-                    key={service.title}
-                    className={`home-services-accordion-card ${isOpen ? "active" : ""}`}
-                  >
-                    {/* Accordion Trigger Header */}
-                    <button
-                      type="button"
-                      className="home-services-accordion-btn"
-                      onClick={() => toggleAccordion(index)}
-                      aria-expanded={isOpen}
-                      aria-controls={`service-panel-${service.number}`}
-                      id={`service-trigger-${service.number}`}
-                    >
-                      <div className="home-services-accordion-header-left">
-                        {/* Distinct Icon */}
-                        <div className="home-services-accordion-icon" aria-hidden="true">
-                          {service.icon}
-                        </div>
+                  key={service.id}
+                  className="home-services-item-card"
+                  role="listitem"
+                >
+                  <div className="home-services-item-left">
+                    {/* Distinct Icon */}
+                    <div className="home-services-item-icon-box" aria-hidden="true">
+                      {service.icon}
+                    </div>
 
-                        {/* Title and Tagline */}
-                        <div className="home-services-accordion-titles">
-                          <h3 className="home-services-accordion-title">
-                            {service.title}
-                          </h3>
-                          <p className="home-services-accordion-tagline">
-                            {service.tagline}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Expand / Collapse Chevron */}
-                      <div className="home-services-accordion-arrow" aria-hidden="true">
-                        <svg
-                          width="18"
-                          height="18"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                      </div>
-                    </button>
-
-                    {/* Smooth Collapsible Content Panel */}
-                    <div
-                      id={`service-panel-${service.number}`}
-                      role="region"
-                      aria-labelledby={`service-trigger-${service.number}`}
-                      className={`home-services-accordion-panel ${isOpen ? "open" : ""}`}
-                    >
-                      <div className="home-services-accordion-panel-inner">
-                        <div className="home-services-accordion-desc-wrap">
-                          <p className="home-services-accordion-desc">
-                            {service.description}
-                          </p>
-
-                          <Link
-                            href="/contact"
-                            className="home-services-accordion-cta"
-                          >
-                            <span>Request Consultation</span>
-                            <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2.2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <line x1="5" y1="12" x2="19" y2="12" />
-                              <polyline points="12 5 19 12 12 19" />
-                            </svg>
-                          </Link>
-                        </div>
-                      </div>
+                    {/* Title and Tagline */}
+                    <div className="home-services-item-text">
+                      <h3 className="home-services-item-title">
+                        {service.title}
+                      </h3>
+                      <p className="home-services-item-tagline">
+                        {service.tagline}
+                      </p>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              ))}
+          </div>
+
+          {/* Prominent CTA Button redirecting to About Services */}
+          <div className="home-services-cta-row">
+            <Link href="/about#services" className="home-services-explore-btn">
+              <span>VIEW ALL SERVICES & DETAILS</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    </section >
   );
 }
