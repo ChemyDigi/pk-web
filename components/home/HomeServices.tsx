@@ -4,26 +4,62 @@ import React from "react";
 import Image from "next/image";
 import "@/css/home/HomeServices.css";
 
-const services = [
+interface ServiceItem {
+  number: string;
+  title: string;
+  tagline: string;
+  description: string;
+}
+
+const services: ServiceItem[] = [
   {
-    title: "Financial Planning",
+    number: "1",
+    title: "Life & Health Insurance Planning",
+    tagline: "Protecting You and Your Loved Ones",
     description:
-      "Create a clear path toward your financial goals with personalized strategies for wealth protection and long term security.",
+      "Personalized guidance on life and health insurance solutions to help individuals and families prepare for life's uncertainties, protect their loved ones, and manage unexpected medical expenses.",
   },
   {
-    title: "Life Insurance",
+    number: "2",
+    title: "Retirement & Income Protection Planning",
+    tagline: "Securing Your Financial Independence",
     description:
-      "Secure your loved ones' financial future with life insurance solutions tailored to your goals and responsibilities.",
+      "Advising on retirement planning and income protection solutions to help individuals prepare for life after retirement, maintain financial stability, and protect their income against unforeseen circumstances.",
   },
   {
-    title: "General Insurance",
+    number: "3",
+    title: "Investment & Wealth Planning",
+    tagline: "Building a Stronger Financial Future",
     description:
-      "Protect your valuable assets and everyday life with reliable insurance solutions designed for peace of mind.",
+      "Guidance on insurance-linked investment and savings solutions that can support long-term financial goals, wealth accumulation, and financial security, based on individual needs and risk profiles.",
   },
   {
-    title: "Homeowners Insurance",
+    number: "4",
+    title: "Child Education Planning",
+    tagline: "Investing in Your Child's Dreams",
     description:
-      "Safeguard your home and everything you've built against life's unexpected events with comprehensive home protection.",
+      "Helping parents plan ahead for their children's educational expenses through suitable savings and insurance solutions, creating a stronger financial foundation for their future.",
+  },
+  {
+    number: "5",
+    title: "Strategic Insurance Partnerships",
+    tagline: "Creating Partnerships That Make a Difference",
+    description:
+      "Developing and managing strategic insurance partnerships with professional associations, organizations, and institutions to make valuable insurance solutions more accessible to their members and communities.",
+  },
+  {
+    number: "6",
+    title: "Insurance Team Building & Leadership Development",
+    tagline: "Building Teams. Developing Leaders. Creating Success.",
+    description:
+      "Recruiting, developing, and leading insurance professionals by creating opportunities for growth, strengthening professional capabilities, and building high-performing teams.",
+  },
+  {
+    number: "7",
+    title: "Personal Coaching & Mentoring for Advisors",
+    tagline: "Empowering Every Advisor to Reach Their Potential",
+    description:
+      "Providing personalized coaching, practical sales guidance, and continuous mentoring to help insurance advisors improve their performance, build confidence, develop professional skills, and achieve their career ambitions.",
   },
 ];
 
@@ -49,9 +85,7 @@ export default function HomeServices() {
 
           {/* Quote Text */}
           <p className="home-quote-text">
-            The true value of insurance is never measured on the day a policy is signed.
-            It is measured in the moments life becomes uncertain when preparation,
-            trust, and the right guidance protect everything you&apos;ve worked so hard to build.
+            True success is not just about protecting lives or achieving personal milestones. It is about building meaningful partnerships, developing people, nurturing future leaders, and empowering every individual to discover their potential and achieve more than they imagined.
           </p>
 
           {/* Bottom-Right Closing Quote */}
@@ -96,12 +130,11 @@ export default function HomeServices() {
 
           {/* Heading */}
           <h2 className="home-services-heading">
-            Financial confidence isn&apos;t <br className="home-services-br" />
-            found. It&apos;s carefully built
+            Helping individuals, families, and organizations make informed decisions about financial protection, long-term security, and future aspirations through personalized insurance advice and strategic partnerships.
           </h2>
         </div>
 
-        {/* Content Layout: Left Empty Image Box + Right Services List */}
+        {/* Content Layout: Left Image Box + Right Services List */}
         <div className="home-services-grid">
           {/* Left Column: Image Card */}
           <div className="home-services-image-col">
@@ -116,7 +149,7 @@ export default function HomeServices() {
             </div>
           </div>
 
-          {/* Right Column: 4 Services with Icons */}
+          {/* Right Column: 7 Services with Icons */}
           <div className="home-services-list-col">
             {services.map((service) => (
               <div key={service.title} className="home-services-item">
@@ -136,7 +169,14 @@ export default function HomeServices() {
 
                 {/* Text Content */}
                 <div className="home-services-item-content">
-                  <h3 className="home-services-item-title">{service.title}</h3>
+                  <h3 className="home-services-item-title">
+                    {service.number}. {service.title}
+                  </h3>
+                  {service.tagline && (
+                    <p className="home-services-item-tagline">
+                      {service.tagline}
+                    </p>
+                  )}
                   <p className="home-services-item-desc">{service.description}</p>
                 </div>
               </div>

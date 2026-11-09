@@ -49,6 +49,7 @@ const awards: AwardItem[] = [
 
 export default function AboutAwards() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -56,7 +57,9 @@ export default function AboutAwards() {
         if (window.location.hash === "#awards") {
           const el = document.getElementById("awards");
           if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
+            const navbarOffset = window.innerWidth < 1024 ? 80 : 40;
+            const targetY = el.getBoundingClientRect().top + window.scrollY - navbarOffset;
+            window.scrollTo({ top: Math.max(0, targetY), behavior: "smooth" });
           }
         }
       };
@@ -80,6 +83,22 @@ export default function AboutAwards() {
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev > 0 ? prev - 1 : awards.length - 1));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (diff > 45) {
+      handleNext();
+    } else if (diff < -45) {
+      handlePrev();
+    }
+    setTouchStartX(null);
   };
 
   const currentAward = awards[activeIndex];
@@ -121,7 +140,11 @@ export default function AboutAwards() {
         </div>
 
         {/* Showcase Stage */}
-        <div className="about-awards-stage">
+        <div
+          className="about-awards-stage"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           
           {/* Left: Giant Typography Backdrop + 3D Trophy Showcase Stack */}
           <div className="about-awards-visual-stack">
@@ -187,12 +210,47 @@ export default function AboutAwards() {
             })}
           </div>
 
-          {/* Far Right: Interactive Slider Arrow Button */}
+          {/* Interactive Navigation Controls: Prev, Dots, Next */}
           <div className="about-awards-nav">
             <button
               type="button"
+              onClick={handlePrev}
+              className="about-awards-nav-btn about-awards-nav-prev"
+              aria-label="Previous award showcase"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Pagination Indicator Dots */}
+            <div className="about-awards-pagination" role="tablist" aria-label="Award selection">
+              {awards.map((award, idx) => (
+                <button
+                  key={award.id}
+                  type="button"
+                  onClick={() => setActiveIndex(idx)}
+                  className={`about-awards-dot ${idx === activeIndex ? "is-active" : ""}`}
+                  aria-label={`View ${award.title}`}
+                  aria-selected={idx === activeIndex}
+                  role="tab"
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
               onClick={handleNext}
-              className="about-awards-nav-btn"
+              className="about-awards-nav-btn about-awards-nav-next"
               aria-label="Next award showcase"
             >
               <svg
