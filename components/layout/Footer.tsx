@@ -136,9 +136,6 @@ export default function Footer() {
             <Link href="/achievements" className="hover:text-white transition-colors duration-200">
               Achievements
             </Link>
-            <Link href="/services" className="hover:text-white transition-colors duration-200">
-              Affinity
-            </Link>
             <Link href="/contact" className="hover:text-white transition-colors duration-200">
               Contact
             </Link>
