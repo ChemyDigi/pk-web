@@ -5,11 +5,28 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const navLinks = [
+interface SubLink {
+  name: string;
+  href: string;
+}
+
+interface NavLink {
+  name: string;
+  href: string;
+  dropdown?: SubLink[];
+}
+
+const navLinks: NavLink[] = [
   { name: "HOME", href: "/" },
   { name: "ABOUT", href: "/about" },
   { name: "ACHIEVEMENTS", href: "/achievements" },
-  { name: "AFFINITY", href: "/services" },
+  {
+    name: "AFFINITY",
+    href: "/services",
+    dropdown: [
+      { name: "Union Uththareethara", href: "/services" },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -39,6 +56,55 @@ export default function Navbar() {
               link.href === "/"
                 ? pathname === "/" || pathname === "/home"
                 : pathname === link.href || (link.href === "/achievements" && pathname === "/gallery");
+
+            if (link.dropdown) {
+              return (
+                <div
+                  key={link.name}
+                  className="relative group/affinity flex items-center py-2"
+                >
+                  {/* Non-clickable tab on navbar */}
+                  <span
+                    className={`text-xs sm:text-[13px] tracking-wider uppercase transition-colors duration-200 inline-flex items-center gap-1.5 cursor-default select-none ${
+                      isActive
+                        ? "text-white font-bold"
+                        : "text-neutral-300 font-medium group-hover/affinity:text-white"
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    <svg
+                      className="w-3 h-3 transition-transform duration-200 group-hover/affinity:rotate-180 text-neutral-400 group-hover/affinity:text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </span>
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 opacity-0 invisible group-hover/affinity:opacity-100 group-hover/affinity:visible transition-all duration-200 pointer-events-none group-hover/affinity:pointer-events-auto z-50">
+                    <div className="min-w-[210px] bg-[#1d1d20]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-1.5 shadow-2xl flex flex-col gap-0.5">
+                      {link.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className={`px-3.5 py-2.5 text-xs sm:text-[13px] rounded-xl transition-all duration-150 flex items-center whitespace-nowrap font-medium ${
+                            pathname === subItem.href
+                              ? "text-white bg-white/10 font-semibold"
+                              : "text-neutral-200 hover:text-white hover:bg-white/10"
+                          }`}
+                        >
+                          <span>{subItem.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
 
             return (
               <Link
@@ -104,17 +170,50 @@ export default function Navbar() {
                 ? pathname === "/" || pathname === "/home"
                 : pathname === link.href || (link.href === "/achievements" && pathname === "/gallery");
 
+            if (link.dropdown) {
+              return (
+                <div key={link.name} className="flex flex-col">
+                  {/* Non-clickable Affinity Tab in Mobile */}
+                  <span
+                    className={`text-sm tracking-wider uppercase py-1.5 cursor-default select-none ${
+                      isActive ? "text-white font-bold" : "text-neutral-300"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+
+                  <div className="pl-4 mt-1 border-l border-white/10 flex flex-col gap-1.5">
+                    {link.dropdown.map((subItem) => (
+                      <Link
+                        key={subItem.name}
+                        href={subItem.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`text-xs tracking-wide py-1 transition-colors ${
+                          pathname === subItem.href
+                            ? "text-white font-semibold"
+                            : "text-neutral-300 hover:text-white"
+                        }`}
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
             return (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-sm tracking-wider uppercase py-1.5 transition-colors ${
-                  isActive ? "text-white font-bold" : "text-neutral-300 hover:text-white"
-                }`}
-              >
-                {link.name}
-              </Link>
+              <div key={link.name} className="flex flex-col">
+                <Link
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-sm tracking-wider uppercase py-1.5 transition-colors flex items-center justify-between ${
+                    isActive ? "text-white font-bold" : "text-neutral-300 hover:text-white"
+                  }`}
+                >
+                  <span>{link.name}</span>
+                </Link>
+              </div>
             );
           })}
         </div>

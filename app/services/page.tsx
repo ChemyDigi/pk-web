@@ -1,23 +1,16 @@
 import type { Metadata } from "next";
-import {
-  ServicesHero,
-  ServicesList,
-  ServicesPhilosophy,
-  ServicesUnion,
-} from "@/components/services";
+import { ServicesUnion } from "@/components/services";
 
 export const metadata: Metadata = {
-  title: "Services | Pradeep Liyanage — Insurance Advisor",
-  description: "Explore insurance solutions for individuals, families, and businesses — life insurance, family financial protection, retirement planning, and more with Pradeep Liyanage.",
+  title: "Affinity | Pradeep Liyanage — Insurance Advisor",
+  description:
+    "Explore affinity partnerships with Pradeep Liyanage, including Union Uththareethara for the Bar Association of Sri Lanka.",
 };
 
 export default function ServicesPage() {
   return (
-    <>
-      <ServicesHero />
-      <ServicesList />
-      <ServicesPhilosophy />
+    <div className="w-full">
       <ServicesUnion />
-    </>
+    </div>
   );
 }
