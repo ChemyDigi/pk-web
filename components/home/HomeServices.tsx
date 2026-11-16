@@ -237,7 +237,6 @@ export default function HomeServices() {
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="home-services-img"
-                priority
               />
             </div>
           </div>

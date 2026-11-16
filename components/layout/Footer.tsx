@@ -60,7 +60,6 @@ export default function Footer() {
                 width={56}
                 height={70}
                 className="h-16 w-auto object-contain mx-auto"
-                priority
               />
             </Link>
           </div>
@@ -135,6 +134,9 @@ export default function Footer() {
             </Link>
             <Link href="/achievements" className="hover:text-white transition-colors duration-200">
               Achievements
+            </Link>
+            <Link href="/services" className="hover:text-white transition-colors duration-200">
+              Affinity
             </Link>
             <Link href="/contact" className="hover:text-white transition-colors duration-200">
               Contact

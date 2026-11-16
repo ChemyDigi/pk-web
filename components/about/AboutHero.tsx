@@ -11,7 +11,7 @@ export default function AboutHero() {
       <div className="about-hero-bg-container">
         <Image
           src="/images/about/pradeep.png"
-          alt="About hero background"
+          alt="Pradeep Liyanage - Life Insurance Advisor and Regional Sales Manager"
           fill
           priority
           quality={95}

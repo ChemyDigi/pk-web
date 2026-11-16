@@ -111,7 +111,6 @@ export default function AboutAwards() {
           src="/images/about/AboutBackground.jpg"
           alt="Cinematic atmospheric smoke background"
           fill
-          priority
           quality={95}
           className="about-awards-bg-img"
         />
@@ -176,7 +175,6 @@ export default function AboutAwards() {
                       alt={award.alt}
                       width={500}
                       height={700}
-                      priority
                       quality={95}
                       className="about-awards-trophy-img"
                     />

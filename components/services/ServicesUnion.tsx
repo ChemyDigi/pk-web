@@ -42,10 +42,10 @@ export default function ServicesUnion() {
             </div>
 
             {/* Organisation name */}
-            <h2 className="services-union-org-name">Union Uththareethara</h2>
+            <h1 className="services-union-org-name">Union Uththareethara</h1>
 
             {/* Sub-headline */}
-            <h3 className="services-union-subheading">Protecting the Guardians of Justice</h3>
+            <h2 className="services-union-subheading">Protecting the Guardians of Justice</h2>
 
             {/* Body paragraphs */}
             <div className="services-union-body">

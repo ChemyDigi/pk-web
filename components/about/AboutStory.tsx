@@ -70,7 +70,6 @@ export default function AboutStory() {
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 33vw, 33vw"
               className="about-story-img"
-              priority
             />
           </div>
 
