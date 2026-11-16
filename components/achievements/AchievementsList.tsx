@@ -2,6 +2,13 @@ import React from "react";
 
 const achievements = [
   {
+    year: "2026",
+    title: "Second MDRT Qualification – 2026",
+    description:
+      "Proudly achieved my second MDRT qualification for 2026, marking another milestone in my professional journey. This moment captures both my 2025 and 2026 MDRT certificates, reflecting two consecutive years of qualification and continued commitment to professional excellence.",
+    tag: "MDRT",
+  },
+  {
     year: "2025",
     title: "First MDRT Qualification – 2025",
     description:

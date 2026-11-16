@@ -46,6 +46,20 @@ const thirdAchievementData = {
   alt: "First MDRT Qualification – 2025",
 };
 
+const mdrt2026Images = [
+  "/images/achievements/mdrt-qualification-2026-1.jpg",
+  "/images/achievements/mdrt-qualification-2026-2.jpg",
+];
+
+const fourthAchievementData = {
+  images: mdrt2026Images,
+  image: mdrt2026Images[0],
+  title: "Second MDRT Qualification – 2026",
+  description:
+    "Proudly achieved my second MDRT qualification for 2026, marking another milestone in my professional journey. This moment captures both my 2025 and 2026 MDRT certificates, reflecting two consecutive years of qualification and continued commitment to professional excellence.",
+  alt: "Second MDRT Qualification – 2026",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -244,6 +258,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "col1-2",
+      ...fourthAchievementData,
       aspectClass: "aspect-col1-item2",
     },
     {
@@ -317,6 +332,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "m-col2-2",
+      ...fourthAchievementData,
       aspectClass: "aspect-m-tall-3",
     },
     {
