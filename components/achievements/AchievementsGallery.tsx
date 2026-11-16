@@ -91,6 +91,21 @@ const sixthAchievementData = {
   alt: "Annual Awards Recognition – 2025",
 };
 
+const leaderConference2026Images = [
+  "/images/achievements/leader-conference-2026-1.jpg",
+  "/images/achievements/leader-conference-2026-2.jpg",
+  "/images/achievements/leader-conference-2026-3.jpg",
+];
+
+const seventhAchievementData = {
+  images: leaderConference2026Images,
+  image: leaderConference2026Images[0],
+  title: "2nd Runner-Up – Union Assurance Leader Conference 2026",
+  description:
+    "Proudly recognised as the 2nd Runner-Up in the Regional Sales Manager Category at the Union Assurance Leader Conference 2026, representing the Borella Region. This achievement reflects outstanding performance, dedication, and leadership during the first half of 2026.",
+  alt: "2nd Runner-Up – Union Assurance Leader Conference 2026",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -294,7 +309,8 @@ export default function AchievementsGallery() {
     },
     {
       id: "col1-3",
-      aspectClass: "aspect-col1-item3",
+      ...seventhAchievementData,
+      aspectClass: "aspect-col1-item3 aspect-leader-portrait",
     },
   ];
 
@@ -353,7 +369,8 @@ export default function AchievementsGallery() {
     },
     {
       id: "m-col1-4",
-      aspectClass: "aspect-m-short-2",
+      ...seventhAchievementData,
+      aspectClass: "aspect-leader-portrait",
     },
   ];
 

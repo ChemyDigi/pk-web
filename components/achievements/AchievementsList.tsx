@@ -3,6 +3,13 @@ import React from "react";
 const achievements = [
   {
     year: "2026",
+    title: "2nd Runner-Up – Union Assurance Leader Conference 2026",
+    description:
+      "Proudly recognised as the 2nd Runner-Up in the Regional Sales Manager Category at the Union Assurance Leader Conference 2026, representing the Borella Region. This achievement reflects outstanding performance, dedication, and leadership during the first half of 2026.",
+    tag: "Union Assurance",
+  },
+  {
+    year: "2026",
     title: "Second MDRT Qualification – 2026",
     description:
       "Proudly achieved my second MDRT qualification for 2026, marking another milestone in my professional journey. This moment captures both my 2025 and 2026 MDRT certificates, reflecting two consecutive years of qualification and continued commitment to professional excellence.",

@@ -99,6 +99,15 @@
   aspect-ratio: 1 / 0.94; /* Squarish compact */
 }
 
+.aspect-leader-portrait {
+  aspect-ratio: 2 / 3; /* Exact match for 2:3 portrait studio photos */
+}
+
+.aspect-leader-portrait .achievements-card-photo-img {
+  object-fit: cover;
+  object-position: top center;
+}
+
 .aspect-m-medium-1 {
   aspect-ratio: 1 / 1.14; /* Balanced medium */
 }
@@ -319,7 +328,7 @@
   }
 
   .aspect-col1-item3 {
-    aspect-ratio: 178 / 154;
+    aspect-ratio: 2 / 3; /* Matches the 2:3 portrait photo so it is not cropped */
   }
 
   /* Column 2 */
