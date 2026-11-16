@@ -2,6 +2,13 @@ import React from "react";
 
 const achievements = [
   {
+    year: "2024",
+    title: "UA Premier Club Member – 2024",
+    description:
+      "Proudly qualified as a UA Premier Club Member for three consecutive quarters (Q1, Q2, and Q3) in 2024. This quarterly recognition reflects consistent performance, dedication, and commitment to excellence at Union Assurance.",
+    tag: "Union Assurance",
+  },
+  {
     year: "2025",
     title: "Global Enterprise Web Portal Launch",
     description: "Designed and engineered an enterprise-grade customer portal handling over 100k daily active users with 99.99% uptime.",
