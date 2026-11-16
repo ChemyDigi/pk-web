@@ -344,6 +344,10 @@
     aspect-ratio: 225 / 208;
   }
 
+  .aspect-col2-item4 {
+    aspect-ratio: 225 / 165;
+  }
+
   /* Column 3 */
   .aspect-col3-item1 {
     aspect-ratio: 180 / 219;

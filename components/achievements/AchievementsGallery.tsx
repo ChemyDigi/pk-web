@@ -350,11 +350,6 @@ export default function AchievementsGallery() {
       ...seventhAchievementData,
       aspectClass: "aspect-col1-item3 aspect-leader-portrait",
     },
-    {
-      id: "col1-4",
-      ...tenthAchievementData,
-      aspectClass: "aspect-col1-item2",
-    },
   ];
 
   // Desktop Column 2 items (Center)
@@ -373,6 +368,11 @@ export default function AchievementsGallery() {
       id: "col2-3",
       ...eighthAchievementData,
       aspectClass: "aspect-col2-item3",
+    },
+    {
+      id: "col2-4",
+      ...tenthAchievementData,
+      aspectClass: "aspect-col2-item4",
     },
   ];
 
