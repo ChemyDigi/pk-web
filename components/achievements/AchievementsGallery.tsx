@@ -75,6 +75,22 @@ const fifthAchievementData = {
   alt: "Gold Award – Annual Awards 2024",
 };
 
+const annualAwards2025Images = [
+  "/images/achievements/annual-awards-2025-3.jpg",
+  "/images/achievements/annual-awards-2025-4.jpg",
+  "/images/achievements/annual-awards-2025-1.jpg",
+  "/images/achievements/annual-awards-2025-2.jpg",
+];
+
+const sixthAchievementData = {
+  images: annualAwards2025Images,
+  image: annualAwards2025Images[0],
+  title: "Annual Awards Recognition – 2025",
+  description:
+    "A proud celebration of achievements at the 2025 Annual Awards as an Associate Regional Sales Manager. These memorable moments showcase the success of my team members who received annual awards, alongside my personal recognition through two awards. Together, they represent a year of teamwork, dedication, leadership, and shared success.",
+  alt: "Annual Awards Recognition – 2025",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -309,6 +325,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "col3-2",
+      ...sixthAchievementData,
       aspectClass: "aspect-col3-item2",
     },
     {
@@ -354,6 +371,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "m-col2-3",
+      ...sixthAchievementData,
       aspectClass: "aspect-m-medium-2",
     },
     {

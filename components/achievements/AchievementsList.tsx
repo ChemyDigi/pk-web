@@ -10,6 +10,13 @@ const achievements = [
   },
   {
     year: "2025",
+    title: "Annual Awards Recognition – 2025",
+    description:
+      "A proud celebration of achievements at the 2025 Annual Awards as an Associate Regional Sales Manager. These memorable moments showcase the success of my team members who received annual awards, alongside my personal recognition through two awards. Together, they represent a year of teamwork, dedication, leadership, and shared success.",
+    tag: "Union Assurance",
+  },
+  {
+    year: "2025",
     title: "First MDRT Qualification – 2025",
     description:
       "Achieved my first Million Dollar Round Table (MDRT) qualification for 2025, marking a significant milestone in my professional journey. This certificate, awarded by the MDRT Association, represents my dedication to excellence in the financial services industry.",
