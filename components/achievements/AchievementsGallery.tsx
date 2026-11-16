@@ -30,6 +30,14 @@ const firstAchievementData = {
   alt: "UA Premier Club Member – 2024",
 };
 
+const secondAchievementData = {
+  image: "/images/achievements/diamond-award-2020.jpg",
+  title: "Diamond Award – Annual Awards 2020",
+  description:
+    "Honoured to receive the prestigious Diamond Award at the 2020 Annual Awards in recognition of outstanding performance and achievements as a Business Development Officer.",
+  alt: "Diamond Award – Annual Awards 2020",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -240,6 +248,7 @@ export default function AchievementsGallery() {
   const desktopColumn2: GalleryItem[] = [
     {
       id: "col2-1",
+      ...secondAchievementData,
       aspectClass: "aspect-col2-item1",
     },
     {
@@ -293,6 +302,7 @@ export default function AchievementsGallery() {
   const mobileColumn2: GalleryItem[] = [
     {
       id: "m-col2-1",
+      ...secondAchievementData,
       aspectClass: "aspect-m-short-3",
     },
     {

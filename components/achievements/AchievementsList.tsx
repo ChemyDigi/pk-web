@@ -9,6 +9,13 @@ const achievements = [
     tag: "Union Assurance",
   },
   {
+    year: "2020",
+    title: "Diamond Award – Annual Awards 2020",
+    description:
+      "Honoured to receive the prestigious Diamond Award at the 2020 Annual Awards in recognition of outstanding performance and achievements as a Business Development Officer.",
+    tag: "Union Assurance",
+  },
+  {
     year: "2025",
     title: "Global Enterprise Web Portal Launch",
     description: "Designed and engineered an enterprise-grade customer portal handling over 100k daily active users with 99.99% uptime.",
