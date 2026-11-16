@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/services`,
     images: [
       {
-        url: "/images/services/union.jpg",
+        url: "/images/services/union.png",
         width: 600,
         height: 600,
         alt: "Union Uththareethara - Bar Association of Sri Lanka Partnership",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Affinity Partnerships | Pradeep Liyanage",
     description:
       "Explore professional partnerships and affinity initiatives associated with Pradeep Liyanage's career at Union Assurance Sri Lanka.",
-    images: ["/images/services/union.jpg"],
+    images: ["/images/services/union.png"],
   },
 };
 
