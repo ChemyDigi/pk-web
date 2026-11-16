@@ -38,6 +38,14 @@ const secondAchievementData = {
   alt: "Diamond Award – Annual Awards 2020",
 };
 
+const thirdAchievementData = {
+  image: "/images/achievements/mdrt-qualification-2025.jpg",
+  title: "First MDRT Qualification – 2025",
+  description:
+    "Achieved my first Million Dollar Round Table (MDRT) qualification for 2025, marking a significant milestone in my professional journey. This certificate, awarded by the MDRT Association, represents my dedication to excellence in the financial services industry.",
+  alt: "First MDRT Qualification – 2025",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -265,6 +273,7 @@ export default function AchievementsGallery() {
   const desktopColumn3: GalleryItem[] = [
     {
       id: "col3-1",
+      ...thirdAchievementData,
       aspectClass: "aspect-col3-item1",
     },
     {
@@ -286,6 +295,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "m-col1-2",
+      ...thirdAchievementData,
       aspectClass: "aspect-m-short-1",
     },
     {

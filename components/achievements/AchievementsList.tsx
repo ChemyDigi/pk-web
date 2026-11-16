@@ -2,6 +2,13 @@ import React from "react";
 
 const achievements = [
   {
+    year: "2025",
+    title: "First MDRT Qualification – 2025",
+    description:
+      "Achieved my first Million Dollar Round Table (MDRT) qualification for 2025, marking a significant milestone in my professional journey. This certificate, awarded by the MDRT Association, represents my dedication to excellence in the financial services industry.",
+    tag: "MDRT",
+  },
+  {
     year: "2024",
     title: "UA Premier Club Member – 2024",
     description:
