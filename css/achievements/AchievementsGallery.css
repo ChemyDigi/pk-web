@@ -99,6 +99,15 @@
   aspect-ratio: 1 / 0.94; /* Squarish compact */
 }
 
+.aspect-leader-portrait {
+  aspect-ratio: 2 / 3; /* Exact match for 2:3 portrait studio photos */
+}
+
+.aspect-leader-portrait .achievements-card-photo-img {
+  object-fit: cover;
+  object-position: top center;
+}
+
 .aspect-m-medium-1 {
   aspect-ratio: 1 / 1.14; /* Balanced medium */
 }
@@ -176,7 +185,7 @@
 }
 
 /* ==========================================================================
-   Photo Card (Column 1, Item 1)
+   Photo Card & Slideshow
    ========================================================================== */
 
 .achievements-card-photo {
@@ -184,14 +193,63 @@
   cursor: pointer;
 }
 
+.achievements-card-slides-track {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.achievements-card-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .achievements-card-photo-img {
   object-fit: cover;
   object-position: center;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .achievements-card-photo:hover .achievements-card-photo-img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+}
+
+/* Slide Dots Indicators on the Card */
+.achievements-card-indicators {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.achievements-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.achievements-card-dot.active {
+  background-color: #ffffff;
+  width: 16px;
+  border-radius: 4px;
 }
 
 /* Subtle gradient on image base */
@@ -200,8 +258,8 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    transparent 65%,
-    rgba(0, 0, 0, 0.45) 100%
+    transparent 60%,
+    rgba(0, 0, 0, 0.5) 100%
   );
   pointer-events: none;
 }
@@ -270,7 +328,7 @@
   }
 
   .aspect-col1-item3 {
-    aspect-ratio: 178 / 154;
+    aspect-ratio: 2 / 3; /* Matches the 2:3 portrait photo so it is not cropped */
   }
 
   /* Column 2 */
@@ -284,6 +342,10 @@
 
   .aspect-col2-item3 {
     aspect-ratio: 225 / 208;
+  }
+
+  .aspect-col2-item4 {
+    aspect-ratio: 225 / 165;
   }
 
   /* Column 3 */
@@ -308,13 +370,13 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(4, 5, 8, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
   animation: achievementsFadeIn 0.25s ease-out;
 }
 
@@ -327,31 +389,14 @@
   }
 }
 
-.achievements-lightbox-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.achievements-lightbox-img {
-  max-width: 100%;
-  max-height: 85vh;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
-}
-
 .achievements-lightbox-close {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 2.75rem;
-  height: 2.75rem;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   display: flex;
@@ -359,10 +404,263 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  z-index: 10000;
+  z-index: 20;
 }
 
 .achievements-lightbox-close:hover {
   background-color: rgba(255, 255, 255, 0.25);
   transform: scale(1.08);
+}
+
+/* Modal Dialog Container */
+.achievements-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 60rem; /* ~960px */
+  max-height: 90vh;
+  background: #0d0e12;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: achievementsZoomIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.achievements-modal-dialog.image-only {
+  max-width: 48rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+@keyframes achievementsZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 860px) {
+  .achievements-modal-dialog.has-details {
+    flex-direction: row;
+    max-height: 85vh;
+  }
+}
+
+/* Media / Image Area */
+.achievements-modal-media {
+  position: relative;
+  flex: 1.15;
+  background-color: #050608;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+@media (min-width: 860px) {
+  .achievements-modal-media {
+    min-height: 480px;
+    max-width: 58%;
+  }
+}
+
+.achievements-modal-img-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 260px;
+  background: radial-gradient(circle at center, #181920 0%, #050608 100%);
+}
+
+.achievements-modal-img {
+  max-width: 100%;
+  max-height: 48vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2s ease;
+}
+
+@media (min-width: 860px) {
+  .achievements-modal-img {
+    max-height: 60vh;
+  }
+}
+
+/* Modal Nav Arrows */
+.achievements-modal-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  background: rgba(18, 19, 24, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+.achievements-modal-arrow svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: currentColor;
+}
+
+.achievements-modal-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.achievements-modal-arrow-left {
+  left: 0.75rem;
+}
+
+.achievements-modal-arrow-right {
+  right: 0.75rem;
+}
+
+/* Modal Slide Counter */
+.achievements-modal-counter {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+  z-index: 5;
+}
+
+/* Thumbnails Strip */
+.achievements-modal-thumbnails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #08090d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+}
+
+.achievements-modal-thumb-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-color: #121318;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.achievements-modal-thumb-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.achievements-modal-thumb-btn.active {
+  opacity: 1;
+  border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.achievements-modal-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Details Panel (Right side) */
+.achievements-modal-info {
+  flex: 1;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+@media (min-width: 860px) {
+  .achievements-modal-info {
+    padding: 2.5rem 2rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+.achievements-modal-title-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.achievements-modal-label,
+.achievements-modal-desc-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.45rem;
+}
+
+.achievements-modal-title {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .achievements-modal-title {
+    font-size: 1.85rem;
+  }
+}
+
+.achievements-modal-desc-wrapper {
+  margin-bottom: 0;
+}
+
+.achievements-modal-desc {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .achievements-modal-desc {
+    font-size: 0.985rem;
+  }
 }

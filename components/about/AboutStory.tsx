@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import "@/css/about/AboutStory.css";
 
 export default function AboutStory() {
@@ -50,26 +51,39 @@ export default function AboutStory() {
 
         {/* Bottom Three Staggered Image Placeholder Boxes */}
         <div className="about-story-boxes-grid">
-          {/* Box 1 (Left) */}
-          <div
-            className="about-story-box about-story-box-1"
-            role="img"
-            aria-label="Image placeholder 1"
-          />
+          {/* Box 1 (Left - With Image) */}
+          <div className="about-story-box about-story-box-1">
+            <Image
+              src="/images/about/about-story-left.webp"
+              alt="Pradeep Liyanage - Professional Recognition"
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 33vw, 33vw"
+              className="about-story-img"
+            />
+          </div>
 
-          {/* Box 2 (Center - Taller) */}
-          <div
-            className="about-story-box about-story-box-2"
-            role="img"
-            aria-label="Image placeholder 2"
-          />
+          {/* Box 2 (Center - Taller with Image) */}
+          <div className="about-story-box about-story-box-2">
+            <Image
+              src="/images/about/about-story-middle.webp"
+              alt="Pradeep Liyanage - Leadership & People Development"
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 33vw, 33vw"
+              className="about-story-img"
+              priority
+            />
+          </div>
 
-          {/* Box 3 (Right) */}
-          <div
-            className="about-story-box about-story-box-3"
-            role="img"
-            aria-label="Image placeholder 3"
-          />
+          {/* Box 3 (Right - With Image) */}
+          <div className="about-story-box about-story-box-3">
+            <Image
+              src="/images/about/about-story-right.webp"
+              alt="Pradeep Liyanage - MDRT Qualifications & Honors"
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 33vw, 33vw"
+              className="about-story-img"
+            />
+          </div>
         </div>
 
       </div>

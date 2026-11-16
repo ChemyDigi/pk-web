@@ -11,72 +11,99 @@ interface Milestone {
 
 const milestones: Milestone[] = [
   {
-    year: "2011",
-    title: "Entering Financial Services",
-    description: (
-      <>
-        Entered the financial advisory space with a foundational vision to help clients
-        navigate risk, prioritize financial security, and plan for lifelong stability through
-        dedicated and honest consultation.
-      </>
-    ),
-  },
-  {
     year: "2012",
-    title: "The Journey Begins",
+    title: "Beginning the Journey",
     description: (
       <>
-        Began the professional journey as a <strong>Life Insurance Advisor</strong>, helping
-        individuals and families understand the importance of financial protection. This role
-        created a strong foundation in client service, needs-based consultation, and building
-        relationships based on trust and responsibility.
+        Began my professional journey at Union Assurance as a Life Insurance Advisor, focusing on helping individuals and families secure their financial futures. This marked the foundation of my career in financial services and customer relationship management.
       </>
     ),
   },
   {
     year: "2015",
-    title: "Advisory Excellence & Growth",
+    title: "Advancing as a Financial Advisor",
     description: (
       <>
-        Broadened advisory scope into comprehensive wealth preservation, retirement planning,
-        and personalized family coverage, achieving top-tier advisory milestones and industry benchmarks.
+        Progressed into the role of Personal Financial Advisor, taking on greater responsibilities in financial consultation and client relationship management. This transition marked an important step in my professional development.
+      </>
+    ),
+  },
+  {
+    year: "2017",
+    title: "Achieving Platinum Recognition",
+    description: (
+      <>
+        Received the Platinum Award in the Advisor Category at the Union Assurance Annual Awards 2017. This recognition marked an important achievement in my advisory career, reflecting dedication and consistent professional performance.
       </>
     ),
   },
   {
     year: "2018",
-    title: "Leadership & Unit Development",
+    title: "Stepping into Leadership",
     description: (
       <>
-        Stepped into leadership, establishing and mentoring high-performing sales units with a
-        shared vision of ethical advice, continuous learning, and client dedication.
+        Advanced into the role of Senior Agency Development Manager, marking my transition towards leadership and agency development. This year also included participation in the 9th Marketing & Sales Forum of the Insurance Association of Sri Lanka.
       </>
     ),
   },
   {
-    year: "2021",
-    title: "Associate Regional Sales Manager",
+    year: "2019",
+    title: "Excellence in Business Development",
     description: (
       <>
-        Elevated to <strong>Associate Regional Sales Manager</strong>, expanding market reach,
-        fostering key affinity group partnerships, and driving regional organizational success.
+        Took on the role of Business Development Officer, expanding my responsibilities in business growth and agency performance. Earned the Silver Award and 1st Runner-Up recognition for Best Business Development Officer at the Union Assurance Annual Awards 2019.
+      </>
+    ),
+  },
+  {
+    year: "2020",
+    title: "Diamond Award & Leadership Growth",
+    description: (
+      <>
+        Progressed into the role of Assistant Sales Manager in April 2020, taking on greater leadership responsibilities. Received the prestigious Diamond Award in the Business Development Officer Category at the Annual Awards 2020, marking another significant career achievement.
+      </>
+    ),
+  },
+  {
+    year: "2023",
+    title: "Advancing to Sales Manager",
+    description: (
+      <>
+        Promoted to Sales Manager in January 2023, marking an important advancement in my leadership journey. Received the Silver Award in the Sales Manager Category at the Union Assurance Mid-Year Awards 2023.
+      </>
+    ),
+  },
+  {
+    year: "2024",
+    title: "Regional Leadership & Gold Recognition",
+    description: (
+      <>
+        Advanced to Associate Regional Sales Manager in July 2024, taking on broader leadership responsibilities. Earned the Gold Award at the Annual Awards 2024 and qualified for UA Premier Club membership across three consecutive quarters.
       </>
     ),
   },
   {
     year: "2025",
-    title: "Industry Recognition & MDRT Honors",
+    title: "MDRT Qualification & Leadership Excellence",
     description: (
       <>
-        Honored with the <strong>Platinum Award</strong>, <strong>Best Capacity Builder Winner Award</strong>,
-        and Best Leader Unit 1st Runner-Up at the Annual Awards 2025, alongside prestigious MDRT global recognition.
+        Achieved my first Million Dollar Round Table (MDRT) qualification, marking a major milestone in my financial services career. Also received the Platinum Award, Best Capacity Builder recognition, and 1st Runner-Up for Best Leader Unit at the Union Assurance Annual Awards 2025.
+      </>
+    ),
+  },
+  {
+    year: "2026",
+    title: "Regional Sales Manager & Continued Excellence",
+    description: (
+      <>
+        Stepped into the role of Regional Sales Manager in January 2026, marking a significant career milestone. Achieved my second consecutive MDRT qualification and received national recognition through the SLIM National Sales Awards Bronze Award, alongside 2nd Runner-Up recognition at the Union Assurance Leader Conference 2026.
       </>
     ),
   },
 ];
 
 export default function AboutTimeline() {
-  // Default to index 0 ("2011") for chronological start
+  // Default to index 0 ("2012") for chronological start
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStartY, setTouchStartY] = useState<number | null>(null);
 
@@ -142,14 +169,14 @@ export default function AboutTimeline() {
                   transform: `translate3d(0, calc(-${activeIndex} * var(--timeline-slot-h)), 0)`,
                 }}
               >
-                {/* Ghost Year 2010 (Visual context at top when 2011 is active) */}
+                {/* Ghost Year 2011 (Visual context at top when 2012 is active) */}
                 <div
                   className={`about-timeline-year-item ${
                     activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
                   }`}
                   aria-hidden="true"
                 >
-                  <span className="about-timeline-year-text">2010</span>
+                  <span className="about-timeline-year-text">2011</span>
                 </div>
 
                 {milestones.map((m, idx) => {
@@ -178,6 +205,18 @@ export default function AboutTimeline() {
                     </div>
                   );
                 })}
+
+                {/* Ghost Year 2027 (Visual context at bottom when 2026 is active) */}
+                <div
+                  className={`about-timeline-year-item ${
+                    activeIndex === milestones.length - 1
+                      ? "about-timeline-year-next"
+                      : "about-timeline-year-future"
+                  }`}
+                  aria-hidden="true"
+                >
+                  <span className="about-timeline-year-text">2027</span>
+                </div>
               </div>
             </div>
           </div>

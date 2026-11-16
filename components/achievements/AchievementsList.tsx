@@ -2,6 +2,76 @@ import React from "react";
 
 const achievements = [
   {
+    year: "2026",
+    title: "Bronze Award – SLIM National Sales Awards 2026",
+    description:
+      "Proudly honoured with the Bronze Award in the Sales Supervisor Category under Life Insurance at the SLIM National Sales Awards Silver Jubilee 2026. This prestigious recognition reflects my dedication, sales excellence, and commitment to outstanding performance in the life insurance industry.",
+    tag: "National Award",
+  },
+  {
+    year: "2026",
+    title: "MDRT Day 2026 – A Historic First in Sri Lanka",
+    description:
+      "Proud to have participated in the inaugural MDRT Day held in Sri Lanka in 2026. This landmark event marked a significant milestone for the country's financial services industry, bringing together professionals to celebrate excellence, share knowledge, and inspire continued professional growth.",
+    tag: "MDRT",
+  },
+  {
+    year: "2026",
+    title: "2nd Runner-Up – Union Assurance Leader Conference 2026",
+    description:
+      "Proudly recognised as the 2nd Runner-Up in the Regional Sales Manager Category at the Union Assurance Leader Conference 2026, representing the Borella Region. This achievement reflects outstanding performance, dedication, and leadership during the first half of 2026.",
+    tag: "Union Assurance",
+  },
+  {
+    year: "2026",
+    title: "Second MDRT Qualification – 2026",
+    description:
+      "Proudly achieved my second MDRT qualification for 2026, marking another milestone in my professional journey. This moment captures both my 2025 and 2026 MDRT certificates, reflecting two consecutive years of qualification and continued commitment to professional excellence.",
+    tag: "MDRT",
+  },
+  {
+    year: "2025",
+    title: "Annual Awards Recognition – 2025",
+    description:
+      "A proud celebration of achievements at the 2025 Annual Awards as an Associate Regional Sales Manager. These memorable moments showcase the success of my team members who received annual awards, alongside my personal recognition through two awards. Together, they represent a year of teamwork, dedication, leadership, and shared success.",
+    tag: "Union Assurance",
+  },
+  {
+    year: "2025",
+    title: "First MDRT Qualification – 2025",
+    description:
+      "Achieved my first Million Dollar Round Table (MDRT) qualification for 2025, marking a significant milestone in my professional journey. This certificate, awarded by the MDRT Association, represents my dedication to excellence in the financial services industry.",
+    tag: "MDRT",
+  },
+  {
+    year: "2024",
+    title: "Gold Award – Annual Awards 2024",
+    description:
+      "Honoured to receive the Gold Award at the 2024 Annual Awards in recognition of exceptional performance and contributions as an Associate Regional Sales Manager.",
+    tag: "Union Assurance",
+  },
+  {
+    year: "2024",
+    title: "UA Premier Club Member – 2024",
+    description:
+      "Proudly qualified as a UA Premier Club Member for three consecutive quarters (Q1, Q2, and Q3) in 2024. This quarterly recognition reflects consistent performance, dedication, and commitment to excellence at Union Assurance.",
+    tag: "Union Assurance",
+  },
+  {
+    year: "2020",
+    title: "Diamond Award – Annual Awards 2020",
+    description:
+      "Honoured to receive the prestigious Diamond Award at the 2020 Annual Awards in recognition of outstanding performance and achievements as a Business Development Officer.",
+    tag: "Union Assurance",
+  },
+  {
+    year: "2016",
+    title: "Agreement Signing with the Bar Association – 2016",
+    description:
+      "Memorable moments from the official agreement signing with the Bar Association on November 28, 2016. These photographs capture an important milestone in establishing a professional partnership and strengthening institutional relationships.",
+    tag: "Partnership",
+  },
+  {
     year: "2025",
     title: "Global Enterprise Web Portal Launch",
     description: "Designed and engineered an enterprise-grade customer portal handling over 100k daily active users with 99.99% uptime.",

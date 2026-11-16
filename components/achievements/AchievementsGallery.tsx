@@ -1,27 +1,322 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import "@/css/achievements/AchievementsGallery.css";
 
-interface GalleryItem {
+export interface GalleryItem {
   id: string;
   image?: string;
+  images?: string[];
+  title?: string;
+  description?: string;
   alt?: string;
   aspectClass: string;
 }
 
+const uaPremierClubImages = [
+  "/images/achievements/ua-premier-club-2024-1.jpg",
+  "/images/achievements/ua-premier-club-2024-2.jpg",
+  "/images/achievements/ua-premier-club-2024-3.jpg",
+  "/images/achievements/ua-premier-club-2024-4.jpg",
+];
+
+const firstAchievementData = {
+  images: uaPremierClubImages,
+  image: uaPremierClubImages[0],
+  title: "UA Premier Club Member – 2024",
+  description:
+    "Proudly qualified as a UA Premier Club Member for three consecutive quarters (Q1, Q2, and Q3) in 2024. This quarterly recognition reflects consistent performance, dedication, and commitment to excellence at Union Assurance.",
+  alt: "UA Premier Club Member – 2024",
+};
+
+const secondAchievementData = {
+  image: "/images/achievements/diamond-award-2020.jpg",
+  title: "Diamond Award – Annual Awards 2020",
+  description:
+    "Honoured to receive the prestigious Diamond Award at the 2020 Annual Awards in recognition of outstanding performance and achievements as a Business Development Officer.",
+  alt: "Diamond Award – Annual Awards 2020",
+};
+
+const thirdAchievementData = {
+  image: "/images/achievements/mdrt-qualification-2025.jpg",
+  title: "First MDRT Qualification – 2025",
+  description:
+    "Achieved my first Million Dollar Round Table (MDRT) qualification for 2025, marking a significant milestone in my professional journey. This certificate, awarded by the MDRT Association, represents my dedication to excellence in the financial services industry.",
+  alt: "First MDRT Qualification – 2025",
+};
+
+const mdrt2026Images = [
+  "/images/achievements/mdrt-qualification-2026-1.jpg",
+  "/images/achievements/mdrt-qualification-2026-2.jpg",
+];
+
+const fourthAchievementData = {
+  images: mdrt2026Images,
+  image: mdrt2026Images[0],
+  title: "Second MDRT Qualification – 2026",
+  description:
+    "Proudly achieved my second MDRT qualification for 2026, marking another milestone in my professional journey. This moment captures both my 2025 and 2026 MDRT certificates, reflecting two consecutive years of qualification and continued commitment to professional excellence.",
+  alt: "Second MDRT Qualification – 2026",
+};
+
+const goldAward2024Images = [
+  "/images/achievements/gold-award-2024-1.jpg",
+  "/images/achievements/gold-award-2024-2.jpg",
+  "/images/achievements/gold-award-2024-3.jpg",
+];
+
+const fifthAchievementData = {
+  images: goldAward2024Images,
+  image: goldAward2024Images[0],
+  title: "Gold Award – Annual Awards 2024",
+  description:
+    "Honoured to receive the Gold Award at the 2024 Annual Awards in recognition of exceptional performance and contributions as an Associate Regional Sales Manager.",
+  alt: "Gold Award – Annual Awards 2024",
+};
+
+const annualAwards2025Images = [
+  "/images/achievements/annual-awards-2025-4.jpg",
+  "/images/achievements/annual-awards-2025-3.jpg",
+  "/images/achievements/annual-awards-2025-1.jpg",
+  "/images/achievements/annual-awards-2025-2.jpg",
+];
+
+const sixthAchievementData = {
+  images: annualAwards2025Images,
+  image: annualAwards2025Images[0],
+  title: "Annual Awards Recognition – 2025",
+  description:
+    "A proud celebration of achievements at the 2025 Annual Awards as an Associate Regional Sales Manager. These memorable moments showcase the success of my team members who received annual awards, alongside my personal recognition through two awards. Together, they represent a year of teamwork, dedication, leadership, and shared success.",
+  alt: "Annual Awards Recognition – 2025",
+};
+
+const leaderConference2026Images = [
+  "/images/achievements/leader-conference-2026-1.jpg",
+  "/images/achievements/leader-conference-2026-2.jpg",
+  "/images/achievements/leader-conference-2026-3.jpg",
+];
+
+const seventhAchievementData = {
+  images: leaderConference2026Images,
+  image: leaderConference2026Images[0],
+  title: "2nd Runner-Up – Union Assurance Leader Conference 2026",
+  description:
+    "Proudly recognised as the 2nd Runner-Up in the Regional Sales Manager Category at the Union Assurance Leader Conference 2026, representing the Borella Region. This achievement reflects outstanding performance, dedication, and leadership during the first half of 2026.",
+  alt: "2nd Runner-Up – Union Assurance Leader Conference 2026",
+};
+
+const mdrtDay2026Images = [
+  "/images/achievements/mdrt-day-2026-1.jpg",
+  "/images/achievements/mdrt-day-2026-2.jpg",
+  "/images/achievements/mdrt-day-2026-3.jpg",
+  "/images/achievements/mdrt-day-2026-4.jpg",
+];
+
+const eighthAchievementData = {
+  images: mdrtDay2026Images,
+  image: mdrtDay2026Images[0],
+  title: "MDRT Day 2026 – A Historic First in Sri Lanka",
+  description:
+    "Proud to have participated in the inaugural MDRT Day held in Sri Lanka in 2026. This landmark event marked a significant milestone for the country's financial services industry, bringing together professionals to celebrate excellence, share knowledge, and inspire continued professional growth.",
+  alt: "MDRT Day 2026 – A Historic First in Sri Lanka",
+};
+
+const slimAwards2026Images = [
+  "/images/achievements/slim-awards-2026-1.jpg",
+  "/images/achievements/slim-awards-2026-2.jpg",
+];
+
+const ninthAchievementData = {
+  images: slimAwards2026Images,
+  image: slimAwards2026Images[0],
+  title: "Bronze Award – SLIM National Sales Awards 2026",
+  description:
+    "Proudly honoured with the Bronze Award in the Sales Supervisor Category under Life Insurance at the SLIM National Sales Awards Silver Jubilee 2026. This prestigious recognition reflects my dedication, sales excellence, and commitment to outstanding performance in the life insurance industry.",
+  alt: "Bronze Award – SLIM National Sales Awards 2026",
+};
+
+const tenthAchievementData = {
+  image: "/images/achievements/bar-association-signing-2016.jpg",
+  title: "Agreement Signing with the Bar Association – 2016",
+  description:
+    "Memorable moments from the official agreement signing with the Bar Association on November 28, 2016. These photographs capture an important milestone in establishing a professional partnership and strengthening institutional relationships.",
+  alt: "Agreement Signing with the Bar Association – 2016",
+};
+
+interface CardProps {
+  item: GalleryItem;
+  onOpen: (item: GalleryItem, slideIdx: number) => void;
+}
+
+function AchievementCard({ item, onOpen }: CardProps) {
+  const images = item.images && item.images.length > 0 ? item.images : item.image ? [item.image] : [];
+  const hasImages = images.length > 0;
+  const isSlideshow = images.length > 1;
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Automatic slide rotation every 3.5 seconds
+  useEffect(() => {
+    if (!isSlideshow) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isSlideshow, images.length]);
+
+  if (!hasImages) {
+    return (
+      <div
+        className={`achievements-card achievements-card-placeholder ${item.aspectClass}`}
+        role="img"
+        aria-label={`Achievement placeholder ${item.id}`}
+      />
+    );
+  }
+
+  return (
+    <div
+      className={`achievements-card achievements-card-photo ${item.aspectClass}`}
+      onClick={() => onOpen(item, currentSlide)}
+      role="button"
+      tabIndex={0}
+      aria-label={item.title || item.alt || "View achievement image"}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen(item, currentSlide);
+        }
+      }}
+    >
+      {/* Slideshow image container */}
+      <div className="achievements-card-slides-track">
+        {images.map((src, idx) => (
+          <div
+            key={src}
+            className={`achievements-card-slide ${idx === currentSlide ? "active" : ""}`}
+            style={{
+              opacity: idx === currentSlide ? 1 : 0,
+              pointerEvents: idx === currentSlide ? "auto" : "none",
+            }}
+          >
+            <Image
+              src={src}
+              alt={item.alt || item.title || `Achievement photo ${idx + 1}`}
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 400px"
+              className="achievements-card-photo-img"
+              priority={idx === 0}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="achievements-card-photo-overlay" />
+
+      {/* Slide dots indicator if multiple images */}
+      {isSlideshow && (
+        <div className="achievements-card-indicators" onClick={(e) => e.stopPropagation()}>
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              className={`achievements-card-dot ${idx === currentSlide ? "active" : ""}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentSlide(idx);
+              }}
+              aria-label={`Go to image slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Expand / View Details Button */}
+      <button
+        type="button"
+        className="achievements-card-action-btn"
+        title="View achievement details"
+        aria-label="View achievement details"
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpen(item, currentSlide);
+        }}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <polyline points="15 3 21 3 21 9" />
+          <line x1="10" y1="14" x2="21" y2="3" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
 export default function AchievementsGallery() {
-  const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
+  const [modalState, setModalState] = useState<{
+    item: GalleryItem;
+    activeSlide: number;
+  } | null>(null);
+
+  const activeItem = modalState?.item || null;
+  const activeSlide = modalState?.activeSlide ?? 0;
+
+  const imagesList = activeItem
+    ? activeItem.images && activeItem.images.length > 0
+      ? activeItem.images
+      : activeItem.image
+      ? [activeItem.image]
+      : []
+    : [];
+
+  const handleNextSlide = useCallback(() => {
+    if (imagesList.length <= 1) return;
+    setModalState((prev) =>
+      prev ? { ...prev, activeSlide: (prev.activeSlide + 1) % imagesList.length } : null
+    );
+  }, [imagesList.length]);
+
+  const handlePrevSlide = useCallback(() => {
+    if (imagesList.length <= 1) return;
+    setModalState((prev) =>
+      prev
+        ? {
+            ...prev,
+            activeSlide: (prev.activeSlide - 1 + imagesList.length) % imagesList.length,
+          }
+        : null
+    );
+  }, [imagesList.length]);
+
+  const handleSelectSlide = useCallback((index: number) => {
+    setModalState((prev) => (prev ? { ...prev, activeSlide: index } : null));
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setModalState(null);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setActiveImage(null);
+        handleCloseModal();
+      } else if (e.key === "ArrowRight") {
+        handleNextSlide();
+      } else if (e.key === "ArrowLeft") {
+        handlePrevSlide();
       }
     };
 
-    if (activeImage) {
+    if (modalState) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
     } else {
@@ -32,23 +327,28 @@ export default function AchievementsGallery() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeImage]);
+  }, [modalState, handleCloseModal, handleNextSlide, handlePrevSlide]);
+
+  const handleOpen = (item: GalleryItem, slideIdx: number) => {
+    setModalState({ item, activeSlide: slideIdx });
+  };
 
   // Desktop Column 1 items (Left)
   const desktopColumn1: GalleryItem[] = [
     {
       id: "col1-1",
-      image: "/images/achievements/certificate-1.jpg",
-      alt: "Pradeep Liyanage holding official industry achievement certificates",
+      ...firstAchievementData,
       aspectClass: "aspect-col1-item1",
     },
     {
       id: "col1-2",
+      ...fourthAchievementData,
       aspectClass: "aspect-col1-item2",
     },
     {
       id: "col1-3",
-      aspectClass: "aspect-col1-item3",
+      ...seventhAchievementData,
+      aspectClass: "aspect-col1-item3 aspect-leader-portrait",
     },
   ];
 
@@ -56,15 +356,23 @@ export default function AchievementsGallery() {
   const desktopColumn2: GalleryItem[] = [
     {
       id: "col2-1",
+      ...secondAchievementData,
       aspectClass: "aspect-col2-item1",
     },
     {
       id: "col2-2",
+      ...fifthAchievementData,
       aspectClass: "aspect-col2-item2",
     },
     {
       id: "col2-3",
+      ...eighthAchievementData,
       aspectClass: "aspect-col2-item3",
+    },
+    {
+      id: "col2-4",
+      ...tenthAchievementData,
+      aspectClass: "aspect-col2-item4",
     },
   ];
 
@@ -72,128 +380,81 @@ export default function AchievementsGallery() {
   const desktopColumn3: GalleryItem[] = [
     {
       id: "col3-1",
+      ...thirdAchievementData,
       aspectClass: "aspect-col3-item1",
     },
     {
       id: "col3-2",
+      ...sixthAchievementData,
       aspectClass: "aspect-col3-item2",
     },
     {
       id: "col3-3",
+      ...ninthAchievementData,
       aspectClass: "aspect-col3-item3",
     },
   ];
 
-  // Mobile Column 1 items (Left - 4 items)
+  // Mobile Column 1 items (Left - 5 items)
   const mobileColumn1: GalleryItem[] = [
     {
       id: "m-col1-1",
-      image: "/images/achievements/certificate-1.jpg",
-      alt: "Pradeep Liyanage holding official industry achievement certificates",
+      ...firstAchievementData,
       aspectClass: "aspect-m-tall-1",
     },
     {
       id: "m-col1-2",
+      ...thirdAchievementData,
       aspectClass: "aspect-m-short-1",
     },
     {
       id: "m-col1-3",
+      ...fifthAchievementData,
       aspectClass: "aspect-m-tall-2",
     },
     {
       id: "m-col1-4",
-      aspectClass: "aspect-m-short-2",
+      ...seventhAchievementData,
+      aspectClass: "aspect-leader-portrait",
+    },
+    {
+      id: "m-col1-5",
+      ...ninthAchievementData,
+      aspectClass: "aspect-m-short-1",
     },
   ];
 
-  // Mobile Column 2 items (Right - 4 items)
+  // Mobile Column 2 items (Right - 5 items)
   const mobileColumn2: GalleryItem[] = [
     {
       id: "m-col2-1",
+      ...secondAchievementData,
       aspectClass: "aspect-m-short-3",
     },
     {
       id: "m-col2-2",
+      ...fourthAchievementData,
       aspectClass: "aspect-m-tall-3",
     },
     {
       id: "m-col2-3",
+      ...sixthAchievementData,
       aspectClass: "aspect-m-medium-2",
     },
     {
       id: "m-col2-4",
+      ...eighthAchievementData,
       aspectClass: "aspect-m-tall-4",
+    },
+    {
+      id: "m-col2-5",
+      ...tenthAchievementData,
+      aspectClass: "aspect-m-tall-2",
     },
   ];
 
-  // Mobile Bottom Item (Full-width 9th card - spans both columns evenly)
-  const mobileBottomCard: GalleryItem = {
-    id: "m-bottom-1",
-    aspectClass: "aspect-m-full",
-  };
-
-  const renderCard = (item: GalleryItem) => {
-    if (item.image) {
-      return (
-        <div
-          key={item.id}
-          className={`achievements-card achievements-card-photo ${item.aspectClass}`}
-          onClick={() => setActiveImage({ src: item.image!, alt: item.alt || "Achievement image" })}
-          role="button"
-          tabIndex={0}
-          aria-label={item.alt || "View achievement image"}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              setActiveImage({ src: item.image!, alt: item.alt || "Achievement image" });
-            }
-          }}
-        >
-          <Image
-            src={item.image}
-            alt={item.alt || "Achievement"}
-            fill
-            sizes="(max-width: 640px) 50vw, 33vw"
-            className="achievements-card-photo-img"
-            priority
-          />
-          <div className="achievements-card-photo-overlay" />
-          <button
-            type="button"
-            className="achievements-card-action-btn"
-            title="Expand image"
-            aria-label="Expand image"
-            onClick={(e) => {
-              e.stopPropagation();
-              setActiveImage({ src: item.image!, alt: item.alt || "Achievement image" });
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </button>
-        </div>
-      );
-    }
-
-    return (
-      <div
-        key={item.id}
-        className={`achievements-card achievements-card-placeholder ${item.aspectClass}`}
-        role="img"
-        aria-label={`Achievement placeholder ${item.id}`}
-      />
-    );
-  };
+  // Mobile Bottom Item (Optional if odd number of cards)
+  const mobileBottomCard: GalleryItem | null = null;
 
   return (
     <section className="achievements-gallery-section" id="achievements-gallery">
@@ -201,70 +462,177 @@ export default function AchievementsGallery() {
         {/* Mobile View: 2 Staggered Columns + Full-Width Bottom Card */}
         <div className="achievements-gallery-grid-mobile">
           <div className="achievements-gallery-col">
-            {mobileColumn1.map(renderCard)}
+            {mobileColumn1.map((item) => (
+              <AchievementCard key={item.id} item={item} onOpen={handleOpen} />
+            ))}
           </div>
           <div className="achievements-gallery-col">
-            {mobileColumn2.map(renderCard)}
+            {mobileColumn2.map((item) => (
+              <AchievementCard key={item.id} item={item} onOpen={handleOpen} />
+            ))}
           </div>
-          <div className="achievements-gallery-mobile-bottom">
-            {renderCard(mobileBottomCard)}
-          </div>
+          {mobileBottomCard && (
+            <div className="achievements-gallery-mobile-bottom">
+              <AchievementCard item={mobileBottomCard} onOpen={handleOpen} />
+            </div>
+          )}
         </div>
 
         {/* Desktop View: 3 Columns matching Figma */}
         <div className="achievements-gallery-grid-desktop">
           <div className="achievements-gallery-col">
-            {desktopColumn1.map(renderCard)}
+            {desktopColumn1.map((item) => (
+              <AchievementCard key={item.id} item={item} onOpen={handleOpen} />
+            ))}
           </div>
           <div className="achievements-gallery-col">
-            {desktopColumn2.map(renderCard)}
+            {desktopColumn2.map((item) => (
+              <AchievementCard key={item.id} item={item} onOpen={handleOpen} />
+            ))}
           </div>
           <div className="achievements-gallery-col">
-            {desktopColumn3.map(renderCard)}
+            {desktopColumn3.map((item) => (
+              <AchievementCard key={item.id} item={item} onOpen={handleOpen} />
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Lightbox Modal */}
-      {activeImage && (
+      {/* Lightbox / Details Modal */}
+      {modalState && activeItem && (
         <div
           className="achievements-lightbox-backdrop"
-          onClick={() => setActiveImage(null)}
+          onClick={handleCloseModal}
           role="dialog"
           aria-modal="true"
-          aria-label="Image preview"
+          aria-label={activeItem.title || "Achievement details preview"}
         >
-          <button
-            type="button"
-            className="achievements-lightbox-close"
-            onClick={() => setActiveImage(null)}
-            aria-label="Close image preview"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-
           <div
-            className="achievements-lightbox-content"
+            className={`achievements-modal-dialog ${
+              activeItem.title ? "has-details" : "image-only"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={activeImage.src}
-              alt={activeImage.alt}
-              className="achievements-lightbox-img"
-            />
+            {/* Close Button */}
+            <button
+              type="button"
+              className="achievements-lightbox-close"
+              onClick={handleCloseModal}
+              aria-label="Close preview"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
+            {/* Media Area */}
+            <div className="achievements-modal-media">
+              <div className="achievements-modal-img-wrapper">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={imagesList[activeSlide] || activeItem.image}
+                  alt={activeItem.alt || activeItem.title || "Achievement photo"}
+                  className="achievements-modal-img"
+                />
+
+                {/* Left/Right Navigation Arrows */}
+                {imagesList.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      className="achievements-modal-arrow achievements-modal-arrow-left"
+                      onClick={handlePrevSlide}
+                      aria-label="Previous image"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="achievements-modal-arrow achievements-modal-arrow-right"
+                      onClick={handleNextSlide}
+                      aria-label="Next image"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </button>
+                  </>
+                )}
+
+                {/* Slide Counter Overlay */}
+                {imagesList.length > 1 && (
+                  <div className="achievements-modal-counter">
+                    {activeSlide + 1} / {imagesList.length}
+                  </div>
+                )}
+              </div>
+
+              {/* Thumbnails Strip */}
+              {imagesList.length > 1 && (
+                <div className="achievements-modal-thumbnails">
+                  {imagesList.map((src, idx) => (
+                    <button
+                      key={src}
+                      type="button"
+                      className={`achievements-modal-thumb-btn ${
+                        idx === activeSlide ? "active" : ""
+                      }`}
+                      onClick={() => handleSelectSlide(idx)}
+                      aria-label={`View photo ${idx + 1}`}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={src}
+                        alt={`Thumbnail ${idx + 1}`}
+                        className="achievements-modal-thumb-img"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Details Panel */}
+            {activeItem.title && (
+              <div className="achievements-modal-info">
+                <div className="achievements-modal-title-wrapper">
+                  <span className="achievements-modal-label">Title</span>
+                  <h2 className="achievements-modal-title">{activeItem.title}</h2>
+                </div>
+
+                <div className="achievements-modal-desc-wrapper">
+                  <span className="achievements-modal-desc-label">Description</span>
+                  <p className="achievements-modal-desc">{activeItem.description}</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

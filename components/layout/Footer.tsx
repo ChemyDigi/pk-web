@@ -10,11 +10,11 @@ export default function Footer() {
         {/* Background Image Container */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/footer/bg.jpg')" }}
+          style={{ backgroundImage: "url('/images/footer/footer-bg.jpg')" }}
         />
 
         {/* Gradient Overlay that blends seamlessly into solid black */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/85 via-70% to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/65 via-75% to-black" />
 
         {/* CTA Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-6 pt-28 pb-20 sm:pt-36 sm:pb-24 text-center">
