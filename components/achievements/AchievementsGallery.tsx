@@ -60,6 +60,21 @@ const fourthAchievementData = {
   alt: "Second MDRT Qualification – 2026",
 };
 
+const goldAward2024Images = [
+  "/images/achievements/gold-award-2024-1.jpg",
+  "/images/achievements/gold-award-2024-2.jpg",
+  "/images/achievements/gold-award-2024-3.jpg",
+];
+
+const fifthAchievementData = {
+  images: goldAward2024Images,
+  image: goldAward2024Images[0],
+  title: "Gold Award – Annual Awards 2024",
+  description:
+    "Honoured to receive the Gold Award at the 2024 Annual Awards in recognition of exceptional performance and contributions as an Associate Regional Sales Manager.",
+  alt: "Gold Award – Annual Awards 2024",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -276,6 +291,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "col2-2",
+      ...fifthAchievementData,
       aspectClass: "aspect-col2-item2",
     },
     {
@@ -315,6 +331,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "m-col1-3",
+      ...fifthAchievementData,
       aspectClass: "aspect-m-tall-2",
     },
     {

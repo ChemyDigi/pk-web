@@ -17,6 +17,13 @@ const achievements = [
   },
   {
     year: "2024",
+    title: "Gold Award – Annual Awards 2024",
+    description:
+      "Honoured to receive the Gold Award at the 2024 Annual Awards in recognition of exceptional performance and contributions as an Associate Regional Sales Manager.",
+    tag: "Union Assurance",
+  },
+  {
+    year: "2024",
     title: "UA Premier Club Member – 2024",
     description:
       "Proudly qualified as a UA Premier Club Member for three consecutive quarters (Q1, Q2, and Q3) in 2024. This quarterly recognition reflects consistent performance, dedication, and commitment to excellence at Union Assurance.",
