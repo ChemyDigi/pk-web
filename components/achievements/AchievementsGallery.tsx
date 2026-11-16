@@ -76,8 +76,8 @@ const fifthAchievementData = {
 };
 
 const annualAwards2025Images = [
-  "/images/achievements/annual-awards-2025-3.jpg",
   "/images/achievements/annual-awards-2025-4.jpg",
+  "/images/achievements/annual-awards-2025-3.jpg",
   "/images/achievements/annual-awards-2025-1.jpg",
   "/images/achievements/annual-awards-2025-2.jpg",
 ];
