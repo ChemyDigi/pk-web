@@ -3,6 +3,13 @@ import React from "react";
 const achievements = [
   {
     year: "2026",
+    title: "MDRT Day 2026 – A Historic First in Sri Lanka",
+    description:
+      "Proud to have participated in the inaugural MDRT Day held in Sri Lanka in 2026. This landmark event marked a significant milestone for the country's financial services industry, bringing together professionals to celebrate excellence, share knowledge, and inspire continued professional growth.",
+    tag: "MDRT",
+  },
+  {
+    year: "2026",
     title: "2nd Runner-Up – Union Assurance Leader Conference 2026",
     description:
       "Proudly recognised as the 2nd Runner-Up in the Regional Sales Manager Category at the Union Assurance Leader Conference 2026, representing the Borella Region. This achievement reflects outstanding performance, dedication, and leadership during the first half of 2026.",

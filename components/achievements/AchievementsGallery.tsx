@@ -106,6 +106,22 @@ const seventhAchievementData = {
   alt: "2nd Runner-Up – Union Assurance Leader Conference 2026",
 };
 
+const mdrtDay2026Images = [
+  "/images/achievements/mdrt-day-2026-1.jpg",
+  "/images/achievements/mdrt-day-2026-2.jpg",
+  "/images/achievements/mdrt-day-2026-3.jpg",
+  "/images/achievements/mdrt-day-2026-4.jpg",
+];
+
+const eighthAchievementData = {
+  images: mdrtDay2026Images,
+  image: mdrtDay2026Images[0],
+  title: "MDRT Day 2026 – A Historic First in Sri Lanka",
+  description:
+    "Proud to have participated in the inaugural MDRT Day held in Sri Lanka in 2026. This landmark event marked a significant milestone for the country's financial services industry, bringing together professionals to celebrate excellence, share knowledge, and inspire continued professional growth.",
+  alt: "MDRT Day 2026 – A Historic First in Sri Lanka",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -328,6 +344,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "col2-3",
+      ...eighthAchievementData,
       aspectClass: "aspect-col2-item3",
     },
   ];
@@ -393,6 +410,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "m-col2-4",
+      ...eighthAchievementData,
       aspectClass: "aspect-m-tall-4",
     },
   ];
