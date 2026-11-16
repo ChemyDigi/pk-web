@@ -3,6 +3,13 @@ import React from "react";
 const achievements = [
   {
     year: "2026",
+    title: "Bronze Award – SLIM National Sales Awards 2026",
+    description:
+      "Proudly honoured with the Bronze Award in the Sales Supervisor Category under Life Insurance at the SLIM National Sales Awards Silver Jubilee 2026. This prestigious recognition reflects my dedication, sales excellence, and commitment to outstanding performance in the life insurance industry.",
+    tag: "National Award",
+  },
+  {
+    year: "2026",
     title: "MDRT Day 2026 – A Historic First in Sri Lanka",
     description:
       "Proud to have participated in the inaugural MDRT Day held in Sri Lanka in 2026. This landmark event marked a significant milestone for the country's financial services industry, bringing together professionals to celebrate excellence, share knowledge, and inspire continued professional growth.",

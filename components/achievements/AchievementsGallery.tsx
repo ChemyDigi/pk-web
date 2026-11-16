@@ -122,6 +122,20 @@ const eighthAchievementData = {
   alt: "MDRT Day 2026 – A Historic First in Sri Lanka",
 };
 
+const slimAwards2026Images = [
+  "/images/achievements/slim-awards-2026-1.jpg",
+  "/images/achievements/slim-awards-2026-2.jpg",
+];
+
+const ninthAchievementData = {
+  images: slimAwards2026Images,
+  image: slimAwards2026Images[0],
+  title: "Bronze Award – SLIM National Sales Awards 2026",
+  description:
+    "Proudly honoured with the Bronze Award in the Sales Supervisor Category under Life Insurance at the SLIM National Sales Awards Silver Jubilee 2026. This prestigious recognition reflects my dedication, sales excellence, and commitment to outstanding performance in the life insurance industry.",
+  alt: "Bronze Award – SLIM National Sales Awards 2026",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -363,6 +377,7 @@ export default function AchievementsGallery() {
     },
     {
       id: "col3-3",
+      ...ninthAchievementData,
       aspectClass: "aspect-col3-item3",
     },
   ];
@@ -418,6 +433,7 @@ export default function AchievementsGallery() {
   // Mobile Bottom Item (Full-width 9th card - spans both columns evenly)
   const mobileBottomCard: GalleryItem = {
     id: "m-bottom-1",
+    ...ninthAchievementData,
     aspectClass: "aspect-m-full",
   };
 
