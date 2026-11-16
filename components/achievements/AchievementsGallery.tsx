@@ -136,6 +136,14 @@ const ninthAchievementData = {
   alt: "Bronze Award – SLIM National Sales Awards 2026",
 };
 
+const tenthAchievementData = {
+  image: "/images/achievements/bar-association-signing-2016.jpg",
+  title: "Agreement Signing with the Bar Association – 2016",
+  description:
+    "Memorable moments from the official agreement signing with the Bar Association on November 28, 2016. These photographs capture an important milestone in establishing a professional partnership and strengthening institutional relationships.",
+  alt: "Agreement Signing with the Bar Association – 2016",
+};
+
 interface CardProps {
   item: GalleryItem;
   onOpen: (item: GalleryItem, slideIdx: number) => void;
@@ -342,6 +350,11 @@ export default function AchievementsGallery() {
       ...seventhAchievementData,
       aspectClass: "aspect-col1-item3 aspect-leader-portrait",
     },
+    {
+      id: "col1-4",
+      ...tenthAchievementData,
+      aspectClass: "aspect-col1-item2",
+    },
   ];
 
   // Desktop Column 2 items (Center)
@@ -382,7 +395,7 @@ export default function AchievementsGallery() {
     },
   ];
 
-  // Mobile Column 1 items (Left - 4 items)
+  // Mobile Column 1 items (Left - 5 items)
   const mobileColumn1: GalleryItem[] = [
     {
       id: "m-col1-1",
@@ -404,9 +417,14 @@ export default function AchievementsGallery() {
       ...seventhAchievementData,
       aspectClass: "aspect-leader-portrait",
     },
+    {
+      id: "m-col1-5",
+      ...ninthAchievementData,
+      aspectClass: "aspect-m-short-1",
+    },
   ];
 
-  // Mobile Column 2 items (Right - 4 items)
+  // Mobile Column 2 items (Right - 5 items)
   const mobileColumn2: GalleryItem[] = [
     {
       id: "m-col2-1",
@@ -428,14 +446,15 @@ export default function AchievementsGallery() {
       ...eighthAchievementData,
       aspectClass: "aspect-m-tall-4",
     },
+    {
+      id: "m-col2-5",
+      ...tenthAchievementData,
+      aspectClass: "aspect-m-tall-2",
+    },
   ];
 
-  // Mobile Bottom Item (Full-width 9th card - spans both columns evenly)
-  const mobileBottomCard: GalleryItem = {
-    id: "m-bottom-1",
-    ...ninthAchievementData,
-    aspectClass: "aspect-m-full",
-  };
+  // Mobile Bottom Item (Optional if odd number of cards)
+  const mobileBottomCard: GalleryItem | null = null;
 
   return (
     <section className="achievements-gallery-section" id="achievements-gallery">
@@ -452,9 +471,11 @@ export default function AchievementsGallery() {
               <AchievementCard key={item.id} item={item} onOpen={handleOpen} />
             ))}
           </div>
-          <div className="achievements-gallery-mobile-bottom">
-            <AchievementCard item={mobileBottomCard} onOpen={handleOpen} />
-          </div>
+          {mobileBottomCard && (
+            <div className="achievements-gallery-mobile-bottom">
+              <AchievementCard item={mobileBottomCard} onOpen={handleOpen} />
+            </div>
+          )}
         </div>
 
         {/* Desktop View: 3 Columns matching Figma */}

@@ -65,6 +65,13 @@ const achievements = [
     tag: "Union Assurance",
   },
   {
+    year: "2016",
+    title: "Agreement Signing with the Bar Association – 2016",
+    description:
+      "Memorable moments from the official agreement signing with the Bar Association on November 28, 2016. These photographs capture an important milestone in establishing a professional partnership and strengthening institutional relationships.",
+    tag: "Partnership",
+  },
+  {
     year: "2025",
     title: "Global Enterprise Web Portal Launch",
     description: "Designed and engineered an enterprise-grade customer portal handling over 100k daily active users with 99.99% uptime.",
