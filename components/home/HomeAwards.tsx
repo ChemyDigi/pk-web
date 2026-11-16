@@ -18,7 +18,6 @@ export default function HomeAwards() {
               alt="Awards and Achievements - Pradeep Liyanage"
               width={1536}
               height={1024}
-              priority
               quality={95}
               className="home-awards-img"
             />

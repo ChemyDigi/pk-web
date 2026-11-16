@@ -40,7 +40,7 @@ export default function ContactHero() {
       <div className="contact-hero-bg-container">
         <Image
           src="/images/contact/pradeep-chess.png"
-          alt="Pradeep Liyanage - Insurance Advisor"
+          alt="Pradeep Liyanage - Strategic Financial Protection & Life Insurance Consultation"
           fill
           priority
           sizes="100vw"

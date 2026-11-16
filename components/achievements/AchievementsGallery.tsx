@@ -189,6 +189,12 @@ function AchievementCard({ item, onOpen }: CardProps) {
         }
       }}
     >
+      {/* Search-engine and accessibility readable content */}
+      <div className="sr-only">
+        <h2>{item.title}</h2>
+        {item.description && <p>{item.description}</p>}
+      </div>
+
       {/* Slideshow image container */}
       <div className="achievements-card-slides-track">
         {images.map((src, idx) => (
@@ -206,7 +212,6 @@ function AchievementCard({ item, onOpen }: CardProps) {
               fill
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 400px"
               className="achievements-card-photo-img"
-              priority={idx === 0}
             />
           </div>
         ))}
@@ -274,8 +279,8 @@ export default function AchievementsGallery() {
     ? activeItem.images && activeItem.images.length > 0
       ? activeItem.images
       : activeItem.image
-      ? [activeItem.image]
-      : []
+        ? [activeItem.image]
+        : []
     : [];
 
   const handleNextSlide = useCallback(() => {
@@ -290,9 +295,9 @@ export default function AchievementsGallery() {
     setModalState((prev) =>
       prev
         ? {
-            ...prev,
-            activeSlide: (prev.activeSlide - 1 + imagesList.length) % imagesList.length,
-          }
+          ...prev,
+          activeSlide: (prev.activeSlide - 1 + imagesList.length) % imagesList.length,
+        }
         : null
     );
   }, [imagesList.length]);
@@ -508,9 +513,8 @@ export default function AchievementsGallery() {
           aria-label={activeItem.title || "Achievement details preview"}
         >
           <div
-            className={`achievements-modal-dialog ${
-              activeItem.title ? "has-details" : "image-only"
-            }`}
+            className={`achievements-modal-dialog ${activeItem.title ? "has-details" : "image-only"
+              }`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -601,9 +605,8 @@ export default function AchievementsGallery() {
                     <button
                       key={src}
                       type="button"
-                      className={`achievements-modal-thumb-btn ${
-                        idx === activeSlide ? "active" : ""
-                      }`}
+                      className={`achievements-modal-thumb-btn ${idx === activeSlide ? "active" : ""
+                        }`}
                       onClick={() => handleSelectSlide(idx)}
                       aria-label={`View photo ${idx + 1}`}
                     >

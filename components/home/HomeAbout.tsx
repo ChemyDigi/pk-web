@@ -35,7 +35,6 @@ export default function HomeAbout() {
                 width={300}
                 height={365}
                 className="home-about-logo-img"
-                priority
               />
             </div>
           </div>

@@ -22,7 +22,7 @@ export default function AchievementsHero() {
       <div className="achievements-hero-bg-container">
         <Image
           src="/images/achievements/hero.jpg"
-          alt="Memorable Captures and Achievements"
+          alt="Pradeep Liyanage Awards, MDRT Qualifications, and Industry Recognition"
           fill
           priority
           quality={95}

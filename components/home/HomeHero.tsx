@@ -105,7 +105,7 @@ export default function HomeHero() {
           <div className="hero-tablet-portrait">
             <Image
               src="/images/home/Hero.png"
-              alt="Pradeep Liyanage"
+              alt="Pradeep Liyanage - Regional Sales Manager at Union Assurance PLC"
               width={900}
               height={1349}
               priority
@@ -152,7 +152,7 @@ export default function HomeHero() {
             <div className="hero-mobile-portrait">
               <Image
                 src="/images/home/Hero.png"
-                alt="Pradeep Liyanage"
+                alt="Pradeep Liyanage - Regional Sales Manager at Union Assurance PLC"
                 width={900}
                 height={1349}
                 priority
@@ -169,7 +169,7 @@ export default function HomeHero() {
         <div className="hero-desktop-portrait-inner">
           <Image
             src="/images/home/Hero.png"
-            alt="Pradeep Liyanage"
+            alt="Pradeep Liyanage - Regional Sales Manager at Union Assurance PLC"
             width={900}
             height={1349}
             priority

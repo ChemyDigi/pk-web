@@ -163,7 +163,6 @@ export default function AboutServices() {
                     alt={activeService.title}
                     width={900}
                     height={560}
-                    priority
                     className="about-services-img"
                   />
                 </div>
