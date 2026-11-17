@@ -80,7 +80,7 @@ export default function ServicesUnion() {
           <div className="services-union-right">
             <div className="services-union-logo-card">
               <Image
-                src="/images/services/union.jpg"
+                src="/images/services/union.png"
                 alt="Union Uththareethara — To Protect the Guardians of Justice"
                 width={340}
                 height={340}

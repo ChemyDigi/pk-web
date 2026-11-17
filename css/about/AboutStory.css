@@ -200,7 +200,7 @@
 }
 
 .about-story-box-1 .about-story-img {
-  object-position: bottom center;
+  object-position: center;
 }
 
 .about-story-box-2 .about-story-img {
@@ -208,7 +208,7 @@
 }
 
 .about-story-box-3 .about-story-img {
-  object-position: top center;
+  object-position: center;
 }
 
 .about-story-box:hover .about-story-img {
