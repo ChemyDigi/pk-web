@@ -8,10 +8,10 @@ export default function AboutStory() {
   return (
     <section className="about-story-section" id="about-me">
       <div className="about-story-container">
-        
+
         {/* Top Header: Story Narrative */}
         <div className="about-story-top-grid">
-          
+
           {/* Content Column: About Me Details */}
           <div className="about-story-content-col">
             {/* Badge */}
@@ -54,7 +54,7 @@ export default function AboutStory() {
           {/* Box 1 (Left - With Image) */}
           <div className="about-story-box about-story-box-1">
             <Image
-              src="/images/about/about-story-left.jpg"
+              src="/images/about/about-story-portrait.jpg"
               alt="Pradeep Liyanage - Advisory Consultation and Strategic Planning"
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 33vw, 33vw"
