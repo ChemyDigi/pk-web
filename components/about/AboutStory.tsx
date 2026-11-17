@@ -76,8 +76,8 @@ export default function AboutStory() {
           {/* Box 3 (Right - With Image) */}
           <div className="about-story-box about-story-box-3">
             <Image
-              src="/images/about/about-story-right.webp"
-              alt="Pradeep Liyanage - MDRT Qualifications & Honors"
+              src="/images/about/about-story-right.jpg"
+              alt="Pradeep Liyanage - Team Leadership and Strategic Advisory Meeting"
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 33vw, 33vw"
               className="about-story-img"
