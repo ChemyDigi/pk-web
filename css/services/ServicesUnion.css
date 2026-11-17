@@ -280,129 +280,204 @@
   font-weight: 600;
 }
 
-/* ── Timeline (right) ──────────────────────────────────────────────── */
+
+/* ── Timeline: "Milestone rail" ───────────────────────────────────────── */
 
 .services-union-timeline {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.25rem;
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 0.5rem;
 }
 
-/* Horizontal track */
-.services-union-track-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  min-width: 460px;
+/* Rail (vertical on mobile) */
+.services-union-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.4375rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(229, 110, 42, 0.15),
+    rgba(229, 110, 42, 0.9)
+  );
 }
 
-@media (min-width: 640px) {
-  .services-union-track-wrapper {
-    min-width: 100%;
-  }
-}
-
-.services-union-track-row {
-  display: flex;
-  align-items: center;
+.services-union-milestone {
   position: relative;
+  padding-left: 2rem;
 }
 
-/* The line */
-.services-union-track-line {
+.services-union-milestone-dot {
   position: absolute;
   left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Nodes container */
-.services-union-nodes {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 100%;
-  position: relative;
+  top: 0.375rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 9999px;
+  background: #08080a;
+  border: 1.5px solid #e56e2a;
   z-index: 1;
 }
 
-.services-union-node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-}
-
-/* Top label (above line) */
-.services-union-node-label-top {
-  font-size: 0.65rem;
-  line-height: 1.4;
-  color: rgba(212, 212, 216, 0.5);
-  text-align: center;
-  min-height: 2.5rem;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 0.4rem;
-  max-width: 7rem;
-}
-
-/* Dot + stem */
-.services-union-node-dot-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  position: relative;
-}
-
-.services-union-node-stem-top {
-  width: 1px;
-  height: 0.6rem;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.services-union-node-stem-bottom {
-  width: 1px;
-  height: 0.6rem;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.services-union-node-dot {
-  width: 10px;
-  height: 10px;
+.services-union-milestone-dot::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
   border-radius: 9999px;
-  background-color: #e56e2a;
-  border: 2px solid #08080a;
-  box-shadow: 0 0 0 1.5px #e56e2a;
-  flex-shrink: 0;
+  background: #e56e2a;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Year label (below dot) */
-.services-union-node-year {
-  font-family: var(--font-numbers);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-align: center;
-  margin-top: 0.5rem;
-  letter-spacing: -0.02em;
-}
-
-/* Bottom label (below year) */
-.services-union-node-label-bottom {
-  font-size: 0.65rem;
-  line-height: 1.4;
-  color: rgba(212, 212, 216, 0.5);
-  text-align: center;
-  min-height: 2rem;
+.services-union-milestone-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
-  align-items: flex-start;
-  padding-top: 0.25rem;
-  max-width: 7rem;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 1rem 1rem;
+  border-radius: 0.875rem;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease, background 0.35s ease;
+}
+
+/* Ghost step number */
+.services-union-milestone-step {
+  position: absolute;
+  right: 0.65rem;
+  top: -0.2rem;
+  font-family: var(--font-numbers);
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+.services-union-milestone-year {
+  font-family: var(--font-numbers);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.services-union-milestone-title {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e56e2a;
+  margin-bottom: 0.3rem;
+}
+
+.services-union-milestone-text {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  font-weight: 300;
+  color: rgba(212, 212, 216, 0.62);
+}
+
+.services-union-milestone:hover .services-union-milestone-card {
+  transform: translateY(-3px);
+  border-color: rgba(229, 110, 42, 0.45);
+}
+
+.services-union-milestone:hover .services-union-milestone-dot::after {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Current ("Today") milestone */
+.services-union-milestone.is-current .services-union-milestone-card {
+  border-color: rgba(229, 110, 42, 0.5);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.services-union-milestone.is-current .services-union-milestone-dot::after {
+  opacity: 1;
+}
+
+/* Horizontal on larger screens */
+@media (min-width: 640px) {
+  .services-union-timeline {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 0.75rem;
+    row-gap: 0;
+    padding-top: 0.25rem;
+  }
+
+  .services-union-timeline::before {
+    left: 0;
+    right: 0;
+    top: 0.6875rem;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(229, 110, 42, 0.1),
+      rgba(229, 110, 42, 0.9)
+    );
+  }
+
+  .services-union-milestone {
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .services-union-milestone-dot {
+    top: 0.25rem;
+    left: 0.25rem;
+  }
+
+  /* Small connector from rail to card */
+  .services-union-milestone::before {
+    content: "";
+    position: absolute;
+    left: calc(0.25rem + 0.4375rem);
+    top: 1.125rem;
+    height: 0.875rem;
+    width: 1px;
+    background: rgba(229, 110, 42, 0.35);
+  }
+
+  .services-union-milestone-card {
+    height: 100%;
+    padding: 0.85rem 0.8rem 0.95rem;
+  }
+
+  .services-union-milestone-step {
+    font-size: 2.6rem;
+    right: 0.45rem;
+  }
+
+  .services-union-milestone-year {
+    font-size: 1.2rem;
+  }
+
+  .services-union-milestone-text {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-union-milestone-card,
+  .services-union-milestone-dot::after {
+    transition: none;
+  }
 }
