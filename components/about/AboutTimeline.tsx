@@ -91,6 +91,19 @@ const milestones: Milestone[] = [
     ),
   },
   {
+    year: "2022",
+    title: "Diamond Award & Leadership Excellence",
+    description: (
+      <>
+        Received the prestigious Diamond Award in the Assistant Sales
+        Manager Category at the Union Assurance Annual Awards 2022.
+        This recognition marked another significant milestone in my
+        leadership journey, reflecting consistent performance,
+        dedication, and excellence in sales management.
+      </>
+    ),
+  },
+  {
     year: "2023",
     title: "Advancing to Sales Manager",
     description: (
