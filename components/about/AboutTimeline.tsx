@@ -20,8 +20,20 @@ const milestones: Milestone[] = [
     ),
   },
   {
+    year: "2014",
+    title: "First Annual Awards & Merit Recognition",
+    description: (
+      <>
+        Participated in the Union Assurance Annual Awards for the first time
+        and received the Merit Award. This marked my first professional
+        recognition and an important milestone in my journey in the
+        insurance industry.
+      </>
+    ),
+  },
+  {
     year: "2015",
-    title: "Advancing as a Financial Advisor",
+    title: "Advancing as a Personal Financial Advisor",
     description: (
       <>
         Progressed into the role of Personal Financial Advisor, taking on greater responsibilities in financial consultation and client relationship management. This transition marked an important step in my professional development.
@@ -136,7 +148,7 @@ export default function AboutTimeline() {
   return (
     <section className="about-timeline-section" id="milestones">
       <div className="about-timeline-container">
-        
+
         {/* Section Header */}
         <div className="about-timeline-header">
           {/* Badge */}
@@ -155,7 +167,7 @@ export default function AboutTimeline() {
 
         {/* Interactive Milestones Display Grid */}
         <div className="about-timeline-grid">
-          
+
           {/* Left Column: Vertical Year Roller */}
           <div className="about-timeline-years-col">
             <div
@@ -171,9 +183,8 @@ export default function AboutTimeline() {
               >
                 {/* Ghost Year 2011 (Visual context at top when 2012 is active) */}
                 <div
-                  className={`about-timeline-year-item ${
-                    activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
-                  }`}
+                  className={`about-timeline-year-item ${activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
+                    }`}
                   aria-hidden="true"
                 >
                   <span className="about-timeline-year-text">2011</span>
@@ -208,11 +219,10 @@ export default function AboutTimeline() {
 
                 {/* Ghost Year 2027 (Visual context at bottom when 2026 is active) */}
                 <div
-                  className={`about-timeline-year-item ${
-                    activeIndex === milestones.length - 1
-                      ? "about-timeline-year-next"
-                      : "about-timeline-year-future"
-                  }`}
+                  className={`about-timeline-year-item ${activeIndex === milestones.length - 1
+                    ? "about-timeline-year-next"
+                    : "about-timeline-year-future"
+                    }`}
                   aria-hidden="true"
                 >
                   <span className="about-timeline-year-text">2027</span>
@@ -241,13 +251,12 @@ export default function AboutTimeline() {
                 return (
                   <div
                     key={m.year}
-                    className={`about-timeline-story-card ${
-                      isCurrent
-                        ? "is-active"
-                        : isPast
+                    className={`about-timeline-story-card ${isCurrent
+                      ? "is-active"
+                      : isPast
                         ? "is-past"
                         : "is-future"
-                    }`}
+                      }`}
                     aria-hidden={!isCurrent}
                   >
                     <h3 className="about-timeline-title">{m.title}</h3>
