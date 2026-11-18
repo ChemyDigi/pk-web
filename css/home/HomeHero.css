@@ -334,13 +334,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 680px) {
   .hero-cta-wrapper {
     margin-top: 1.5rem;
-    justify-content: flex-start;
-    width: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -348,6 +351,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 9999px;
   background-color: #ffffff;
   padding: 0.65rem 1.625rem;
