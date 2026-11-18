@@ -41,6 +41,20 @@ const milestones: Milestone[] = [
     ),
   },
   {
+    year: "2016",
+    title: "Establishing a Strategic Insurance Partnership",
+    description: (
+      <>
+        Introduced the Affinity Strategic Life Insurance Partnership
+        initiative, which led to the establishment of the strategic
+        insurance partnership between the Bar Association of Sri Lanka
+        (BASL) and Union Assurance PLC. This marked a significant
+        milestone in expanding tailored insurance solutions to
+        professional communities.
+      </>
+    ),
+  },
+  {
     year: "2017",
     title: "Achieving Platinum Recognition",
     description: (
