@@ -197,63 +197,117 @@ export default function AboutTimeline() {
 
           {/* Left Column: Vertical Year Roller */}
           <div className="about-timeline-years-col">
-            <div
-              className="about-timeline-roller-viewport"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
+            <div className="about-timeline-years-row">
               <div
-                className="about-timeline-roller-track"
-                style={{
-                  transform: `translate3d(0, calc(-${activeIndex} * var(--timeline-slot-h)), 0)`,
-                }}
+                className="about-timeline-roller-viewport"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
               >
-                {/* Ghost Year 2011 (Visual context at top when 2012 is active) */}
                 <div
-                  className={`about-timeline-year-item ${activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
-                    }`}
-                  aria-hidden="true"
+                  className="about-timeline-roller-track"
+                  style={{
+                    transform: `translate3d(0, calc(-${activeIndex} * var(--timeline-slot-h)), 0)`,
+                  }}
                 >
-                  <span className="about-timeline-year-text">2011</span>
+                  {/* Ghost Year 2011 (Visual context at top when 2012 is active) */}
+                  <div
+                    className={`about-timeline-year-item ${activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
+                      }`}
+                    aria-hidden="true"
+                  >
+                    <span className="about-timeline-year-text">2011</span>
+                  </div>
+
+                  {milestones.map((m, idx) => {
+                    const diff = idx - activeIndex;
+                    let stateClass = "about-timeline-year-future";
+                    if (diff === 0) stateClass = "about-timeline-year-active";
+                    else if (diff === -1) stateClass = "about-timeline-year-prev";
+                    else if (diff === 1) stateClass = "about-timeline-year-next";
+                    else if (diff < -1) stateClass = "about-timeline-year-past";
+
+                    return (
+                      <div
+                        key={m.year}
+                        onClick={() => setActiveIndex(idx)}
+                        className={`about-timeline-year-item ${stateClass}`}
+                        aria-label={`Milestone year ${m.year}`}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            setActiveIndex(idx);
+                          }
+                        }}
+                      >
+                        <span className="about-timeline-year-text">{m.year}</span>
+                      </div>
+                    );
+                  })}
+
+                  {/* Ghost Year 2027 (Visual context at bottom when 2026 is active) */}
+                  <div
+                    className={`about-timeline-year-item ${activeIndex === milestones.length - 1
+                      ? "about-timeline-year-next"
+                      : "about-timeline-year-future"
+                      }`}
+                    aria-hidden="true"
+                  >
+                    <span className="about-timeline-year-text">2027</span>
+                  </div>
                 </div>
+              </div>
 
-                {milestones.map((m, idx) => {
-                  const diff = idx - activeIndex;
-                  let stateClass = "about-timeline-year-future";
-                  if (diff === 0) stateClass = "about-timeline-year-active";
-                  else if (diff === -1) stateClass = "about-timeline-year-prev";
-                  else if (diff === 1) stateClass = "about-timeline-year-next";
-                  else if (diff < -1) stateClass = "about-timeline-year-past";
-
-                  return (
-                    <div
-                      key={m.year}
-                      onClick={() => setActiveIndex(idx)}
-                      className={`about-timeline-year-item ${stateClass}`}
-                      aria-label={`Milestone year ${m.year}`}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          setActiveIndex(idx);
-                        }
-                      }}
+              {/* Mobile Stepper Navigation Buttons (Beside the Years) */}
+              <div className="about-timeline-nav-mobile" aria-label="Milestone navigation controls">
+                <div className="about-timeline-nav-buttons-group">
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    disabled={activeIndex === 0}
+                    className="about-timeline-nav-btn about-timeline-prev-btn"
+                    aria-label="Previous career milestone"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
-                      <span className="about-timeline-year-text">{m.year}</span>
-                    </div>
-                  );
-                })}
+                      <path d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                  </button>
 
-                {/* Ghost Year 2027 (Visual context at bottom when 2026 is active) */}
-                <div
-                  className={`about-timeline-year-item ${activeIndex === milestones.length - 1
-                    ? "about-timeline-year-next"
-                    : "about-timeline-year-future"
-                    }`}
-                  aria-hidden="true"
-                >
-                  <span className="about-timeline-year-text">2027</span>
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    disabled={activeIndex === milestones.length - 1}
+                    className="about-timeline-nav-btn about-timeline-next-btn"
+                    aria-label="Next career milestone"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 5v14M19 12l-7 7-7-7" />
+                    </svg>
+                  </button>
                 </div>
+
+                {/* Progress counter */}
+                <span className="about-timeline-counter">
+                  {String(activeIndex + 1).padStart(2, "0")} / {String(milestones.length).padStart(2, "0")}
+                </span>
               </div>
             </div>
           </div>
@@ -293,8 +347,8 @@ export default function AboutTimeline() {
               })}
             </div>
 
-            {/* Stepper Navigation Buttons (Up & Down) */}
-            <div className="about-timeline-nav-buttons">
+            {/* Stepper Navigation Buttons (Desktop Only, in Content Column) */}
+            <div className="about-timeline-nav-buttons about-timeline-nav-desktop">
               <button
                 type="button"
                 onClick={handlePrev}

@@ -159,12 +159,12 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  --timeline-slot-h: 3.25rem; /* ~52px mobile */
+  --timeline-slot-h: 4.125rem; /* ~66px mobile */
 }
 
 @media (min-width: 480px) {
   :root {
-    --timeline-slot-h: 4.25rem; /* ~68px */
+    --timeline-slot-h: 4.875rem; /* ~78px */
   }
 }
 
@@ -195,11 +195,28 @@
   justify-content: flex-start;
   user-select: none;
   overflow: visible;
+  width: 100%;
+}
+
+.about-timeline-years-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-years-row {
+    display: block;
+    gap: 0;
+  }
 }
 
 .about-timeline-roller-viewport {
   position: relative;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   height: calc(3 * var(--timeline-slot-h));
   overflow: hidden;
   padding-bottom: 0;
@@ -219,6 +236,12 @@
   );
 }
 
+@media (min-width: 1024px) {
+  .about-timeline-roller-viewport {
+    width: 100%;
+  }
+}
+
 .about-timeline-roller-track {
   display: flex;
   flex-direction: column;
@@ -234,6 +257,7 @@
   font-family: var(--font-avenir);
   letter-spacing: -0.04em;
   line-height: 1.15;
+  white-space: nowrap;
   overflow: visible;
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
@@ -249,7 +273,7 @@
 
 /* Active Year (Massive Solid Black) */
 .about-timeline-year-active {
-  font-size: 3.75rem; /* ~60px on mobile */
+  font-size: 4.5rem; /* ~72px on mobile (increased from 3.75rem) */
   font-weight: 900;
   color: #171717;
   opacity: 1;
@@ -265,7 +289,7 @@
 
 @media (min-width: 480px) {
   .about-timeline-year-active {
-    font-size: 4.75rem;
+    font-size: 5.25rem;
   }
 }
 
@@ -289,7 +313,7 @@
 
 /* Previous Year (Top Year, e.g. 2010 when 2011 is active) */
 .about-timeline-year-prev {
-  font-size: 3.75rem;
+  font-size: 4.5rem;
   font-weight: 800;
   transform: scale(0.68);
   cursor: pointer;
@@ -309,7 +333,7 @@
 
 @media (min-width: 480px) {
   .about-timeline-year-prev {
-    font-size: 4.75rem;
+    font-size: 5.25rem;
   }
 }
 
@@ -333,7 +357,7 @@
 
 /* Next Year (Bottom Year, e.g. 2012 when 2011 is active) */
 .about-timeline-year-next {
-  font-size: 3.75rem;
+  font-size: 4.5rem;
   font-weight: 800;
   transform: scale(0.68);
   cursor: pointer;
@@ -353,7 +377,7 @@
 
 @media (min-width: 480px) {
   .about-timeline-year-next {
-    font-size: 4.75rem;
+    font-size: 5.25rem;
   }
 }
 
@@ -570,9 +594,43 @@
   }
 }
 
+/* Mobile Stepper Navigation (Beside the Years on mobile) */
+.about-timeline-nav-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-nav-mobile {
+    display: none;
+  }
+}
+
+.about-timeline-nav-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Desktop Stepper Navigation (In Right Content Column) */
+.about-timeline-nav-desktop {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .about-timeline-nav-desktop {
+    display: flex;
+  }
+}
+
 .about-timeline-nav-btn {
-  width: 2.5rem; /* 40px on mobile */
-  height: 2.5rem;
+  width: 2.375rem; /* ~38px on mobile */
+  height: 2.375rem;
   border-radius: 9999px;
   border: 1px solid #71717a;
   background-color: transparent;
@@ -624,5 +682,10 @@
   color: #71717a;
   margin-left: 0.5rem;
   user-select: none;
+}
+
+.about-timeline-nav-mobile .about-timeline-counter {
+  margin-left: 0;
+  text-align: center;
 }
 
