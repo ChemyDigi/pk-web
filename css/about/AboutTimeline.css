@@ -10,6 +10,8 @@
   padding-top: 2rem;
   padding-bottom: 1rem;
   overflow: hidden;
+  border: none;
+  margin-top: -1px;
 }
 
 @media (min-width: 640px) {
@@ -77,10 +79,7 @@
 }
 
 .about-timeline-badge-line {
-  display: inline-block;
-  width: 1.75rem; /* 28px */
-  height: 1.5px;
-  background-color: #171717;
+  display: none;
 }
 
 .about-timeline-badge-text {

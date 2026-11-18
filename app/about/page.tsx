@@ -44,9 +44,11 @@ export default function AboutPage() {
   return (
     <>
       <AboutHero />
-      <AboutStory />
-      <AboutTimeline />
-      <AboutServices />
+      <div className="bg-white">
+        <AboutStory />
+        <AboutTimeline />
+        <AboutServices />
+      </div>
       <AboutAwards />
     </>
   );
