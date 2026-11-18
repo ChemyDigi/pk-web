@@ -20,11 +20,37 @@ const milestones: Milestone[] = [
     ),
   },
   {
+    year: "2014",
+    title: "First Annual Awards & Merit Recognition",
+    description: (
+      <>
+        Participated in the Union Assurance Annual Awards for the first time
+        and received the Merit Award. This marked my first professional
+        recognition and an important milestone in my journey in the
+        insurance industry.
+      </>
+    ),
+  },
+  {
     year: "2015",
-    title: "Advancing as a Financial Advisor",
+    title: "Advancing as a Personal Financial Advisor",
     description: (
       <>
         Progressed into the role of Personal Financial Advisor, taking on greater responsibilities in financial consultation and client relationship management. This transition marked an important step in my professional development.
+      </>
+    ),
+  },
+  {
+    year: "2016",
+    title: "Establishing a Strategic Insurance Partnership",
+    description: (
+      <>
+        Introduced the Affinity Strategic Life Insurance Partnership
+        initiative, which led to the establishment of the strategic
+        insurance partnership between the Bar Association of Sri Lanka
+        (BASL) and Union Assurance PLC. This marked a significant
+        milestone in expanding tailored insurance solutions to
+        professional communities.
       </>
     ),
   },
@@ -61,6 +87,19 @@ const milestones: Milestone[] = [
     description: (
       <>
         Progressed into the role of Assistant Sales Manager in April 2020, taking on greater leadership responsibilities. Received the prestigious Diamond Award in the Business Development Officer Category at the Annual Awards 2020, marking another significant career achievement.
+      </>
+    ),
+  },
+  {
+    year: "2022",
+    title: "Diamond Award & Leadership Excellence",
+    description: (
+      <>
+        Received the prestigious Diamond Award in the Assistant Sales
+        Manager Category at the Union Assurance Annual Awards 2022.
+        This recognition marked another significant milestone in my
+        leadership journey, reflecting consistent performance,
+        dedication, and excellence in sales management.
       </>
     ),
   },
@@ -136,7 +175,7 @@ export default function AboutTimeline() {
   return (
     <section className="about-timeline-section" id="milestones">
       <div className="about-timeline-container">
-        
+
         {/* Section Header */}
         <div className="about-timeline-header">
           {/* Badge */}
@@ -155,68 +194,120 @@ export default function AboutTimeline() {
 
         {/* Interactive Milestones Display Grid */}
         <div className="about-timeline-grid">
-          
+
           {/* Left Column: Vertical Year Roller */}
           <div className="about-timeline-years-col">
-            <div
-              className="about-timeline-roller-viewport"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
+            <div className="about-timeline-years-row">
               <div
-                className="about-timeline-roller-track"
-                style={{
-                  transform: `translate3d(0, calc(-${activeIndex} * var(--timeline-slot-h)), 0)`,
-                }}
+                className="about-timeline-roller-viewport"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
               >
-                {/* Ghost Year 2011 (Visual context at top when 2012 is active) */}
                 <div
-                  className={`about-timeline-year-item ${
-                    activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
-                  }`}
-                  aria-hidden="true"
+                  className="about-timeline-roller-track"
+                  style={{
+                    transform: `translate3d(0, calc(-${activeIndex} * var(--timeline-slot-h)), 0)`,
+                  }}
                 >
-                  <span className="about-timeline-year-text">2011</span>
-                </div>
+                  {/* Ghost Year 2011 (Visual context at top when 2012 is active) */}
+                  <div
+                    className={`about-timeline-year-item ${activeIndex === 0 ? "about-timeline-year-prev" : "about-timeline-year-past"
+                      }`}
+                    aria-hidden="true"
+                  >
+                    <span className="about-timeline-year-text">2011</span>
+                  </div>
 
-                {milestones.map((m, idx) => {
-                  const diff = idx - activeIndex;
-                  let stateClass = "about-timeline-year-future";
-                  if (diff === 0) stateClass = "about-timeline-year-active";
-                  else if (diff === -1) stateClass = "about-timeline-year-prev";
-                  else if (diff === 1) stateClass = "about-timeline-year-next";
-                  else if (diff < -1) stateClass = "about-timeline-year-past";
+                  {milestones.map((m, idx) => {
+                    const diff = idx - activeIndex;
+                    let stateClass = "about-timeline-year-future";
+                    if (diff === 0) stateClass = "about-timeline-year-active";
+                    else if (diff === -1) stateClass = "about-timeline-year-prev";
+                    else if (diff === 1) stateClass = "about-timeline-year-next";
+                    else if (diff < -1) stateClass = "about-timeline-year-past";
 
-                  return (
-                    <div
-                      key={m.year}
-                      onClick={() => setActiveIndex(idx)}
-                      className={`about-timeline-year-item ${stateClass}`}
-                      aria-label={`Milestone year ${m.year}`}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          setActiveIndex(idx);
-                        }
-                      }}
-                    >
-                      <span className="about-timeline-year-text">{m.year}</span>
-                    </div>
-                  );
-                })}
+                    return (
+                      <div
+                        key={m.year}
+                        onClick={() => setActiveIndex(idx)}
+                        className={`about-timeline-year-item ${stateClass}`}
+                        aria-label={`Milestone year ${m.year}`}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            setActiveIndex(idx);
+                          }
+                        }}
+                      >
+                        <span className="about-timeline-year-text">{m.year}</span>
+                      </div>
+                    );
+                  })}
 
-                {/* Ghost Year 2027 (Visual context at bottom when 2026 is active) */}
-                <div
-                  className={`about-timeline-year-item ${
-                    activeIndex === milestones.length - 1
+                  {/* Ghost Year 2027 (Visual context at bottom when 2026 is active) */}
+                  <div
+                    className={`about-timeline-year-item ${activeIndex === milestones.length - 1
                       ? "about-timeline-year-next"
                       : "about-timeline-year-future"
-                  }`}
-                  aria-hidden="true"
-                >
-                  <span className="about-timeline-year-text">2027</span>
+                      }`}
+                    aria-hidden="true"
+                  >
+                    <span className="about-timeline-year-text">2027</span>
+                  </div>
                 </div>
+              </div>
+
+              {/* Mobile Stepper Navigation Buttons (Beside the Years) */}
+              <div className="about-timeline-nav-mobile" aria-label="Milestone navigation controls">
+                <div className="about-timeline-nav-buttons-group">
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    disabled={activeIndex === 0}
+                    className="about-timeline-nav-btn about-timeline-prev-btn"
+                    aria-label="Previous career milestone"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    disabled={activeIndex === milestones.length - 1}
+                    className="about-timeline-nav-btn about-timeline-next-btn"
+                    aria-label="Next career milestone"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 5v14M19 12l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Progress counter */}
+                <span className="about-timeline-counter">
+                  {String(activeIndex + 1).padStart(2, "0")} / {String(milestones.length).padStart(2, "0")}
+                </span>
               </div>
             </div>
           </div>
@@ -241,13 +332,12 @@ export default function AboutTimeline() {
                 return (
                   <div
                     key={m.year}
-                    className={`about-timeline-story-card ${
-                      isCurrent
-                        ? "is-active"
-                        : isPast
+                    className={`about-timeline-story-card ${isCurrent
+                      ? "is-active"
+                      : isPast
                         ? "is-past"
                         : "is-future"
-                    }`}
+                      }`}
                     aria-hidden={!isCurrent}
                   >
                     <h3 className="about-timeline-title">{m.title}</h3>
@@ -257,8 +347,8 @@ export default function AboutTimeline() {
               })}
             </div>
 
-            {/* Stepper Navigation Buttons (Up & Down) */}
-            <div className="about-timeline-nav-buttons">
+            {/* Stepper Navigation Buttons (Desktop Only, in Content Column) */}
+            <div className="about-timeline-nav-buttons about-timeline-nav-desktop">
               <button
                 type="button"
                 onClick={handlePrev}

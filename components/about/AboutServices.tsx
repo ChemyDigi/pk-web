@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "@/css/about/AboutServices.css";
@@ -82,6 +82,19 @@ const serviceTabs: ServiceTab[] = [
 
 export default function AboutServices() {
   const [activeTabId, setActiveTabId] = useState<string>("life-health");
+  const detailsRef = useRef<HTMLDivElement>(null);
+
+  const handleSelectService = (serviceId: string) => {
+    setActiveTabId(serviceId);
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setTimeout(() => {
+        detailsRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 50);
+    }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -138,7 +151,7 @@ export default function AboutServices() {
                       type="button"
                       role="tab"
                       aria-selected={isActive}
-                      onClick={() => setActiveTabId(service.id)}
+                      onClick={() => handleSelectService(service.id)}
                       className={`about-services-tab-btn ${isActive
                           ? "about-services-tab-active"
                           : "about-services-tab-inactive"
@@ -154,7 +167,11 @@ export default function AboutServices() {
             </div>
 
             {/* Right Column: Service Showcase Image & Details */}
-            <div className="about-services-right-col">
+            <div
+              className="about-services-right-col"
+              ref={detailsRef}
+              id="about-service-details"
+            >
               <div className="about-services-card" key={activeService.id}>
                 {/* Image Preview */}
                 <div className="about-services-image-wrapper">

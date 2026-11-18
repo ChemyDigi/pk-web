@@ -187,19 +187,23 @@
 .hero-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   z-index: 20;
 }
 
 @media (min-width: 680px) and (max-width: 1149px) {
   .hero-left {
+    align-items: flex-start;
+    text-align: left;
     padding-bottom: 1rem;
   }
 }
 
 @media (min-width: 1150px) {
   .hero-left {
+    align-items: flex-start;
+    text-align: left;
     grid-column: span 5 / span 5;
     margin-left: 0;
   }
@@ -286,6 +290,9 @@
   color: rgba(212, 212, 216, 0.85);
   font-weight: 300;
   max-width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 @media (min-width: 480px) {
@@ -301,6 +308,9 @@
     font-size: 0.9375rem;
     margin-top: 1.15rem;
     max-width: 26rem;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -321,11 +331,19 @@
 
 .hero-cta-wrapper {
   margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 680px) {
   .hero-cta-wrapper {
     margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -333,6 +351,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 9999px;
   background-color: #ffffff;
   padding: 0.65rem 1.625rem;

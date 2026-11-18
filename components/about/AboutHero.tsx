@@ -17,6 +17,7 @@ export default function AboutHero() {
           quality={95}
           className="about-hero-bg-image"
         />
+        <div className="about-hero-overlay" aria-hidden="true" />
       </div>
 
       {/* Hero Content (Positioned on the Left) */}

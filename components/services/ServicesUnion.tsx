@@ -2,27 +2,12 @@ import React from "react";
 import Image from "next/image";
 import "@/css/services/ServicesUnion.css";
 
+
 const timelineNodes = [
-  {
-    year: "2016",
-    labelTop: "",
-    labelBottom: "Strategic partnership established",
-  },
-  {
-    year: "2019",
-    labelTop: "Affinity insurance channel introduced",
-    labelBottom: "",
-  },
-  {
-    year: "2019",
-    labelTop: "",
-    labelBottom: "Co-branded initiative",
-  },
-  {
-    year: "Today",
-    labelTop: "Continued focus on protection, service & member value",
-    labelBottom: "",
-  },
+  { year: "2016", step: "01", title: "Partnership", text: "Strategic partnership established" },
+  { year: "2019", step: "02", title: "Affinity Channel", text: "Affinity insurance channel introduced" },
+  { year: "2019", step: "03", title: "Co-brand", text: "Co-branded initiative" },
+  { year: "Today", step: "04", title: "Ongoing", text: "Continued focus on protection, service & member value", current: true },
 ];
 
 export default function ServicesUnion() {
@@ -30,7 +15,7 @@ export default function ServicesUnion() {
     <section className="services-union-section" id="union-uththareethara">
       <div className="services-union-container">
 
-        {/* ── Top: Text + Logo ── */}
+        {/* Top: Text + Logo */}
         <div className="services-union-top">
 
           {/* Left: text */}
@@ -91,7 +76,7 @@ export default function ServicesUnion() {
 
         </div>
 
-        {/* ── Bottom: Role statement + Timeline ── */}
+        {/* Bottom: Role statement + Timeline */}
         <div className="services-union-bottom">
 
           {/* Role statement */}
@@ -115,50 +100,22 @@ export default function ServicesUnion() {
           </div>
 
           {/* Timeline */}
-          <div className="services-union-timeline">
-            <div className="services-union-nodes">
-              {timelineNodes.map((node, i) => (
-                <div key={i} className="services-union-node">
-                  {/* Top label */}
-                  <div className="services-union-node-label-top">
-                    {node.labelTop}
-                  </div>
-
-                  {/* Dot with stems */}
-                  <div className="services-union-node-dot-wrap">
-                    {node.labelTop && (
-                      <div className="services-union-node-stem-top" />
-                    )}
-                    <div className="services-union-node-dot" />
-                    {node.labelBottom && (
-                      <div className="services-union-node-stem-bottom" />
-                    )}
-                  </div>
-
-                  {/* Year */}
-                  <div className="services-union-node-year">{node.year}</div>
-
-                  {/* Bottom label */}
-                  <div className="services-union-node-label-bottom">
-                    {node.labelBottom}
-                  </div>
+          <ol className="services-union-timeline" aria-label="Partnership milestones">
+            {timelineNodes.map((node, i) => (
+              <li
+                key={i}
+                className={`services-union-milestone${node.current ? " is-current" : ""}`}
+              >
+                <span className="services-union-milestone-dot" aria-hidden="true" />
+                <div className="services-union-milestone-card">
+                  <span className="services-union-milestone-step" aria-hidden="true">{node.step}</span>
+                  <span className="services-union-milestone-year">{node.year}</span>
+                  <span className="services-union-milestone-title">{node.title}</span>
+                  <p className="services-union-milestone-text">{node.text}</p>
                 </div>
-              ))}
-            </div>
-
-            {/* The connecting line drawn behind the nodes */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                top: "calc(2.5rem + 0.6rem + 5px)",
-                left: "12.5%",
-                right: "12.5%",
-                height: "1px",
-                background: "rgba(255,255,255,0.18)",
-              }}
-            />
-          </div>
+              </li>
+            ))}
+          </ol>
 
         </div>
 
