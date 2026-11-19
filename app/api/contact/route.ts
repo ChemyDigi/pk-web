@@ -19,6 +19,22 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!senderPhone) {
+      return NextResponse.json(
+        { success: false, error: "Please enter your mobile number." },
+        { status: 400 }
+      );
+    }
+
+    const digitsOnly = senderPhone.replace(/[\s\-()+.]/g, "");
+    const validPhoneChars = /^[0-9+\s\-()]+$/.test(senderPhone);
+    if (!validPhoneChars || digitsOnly.length < 7 || digitsOnly.length > 16) {
+      return NextResponse.json(
+        { success: false, error: "Please enter a valid mobile number." },
+        { status: 400 }
+      );
+    }
+
     const emailRegex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 

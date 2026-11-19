@@ -11,15 +11,38 @@ export default function ContactHero() {
     email: "",
     message: "",
   });
+  const [firstNameError, setFirstNameError] = useState("");
+  const [mobileError, setMobileError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [messageError, setMessageError] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const validateFirstName = (val: string): string => {
+    if (!val.trim()) {
+      return "Please enter your first name.";
+    }
+    return "";
+  };
+
+  const validateMobile = (mobileStr: string): string => {
+    const trimmed = mobileStr.trim();
+    if (!trimmed) {
+      return "Please enter your mobile number.";
+    }
+    const validChars = /^[0-9+\s\-()]+$/.test(trimmed);
+    const digitsOnly = trimmed.replace(/[\s\-()+.]/g, "");
+    if (!validChars || digitsOnly.length < 7 || digitsOnly.length > 16) {
+      return "Please enter a valid mobile number.";
+    }
+    return "";
+  };
+
   const validateEmail = (emailStr: string): string => {
     const trimmed = emailStr.trim();
     if (!trimmed) {
-      return "Email address is required.";
+      return "Please enter your email address.";
     }
     const emailRegex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
@@ -27,6 +50,41 @@ export default function ContactHero() {
       return "Please enter a valid email address (e.g. name@example.com).";
     }
     return "";
+  };
+
+  const validateMessage = (val: string): string => {
+    if (!val.trim()) {
+      return "Please enter your message.";
+    }
+    return "";
+  };
+
+  const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, firstName: val }));
+    if (firstNameError) {
+      setFirstNameError(validateFirstName(val));
+    }
+  };
+
+  const handleFirstNameBlur = () => {
+    if (formData.firstName.trim()) {
+      setFirstNameError(validateFirstName(formData.firstName));
+    }
+  };
+
+  const handleMobileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, mobileNumber: val }));
+    if (mobileError) {
+      setMobileError(validateMobile(val));
+    }
+  };
+
+  const handleMobileBlur = () => {
+    if (formData.mobileNumber.trim()) {
+      setMobileError(validateMobile(formData.mobileNumber));
+    }
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,13 +101,37 @@ export default function ContactHero() {
     }
   };
 
+  const handleMessageChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, message: val }));
+    if (messageError) {
+      setMessageError(validateMessage(val));
+    }
+  };
+
+  const handleMessageBlur = () => {
+    if (formData.message.trim()) {
+      setMessageError(validateMessage(formData.message));
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
 
+    const nameErr = validateFirstName(formData.firstName);
+    const mobileErr = validateMobile(formData.mobileNumber);
     const emailErr = validateEmail(formData.email);
-    if (emailErr) {
-      setEmailError(emailErr);
+    const messageErr = validateMessage(formData.message);
+
+    setFirstNameError(nameErr);
+    setMobileError(mobileErr);
+    setEmailError(emailErr);
+    setMessageError(messageErr);
+
+    if (nameErr || mobileErr || emailErr || messageErr) {
       return;
     }
 
@@ -89,7 +171,10 @@ export default function ContactHero() {
       email: "",
       message: "",
     });
+    setFirstNameError("");
+    setMobileError("");
     setEmailError("");
+    setMessageError("");
     setErrorMessage("");
     setIsSubmitted(false);
   };
@@ -168,13 +253,39 @@ export default function ContactHero() {
                     name="firstName"
                     required
                     value={formData.firstName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, firstName: e.target.value })
-                    }
+                    onChange={handleFirstNameChange}
+                    onBlur={handleFirstNameBlur}
                     placeholder="Enter Your First Name"
-                    className="contact-hero-input"
+                    className={`contact-hero-input ${
+                      firstNameError ? "is-invalid" : ""
+                    }`}
                     autoComplete="given-name"
+                    aria-invalid={!!firstNameError}
+                    aria-describedby={
+                      firstNameError ? "firstName-error" : undefined
+                    }
                   />
+                  {firstNameError && (
+                    <span
+                      id="firstName-error"
+                      className="contact-hero-field-error"
+                      role="alert"
+                    >
+                      <svg
+                        className="w-3.5 h-3.5 shrink-0"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span>{firstNameError}</span>
+                    </span>
+                  )}
                 </div>
 
                 <div className="contact-hero-field">
@@ -187,13 +298,39 @@ export default function ContactHero() {
                     name="mobileNumber"
                     required
                     value={formData.mobileNumber}
-                    onChange={(e) =>
-                      setFormData({ ...formData, mobileNumber: e.target.value })
-                    }
+                    onChange={handleMobileChange}
+                    onBlur={handleMobileBlur}
                     placeholder="Enter Your Mobile Number"
-                    className="contact-hero-input"
+                    className={`contact-hero-input ${
+                      mobileError ? "is-invalid" : ""
+                    }`}
                     autoComplete="tel"
+                    aria-invalid={!!mobileError}
+                    aria-describedby={
+                      mobileError ? "mobile-error" : undefined
+                    }
                   />
+                  {mobileError && (
+                    <span
+                      id="mobile-error"
+                      className="contact-hero-field-error"
+                      role="alert"
+                    >
+                      <svg
+                        className="w-3.5 h-3.5 shrink-0"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span>{mobileError}</span>
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -252,12 +389,38 @@ export default function ContactHero() {
                   required
                   rows={4}
                   value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  onChange={handleMessageChange}
+                  onBlur={handleMessageBlur}
                   placeholder="Enter Your Message"
-                  className="contact-hero-textarea"
+                  className={`contact-hero-textarea ${
+                    messageError ? "is-invalid" : ""
+                  }`}
+                  aria-invalid={!!messageError}
+                  aria-describedby={
+                    messageError ? "message-error" : undefined
+                  }
                 />
+                {messageError && (
+                  <span
+                    id="message-error"
+                    className="contact-hero-field-error"
+                    role="alert"
+                  >
+                    <svg
+                      className="w-3.5 h-3.5 shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>{messageError}</span>
+                  </span>
+                )}
               </div>
 
               {/* Row 4: Submit Button */}

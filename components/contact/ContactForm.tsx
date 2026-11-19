@@ -5,6 +5,7 @@ import React, { useState } from "react";
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
+    mobileNumber: "",
     email: "",
     subject: "",
     message: "",
@@ -12,7 +13,21 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [mobileError, setMobileError] = useState("");
   const [emailError, setEmailError] = useState("");
+
+  const validateMobile = (mobileStr: string): string => {
+    const trimmed = mobileStr.trim();
+    if (!trimmed) {
+      return "Mobile number is required.";
+    }
+    const validChars = /^[0-9+\s\-()]+$/.test(trimmed);
+    const digitsOnly = trimmed.replace(/[\s\-()+.]/g, "");
+    if (!validChars || digitsOnly.length < 7 || digitsOnly.length > 16) {
+      return "Please enter a valid mobile number.";
+    }
+    return "";
+  };
 
   const validateEmail = (emailStr: string): string => {
     const trimmed = emailStr.trim();
@@ -27,6 +42,14 @@ export default function ContactForm() {
     return "";
   };
 
+  const handleMobileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, mobileNumber: val }));
+    if (mobileError) {
+      setMobileError(validateMobile(val));
+    }
+  };
+
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setFormData((prev) => ({ ...prev, email: val }));
@@ -39,9 +62,13 @@ export default function ContactForm() {
     e.preventDefault();
     setError("");
 
+    const mobileErr = validateMobile(formData.mobileNumber);
     const emailErr = validateEmail(formData.email);
-    if (emailErr) {
-      setEmailError(emailErr);
+
+    setMobileError(mobileErr);
+    setEmailError(emailErr);
+
+    if (mobileErr || emailErr) {
       return;
     }
 
@@ -100,6 +127,35 @@ export default function ContactForm() {
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-white"
               placeholder="e.g. John Doe"
             />
+          </div>
+
+          <div>
+            <label htmlFor="mobileNumber" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              Mobile Number
+            </label>
+            <input
+              type="tel"
+              id="mobileNumber"
+              required
+              value={formData.mobileNumber}
+              onChange={handleMobileChange}
+              onBlur={() => {
+                if (formData.mobileNumber.trim()) {
+                  setMobileError(validateMobile(formData.mobileNumber));
+                }
+              }}
+              className={`w-full rounded-lg border px-4 py-2 text-sm text-slate-900 focus:outline-none dark:bg-slate-900 dark:text-white ${
+                mobileError
+                  ? "border-red-500 focus:border-red-500 dark:border-red-500"
+                  : "border-slate-300 focus:border-blue-500 dark:border-slate-700"
+              }`}
+              placeholder="e.g. +94 77 123 4567"
+            />
+            {mobileError && (
+              <p className="mt-1 text-xs text-red-600 dark:text-red-400">
+                {mobileError}
+              </p>
+            )}
           </div>
 
           <div>
