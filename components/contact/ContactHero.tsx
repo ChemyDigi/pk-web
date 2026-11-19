@@ -13,15 +13,38 @@ export default function ContactHero() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate brief processing
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(
+          data.error || "Failed to send message. Please try again."
+        );
+      }
+
       setIsSubmitted(true);
-    }, 600);
+    } catch (err: any) {
+      setErrorMessage(
+        err.message || "An unexpected error occurred. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -31,6 +54,7 @@ export default function ContactHero() {
       email: "",
       message: "",
     });
+    setErrorMessage("");
     setIsSubmitted(false);
   };
 
@@ -90,6 +114,12 @@ export default function ContactHero() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="contact-hero-form" noValidate>
+              {errorMessage && (
+                <div className="contact-hero-error-box" role="alert">
+                  {errorMessage}
+                </div>
+              )}
+
               {/* Row 1: First Name & Mobile Number */}
               <div className="contact-hero-form-row-2col">
                 <div className="contact-hero-field">
