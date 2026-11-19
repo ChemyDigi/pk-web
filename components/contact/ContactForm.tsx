@@ -12,11 +12,40 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const validateEmail = (emailStr: string): string => {
+    const trimmed = emailStr.trim();
+    if (!trimmed) {
+      return "Email address is required.";
+    }
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+    if (!emailRegex.test(trimmed)) {
+      return "Please enter a valid email address.";
+    }
+    return "";
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, email: val }));
+    if (emailError) {
+      setEmailError(validateEmail(val));
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
     setError("");
+
+    const emailErr = validateEmail(formData.email);
+    if (emailErr) {
+      setEmailError(emailErr);
+      return;
+    }
+
+    setSubmitting(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -82,10 +111,24 @@ export default function ContactForm() {
               id="email"
               required
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 focus:border-blue-500 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-white"
+              onChange={handleEmailChange}
+              onBlur={() => {
+                if (formData.email.trim()) {
+                  setEmailError(validateEmail(formData.email));
+                }
+              }}
+              className={`w-full rounded-lg border px-4 py-2 text-sm text-slate-900 focus:outline-none dark:bg-slate-900 dark:text-white ${
+                emailError
+                  ? "border-red-500 focus:border-red-500 dark:border-red-500"
+                  : "border-slate-300 focus:border-blue-500 dark:border-slate-700"
+              }`}
               placeholder="you@example.com"
             />
+            {emailError && (
+              <p className="mt-1 text-xs text-red-600 dark:text-red-400">
+                {emailError}
+              </p>
+            )}
           </div>
 
           <div>

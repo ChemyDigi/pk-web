@@ -11,14 +11,49 @@ export default function ContactHero() {
     email: "",
     message: "",
   });
+  const [emailError, setEmailError] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const validateEmail = (emailStr: string): string => {
+    const trimmed = emailStr.trim();
+    if (!trimmed) {
+      return "Email address is required.";
+    }
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+    if (!emailRegex.test(trimmed)) {
+      return "Please enter a valid email address (e.g. name@example.com).";
+    }
+    return "";
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, email: val }));
+    if (emailError) {
+      setEmailError(validateEmail(val));
+    }
+  };
+
+  const handleEmailBlur = () => {
+    if (formData.email.trim()) {
+      setEmailError(validateEmail(formData.email));
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setErrorMessage("");
+
+    const emailErr = validateEmail(formData.email);
+    if (emailErr) {
+      setEmailError(emailErr);
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -54,6 +89,7 @@ export default function ContactHero() {
       email: "",
       message: "",
     });
+    setEmailError("");
     setErrorMessage("");
     setIsSubmitted(false);
   };
@@ -172,13 +208,37 @@ export default function ContactHero() {
                   name="email"
                   required
                   value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
+                  onChange={handleEmailChange}
+                  onBlur={handleEmailBlur}
                   placeholder="Enter Your Email"
-                  className="contact-hero-input"
+                  className={`contact-hero-input ${
+                    emailError ? "is-invalid" : ""
+                  }`}
                   autoComplete="email"
+                  aria-invalid={!!emailError}
+                  aria-describedby={emailError ? "email-error" : undefined}
                 />
+                {emailError && (
+                  <span
+                    id="email-error"
+                    className="contact-hero-field-error"
+                    role="alert"
+                  >
+                    <svg
+                      className="w-3.5 h-3.5 shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>{emailError}</span>
+                  </span>
+                )}
               </div>
 
               {/* Row 3: Message */}
