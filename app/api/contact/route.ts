@@ -172,14 +172,8 @@ export async function POST(request: Request) {
 
     if (!resendRes.ok) {
       console.error("Resend API error:", resData);
-      let errorMsg = resData.message || "Failed to send email via Resend.";
-      if (
-        resData.statusCode === 403 &&
-        typeof resData.message === "string" &&
-        resData.message.toLowerCase().includes("domain")
-      ) {
-        errorMsg = `The domain in RESEND_FROM_EMAIL is not verified in Resend. Please verify your domain in Resend or set RESEND_FROM_EMAIL to 'onboarding@resend.dev' for testing.`;
-      }
+      const errorMsg =
+        resData.message || "Failed to send email via Resend. Please check your configuration.";
       return NextResponse.json(
         { success: false, error: errorMsg },
         { status: resendRes.status || 500 }
