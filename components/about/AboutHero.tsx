@@ -10,7 +10,7 @@ export default function AboutHero() {
       {/* Background Hero Image */}
       <div className="about-hero-bg-container">
         <Image
-          src="/images/about/pradeep.png"
+          src="/images/about/Pradeep.png"
           alt="Pradeep Liyanage - Life Insurance Advisor and Regional Sales Manager"
           fill
           priority
