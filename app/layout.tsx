@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Navbar, Footer } from "@/components/layout";
+import { Navbar, Footer, PageTransition } from "@/components/layout";
 import { PersonJsonLd } from "@/components/seo";
 import { siteConfig } from "@/data/siteConfig";
 
@@ -96,6 +96,7 @@ export default function RootLayout({
         <PersonJsonLd />
       </head>
       <body className="min-h-full flex flex-col bg-[#08080a] text-slate-900">
+        <PageTransition />
         <Navbar />
         <main className="flex-1 pt-24 sm:pt-28">{children}</main>
         <Footer />

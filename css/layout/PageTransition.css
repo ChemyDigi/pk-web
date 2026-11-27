@@ -1,0 +1,221 @@
+/* ==========================================================================
+   Full-Screen Solid Page Transition Overlay with PK Logo Fade-Out
+   ========================================================================== */
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #08080a; /* 100% Solid Non-Transparent Background */
+  pointer-events: all;
+  user-select: none;
+  overflow: hidden;
+  will-change: opacity, transform;
+}
+
+/* Entering State: Solid screen active */
+.page-transition-overlay.is-entering {
+  opacity: 1;
+  visibility: visible;
+  animation: pkOverlayEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Leaving State: Logo fades out, then solid curtain dissolves to reveal the new page */
+.page-transition-overlay.is-leaving {
+  pointer-events: none;
+  animation: pkOverlayLeave 0.38s cubic-bezier(0.4, 0, 0.2, 1) 0.08s forwards;
+}
+
+/* Central Content Container */
+.page-transition-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  will-change: opacity, transform;
+}
+
+/* Content & Logo Fade In */
+.page-transition-overlay.is-entering .page-transition-content {
+  animation: pkContentFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Content & Logo Fade Out */
+.page-transition-overlay.is-leaving .page-transition-content {
+  animation: pkContentFadeOut 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Ambient Warm Glow Behind PK Logo */
+.page-transition-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(229, 110, 42, 0.35) 0%,
+    rgba(229, 110, 42, 0.08) 55%,
+    transparent 72%
+  );
+  filter: blur(32px);
+  pointer-events: none;
+  animation: pkGlowPulse 1.6s ease-in-out infinite alternate;
+}
+
+/* Logo Image Container */
+.page-transition-logo-wrap {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pkLogoFloat 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+.page-transition-logo {
+  height: 4.75rem; /* ~76px */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.9));
+}
+
+@media (min-width: 640px) {
+  .page-transition-logo {
+    height: 5.5rem; /* ~88px */
+  }
+}
+
+/* Animated Accent Line */
+.page-transition-line-wrap {
+  position: relative;
+  width: 68px;
+  height: 2px;
+  margin-top: 1.35rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.page-transition-line-progress {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #e56e2a 50%,
+    transparent 100%
+  );
+  border-radius: 9999px;
+  animation: pkLineShimmer 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Subtitle / Caption */
+.page-transition-text {
+  margin-top: 0.85rem;
+  font-family: var(--font-avenir, sans-serif);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 245, 0.8);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Keyframe Animations */
+@keyframes pkOverlayEnter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pkOverlayLeave {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes pkContentFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pkContentFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.93) translateY(-6px);
+  }
+}
+
+@keyframes pkLogoFloat {
+  0% {
+    transform: scale(0.97) translateY(2px);
+    filter: drop-shadow(0 4px 14px rgba(229, 110, 42, 0.25));
+  }
+  100% {
+    transform: scale(1.02) translateY(-2px);
+    filter: drop-shadow(0 8px 26px rgba(229, 110, 42, 0.55));
+  }
+}
+
+@keyframes pkGlowPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 1;
+  }
+}
+
+@keyframes pkLineShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-overlay,
+  .page-transition-content {
+    animation-duration: 0.01s !important;
+  }
+  .page-transition-glow,
+  .page-transition-logo-wrap,
+  .page-transition-line-progress {
+    animation: none !important;
+  }
+}
